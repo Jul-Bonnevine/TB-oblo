@@ -7,22 +7,56 @@
 #include <cstring>
 #include <cstdlib>
 
+// Configuration SPI
+bool configureSPI(int fd, uint8_t mode, uint8_t bits, uint32_t speed) {
+    if (ioctl(fd, SPI_IOC_WR_MODE, &mode) < 0) return false;
+    if (ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits) < 0) return false;
+    if (ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed) < 0) return false;
+    return true;
+}
+
+// Construction de la trame ADG731
+uint8_t buildMUXCommand(uint8_t channel) {
+    return channel & 0x1F; // EN = 0, CS = 0, X = 0, A4:A0 = canal
+}
+
+// Envoi d'une trame SPI (1 octet)
+bool sendSPIByte(int fd, uint8_t command, uint32_t speed, uint8_t bits) {
+    uint8_t tx[1] = { command };
+    uint8_t rx[1] = { 0 };
+
+    struct spi_ioc_transfer tr = {
+        .tx_buf = (unsigned long)tx,
+        .rx_buf = (unsigned long)rx,
+        .len = 1,
+        .speed_hz = speed,
+        .bits_per_word = bits,
+    };
+
+    return ioctl(fd, SPI_IOC_MESSAGE(1), &tr) >= 0;
+}
+
 int main() {
-    const char* device = "/dev/spidev0.0"; // SPI0, CS0
+    const char* device = "/dev/spidev0.0";
+    uint8_t mode = SPI_MODE_0;
+    uint8_t bits = 8;
+    uint32_t speed = 1000000; // 1 MHz
+
+    // Ouverture du périphérique SPI
     int fd = open(device, O_RDWR);
     if (fd < 0) {
         perror("open");
         return 1;
     }
 
-    uint8_t mode = SPI_MODE_0;
-    uint8_t bits = 8;
-    uint32_t speed = 1000000; // 1 MHz
+    // Configuration du SPI
+    if (!configureSPI(fd, mode, bits, speed)) {
+        std::cerr << "Erreur de configuration SPI.\n";
+        close(fd);
+        return 1;
+    }
 
-    ioctl(fd, SPI_IOC_WR_MODE, &mode);
-    ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits);
-    ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
-
+    // Lecture du canal
     int mux_channel;
     std::cout << "Entrez un numéro de canal (0 à 31) : ";
     std::cin >> mux_channel;
@@ -33,33 +67,18 @@ int main() {
         return 1;
     }
 
-    // Trame SPI : 16 bits, seuls les bits A4:A0 utiles
-    uint16_t command = static_cast<uint16_t>(mux_channel);
-    uint8_t tx[2] = {
-        static_cast<uint8_t>(command >> 8),   // MSB
-        static_cast<uint8_t>(command & 0xFF)  // LSB
-    };
+    uint8_t command = buildMUXCommand(static_cast<uint8_t>(mux_channel));
 
-    uint8_t rx[2] = {0};
-
-    struct spi_ioc_transfer tr = {
-        .tx_buf = (unsigned long)tx,
-        .rx_buf = (unsigned long)rx,
-        .len = 2,
-        .speed_hz = speed,
-        .bits_per_word = bits,
-    };
-
-    std::cout << "Envoi répété toutes les 500 ms...\nAppuie sur Ctrl+C pour arrêter.\n";
-
+    // Boucle d'envoi
     while (true) {
-        if (ioctl(fd, SPI_IOC_MESSAGE(1), &tr) < 0) {
-            perror("ioctl");
+        if (sendSPIByte(fd, command, speed, bits)) {
+            std::cout << "Canal " << mux_channel << " envoyé (trame : 0x"
+                      << std::hex << (int)command << ")." << std::dec << std::endl;
         } else {
-            std::cout << "Canal " << mux_channel << " envoyé via SPI.\n";
+            perror("SPI send error");
         }
 
-        usleep(500000); // pause 500 ms = 0.5 s
+        usleep(500000); // 500 ms
     }
 
     close(fd);

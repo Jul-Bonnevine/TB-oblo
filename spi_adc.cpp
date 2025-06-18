@@ -5,44 +5,58 @@
 #include <linux/spi/spidev.h>
 #include <cstring>
 
-int main() {
-    const char* device = "/dev/spidev1.0";  // SPI1, CS0
+const char* SPI_DEVICE = "/dev/spidev1.0";
+const uint32_t SPI_SPEED = 500000;
+const uint8_t SPI_MODE = SPI_MODE_0;
+const uint8_t SPI_BITS = 8;
+
+int init_spi(const char* device) {
     int fd = open(device, O_RDWR);
     if (fd < 0) {
         perror("open");
-        return 1;
+        return -1;
     }
 
-    // Paramètres SPI
-    uint8_t mode = SPI_MODE_0;
-    uint8_t bits = 8;
-    uint32_t speed = 500000;
+    ioctl(fd, SPI_IOC_WR_MODE, &SPI_MODE);
+    ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &SPI_BITS);
+    ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &SPI_SPEED);
 
-    ioctl(fd, SPI_IOC_WR_MODE, &mode);
-    ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits);
-    ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);
+    return fd;
+}
 
-    // Trame pour lire canal 0, single-ended, unipolaire
-    uint8_t tx[2] = {0x86, 0x00};
-    uint8_t rx[2] = {0};
+bool send_setup(int fd) {
+    uint8_t tx[1] = { 0x90 };  // 1001 0000 : setup, clk interne, ref externe, unipolaire
+    uint8_t rx[1] = { 0 };
 
-    struct spi_ioc_transfer tr = {
+    spi_ioc_transfer tr {
         .tx_buf = (unsigned long)tx,
         .rx_buf = (unsigned long)rx,
-        .len = 2,
-        .speed_hz = speed,
-        .bits_per_word = bits,
+        .len = 1,
+        .speed_hz = SPI_SPEED,
+        .bits_per_word = SPI_BITS,
     };
 
     if (ioctl(fd, SPI_IOC_MESSAGE(1), &tr) < 0) {
-        perror("ioctl");
-    } else {
-        // reconstruction valeur 12 bits
-        int value = ((rx[0] & 0x0F) << 8) | rx[1];
-        std::cout << "Valeur ADC canal 0 : " << value << std::endl;
+        perror("SETUP failed");
+        return false;
+    }
+
+    return true;
+}
+
+int main() {
+    int fd = init_spi(SPI_DEVICE);
+    if (fd < 0) return 1;
+
+    std::cout << "Envoi de la trame SETUP toutes les 500 ms...\n";
+    std::cout << "Appuie sur Ctrl+C pour arrêter.\n";
+
+    while (true) {
+        if (!send_setup(fd)) break;
+        std::cout << "Trame SETUP envoyée (0x90)\n";
+        usleep(500000); // 500 ms
     }
 
     close(fd);
     return 0;
 }
-
