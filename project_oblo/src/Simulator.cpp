@@ -1,7 +1,16 @@
 #include "Simulator.h"
 
+#include <cmath>
 
  float Simulator::computeSimulatedTemperature(float T_mes, float T_forecast, float n, float k_m)
  {
-    return 0;
+    if (T_forecast > T_mes) 
+    {
+        float delta = T_forecast - T_mes;
+        return T_mes + delta * n * std::exp(-k_m);
+    } 
+    else 
+    {
+        return T_mes;
+    }
  }
