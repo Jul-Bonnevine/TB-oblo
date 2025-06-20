@@ -1,4 +1,4 @@
-#include "SPIInterface.h"
+#include "SPI_Interface.h"
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/ioctl.h>

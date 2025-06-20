@@ -1,7 +1,7 @@
 #ifndef MAINCONTROLLER_H
 #define MAINCONTROLLER_H
 
-#include "SPIInterface.h"
+#include "SPI_Interface.h"
 #include "ADC.h"
 #include "AnalogMultiplexer.h"
 #include "ObloAPI.h"

@@ -1,7 +1,7 @@
 #ifndef ADC_H
 #define ADC_H
 
-#include "SPIInterface.h"
+#include "SPI_Interface.h"
 #include <cstdint>
 
 class ADC 

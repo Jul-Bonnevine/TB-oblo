@@ -1,7 +1,7 @@
 #ifndef ANALOGMULTIPLEXER_H
 #define ANALOGMULTIPLEXER_H
 
-#include "SPIInterface.h"
+#include "SPI_Interface.h"
 #include <cstdint>
 
 class AnalogMultiplexer {
