@@ -1,17 +1,12 @@
 #include "NTPClient.h"
-#include <cstring>
-#include <unistd.h>
-#include <arpa/inet.h>
-#include <sys/socket.h>
-#include <netdb.h>
-#include <iostream>
 
-NTPClient::NTPClient(const std::string& server = "time.google.com")
-{
+#define NTP_TIMESTAMP_DELTA 2208988800ull
 
+NTPClient::NTPClient(const std::string& server) {
+    ntpServer = server;
 }
 
  std::time_t NTPClient::getCurrentTime()
  {
-    
+    return 0;
  }

@@ -1,7 +1,6 @@
 #include "MainController.h"
-#include <iostream>
-#include <unistd.h>
-#include <ctime>
+
+
 
 MainController::MainController()
     : adcSpi("/dev/spidev1.0", SPI_MODE_0, 8, 500000),
@@ -9,7 +8,7 @@ MainController::MainController()
       adc(adcSpi),
       mux(muxSpi),
       api("0030DEABCDEF"),
-      ntp("time.google.com") {}
+      ntp("time.google.com") 
 {
 
 }

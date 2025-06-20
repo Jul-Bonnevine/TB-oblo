@@ -3,6 +3,8 @@
 
 #include "SPI_Interface.h"
 #include <cstdint>
+#include <iostream>
+#include <unistd.h>
 
 class AnalogMultiplexer {
 public:

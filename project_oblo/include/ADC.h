@@ -3,6 +3,8 @@
 
 #include "SPI_Interface.h"
 #include <cstdint>
+#include <unistd.h>
+#include <iostream>
 
 class ADC 
 {

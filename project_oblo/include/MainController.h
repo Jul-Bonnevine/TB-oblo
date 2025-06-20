@@ -7,6 +7,9 @@
 #include "ObloAPI.h"
 #include "Simulator.h"
 #include "NTPClient.h"
+#include <iostream>
+#include <unistd.h>
+#include <ctime>
 
 class MainController {
 public:

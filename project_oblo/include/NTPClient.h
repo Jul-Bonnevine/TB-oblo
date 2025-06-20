@@ -3,6 +3,12 @@
 
 #include <string>
 #include <ctime>
+#include <cstring>
+#include <unistd.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <iostream>
 
 class NTPClient {
 public:

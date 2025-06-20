@@ -2,6 +2,9 @@
 #define OBLOAPI_H
 
 #include <string>
+#include <iostream>
+#include <curl/curl.h>
+#include <nlohmann/json.hpp>
 
 class ObloAPI {
 public:
