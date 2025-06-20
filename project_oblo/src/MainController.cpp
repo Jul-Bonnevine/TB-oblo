@@ -24,7 +24,7 @@ void MainController::run()
     }
 
     // === [2] Température mesurée (temporaire en attendant ADC) ===
-    float T_mes = 22.5f;
+    float T_mes = 28.3f;
     if (!api.sendTemperature(T_mes)) {
         std::cerr << "Échec de l'envoi de la température.\n";
     } else {
