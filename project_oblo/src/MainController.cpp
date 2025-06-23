@@ -52,6 +52,21 @@ void MainController::run()
     // === [5] Calcul de température simulée ===
     float T_sim = Simulator::computeSimulatedTemperature(T_mes, T_prevu, n, k_m);
     std::cout << "Température simulée : " << T_sim << " °C\n";
+
+    // === [6] Sélection de la température à simuler ===
+    float T_utilisee = (T_prevu > T_mes) ? T_sim : T_mes;
+    std::cout << "Température utilisée pour le multiplexeur : " << T_utilisee << " °C\n";
+
+    // === [7] Conversion température -> canal ===
+    uint8_t canal = mux.convertTemperatureToChannel(T_utilisee);
+    std::cout << "Canal calculé : " << static_cast<int>(canal) << "\n";
+
+    // === [8] Envoi de la trame SPI au multiplexeur ===
+    if (!mux.selectChannel(canal)) {
+        std::cerr << "Erreur lors de l'envoi au multiplexeur.\n";
+    } else {
+        std::cout << "Canal sélectionné avec succès.\n";
+    }
 }
 
 void MainController::processOneCycle(uint8_t adc_channel)
