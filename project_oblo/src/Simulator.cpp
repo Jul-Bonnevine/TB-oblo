@@ -4,7 +4,7 @@
 
  float Simulator::computeSimulatedTemperature(float T_mes, float T_forecast, float n, float k_m)
  {
-    if (T_forecast > T_mes) 
+    if (T_forecast < T_mes) 
     {
         float delta = T_forecast - T_mes;
         return T_mes + delta * n * std::exp(-k_m);
@@ -14,3 +14,4 @@
         return T_mes;
     }
  }
+ 

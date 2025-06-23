@@ -24,7 +24,7 @@ void MainController::run()
     }
 
     // === [2] Température mesurée (temporaire en attendant ADC) ===
-    float T_mes = 28.3f;
+    float T_mes = 31.5f;
     if (!api.sendTemperature(T_mes)) {
         std::cerr << "Échec de l'envoi de la température.\n";
     } else {
@@ -67,6 +67,19 @@ void MainController::run()
     } else {
         std::cout << "Canal sélectionné avec succès.\n";
     }
+
+        // === [9] Boucle d'envoi SPI pour oscilloscope ===
+    std::cout << "Envoi périodique sur le SPI pour capture oscilloscope...\n";
+    for (int i = 0; i < 20; ++i) {  // Envoi 10 fois (ou while(true) si tu veux manuel)
+        if (!mux.selectChannel(canal)) {
+            std::cerr << "Erreur lors de l'envoi SPI.\n";
+        } else {
+            std::cout << "Canal " << static_cast<int>(canal) 
+                      << " envoyé (itération " << i + 1 << ").\n";
+        }
+        usleep(500000); // 500 ms
+    }
+
 }
 
 void MainController::processOneCycle(uint8_t adc_channel)

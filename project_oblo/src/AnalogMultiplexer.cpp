@@ -9,10 +9,10 @@ uint8_t AnalogMultiplexer::convertTemperatureToChannel(float temp)
 {
   // Plage limitée : -15°C à 30.5°C
   if (temp < -15.0f) temp = -15.0f;
-  if (temp > 30.5f) temp = 30.5f;
+  if (temp > 31.5f) temp = 31.5f;
 
   // Formule : canal = -(2/3) * T + b avec b = 31 (valide pour T = -15)
-  int canal = static_cast<int>(-(2.0f / 3.0f) * temp + 31.0f);
+  int canal = static_cast<int>(std::round(-(2.0f / 3.0f) * temp + 21.0f));
   return static_cast<uint8_t>(canal & 0x1F); // canal codé sur 5 bits
 }
 

@@ -5,6 +5,7 @@
 #include <cstdint>
 #include <iostream>
 #include <unistd.h>
+#include <cmath>
 
 class AnalogMultiplexer {
 public:
