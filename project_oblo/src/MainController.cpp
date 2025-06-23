@@ -77,7 +77,7 @@ void MainController::run()
 
         // === [9] Boucle d'envoi SPI pour oscilloscope ===
     std::cout << "Envoi périodique sur le SPI pour capture oscilloscope...\n";
-    for (int i = 0; i < 20; ++i) {  // Envoi 10 fois (ou while(true) si tu veux manuel)
+    for (int i = 0; i < 2; ++i) {  // Envoi 10 fois (ou while(true) si tu veux manuel)
         if (!mux.selectChannel(canal)) {
             std::cerr << "Erreur lors de l'envoi SPI.\n";
         } else {
@@ -87,9 +87,46 @@ void MainController::run()
         usleep(500000); // 500 ms
     }
 
+    // === [10] Lecture du canal 0 de l'ADC
+    processOneCycle(2);  // Lecture canal 2
+
 }
 
 void MainController::processOneCycle(uint8_t adc_channel)
 {
-    
+    adc.setChannel(adc_channel);
+
+    for (int i = 0; i < 5; ++i) {  // ou while(true) pour manuel
+    if (!adc.sendSetup()) {
+        std::cerr << "Erreur lors de l'envoi de la trame SETUP.\n";
+    } else {
+        std::cout << "Trame SETUP envoyée (itération " << i + 1 << ").\n";
+    }
+
+    usleep(500000); // 500 ms pour avoir de l'espace sur l'oscillo
+    }
+
+    for (int i = 0; i < 5; ++i) {
+    if (!adc.sendConfig()) {
+        std::cerr << "Erreur lors de l'envoi de la trame CONFIG.\n";
+    } else {
+        std::cout << "Trame CONFIG envoyée (itération " << i + 1 << ").\n";
+    }
+
+    usleep(500000); // 500 ms de délai pour espacer les trames
+    }
+
+    usleep(10); // µs pour acquisition/conversion
+
+    float T_mes = adc.readTemperature();
+    std::cout << "[ADC] Température mesurée sur canal "
+              << static_cast<int>(adc_channel) << " : " 
+              << T_mes << " °C\n";
+
+    // Exemple d'envoi vers API
+    if (!api.sendTemperature(T_mes)) {
+        std::cerr << "[API] Échec de l’envoi de température.\n";
+    } else {
+        std::cout << "[API] Température envoyée avec succès.\n";
+    }    
 }

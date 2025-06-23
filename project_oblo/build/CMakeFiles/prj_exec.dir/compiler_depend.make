@@ -222,7 +222,32 @@ CMakeFiles/prj_exec.dir/src/ADC.cpp.o: /home/julien/test/project_oblo/src/ADC.cp
   /usr/include/c++/12/bits/basic_ios.tcc \
   /usr/include/c++/12/bits/ostream.tcc \
   /usr/include/c++/12/istream \
-  /usr/include/c++/12/bits/istream.tcc
+  /usr/include/c++/12/bits/istream.tcc \
+  /usr/include/c++/12/cmath \
+  /usr/include/math.h \
+  /usr/include/aarch64-linux-gnu/bits/math-vector.h \
+  /usr/include/aarch64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/aarch64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/aarch64-linux-gnu/bits/fp-logb.h \
+  /usr/include/aarch64-linux-gnu/bits/fp-fast.h \
+  /usr/include/aarch64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/aarch64-linux-gnu/bits/mathcalls.h \
+  /usr/include/aarch64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/aarch64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/12/bits/specfun.h \
+  /usr/include/c++/12/limits \
+  /usr/include/c++/12/tr1/gamma.tcc \
+  /usr/include/c++/12/tr1/special_function_util.h \
+  /usr/include/c++/12/tr1/bessel_function.tcc \
+  /usr/include/c++/12/tr1/beta_function.tcc \
+  /usr/include/c++/12/tr1/ell_integral.tcc \
+  /usr/include/c++/12/tr1/exp_integral.tcc \
+  /usr/include/c++/12/tr1/hypergeometric.tcc \
+  /usr/include/c++/12/tr1/legendre_function.tcc \
+  /usr/include/c++/12/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/12/tr1/poly_hermite.tcc \
+  /usr/include/c++/12/tr1/poly_laguerre.tcc \
+  /usr/include/c++/12/tr1/riemann_zeta.tcc
 
 CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o: /home/julien/test/project_oblo/src/AnalogMultiplexer.cpp \
   /usr/include/stdc-predef.h \
@@ -695,7 +720,6 @@ CMakeFiles/prj_exec.dir/src/MainController.cpp.o: /home/julien/test/project_oblo
   /usr/include/c++/12/istream \
   /usr/include/c++/12/bits/istream.tcc \
   /home/julien/test/project_oblo/include/ADC.h \
-  /home/julien/test/project_oblo/include/AnalogMultiplexer.h \
   /usr/include/c++/12/cmath \
   /usr/include/math.h \
   /usr/include/aarch64-linux-gnu/bits/math-vector.h \
@@ -721,6 +745,7 @@ CMakeFiles/prj_exec.dir/src/MainController.cpp.o: /home/julien/test/project_oblo
   /usr/include/c++/12/tr1/poly_hermite.tcc \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /home/julien/test/project_oblo/include/AnalogMultiplexer.h \
   /home/julien/test/project_oblo/include/ObloAPI.h \
   /usr/include/aarch64-linux-gnu/curl/curl.h \
   /usr/include/aarch64-linux-gnu/curl/curlver.h \
@@ -2049,7 +2074,6 @@ CMakeFiles/prj_exec.dir/src/main.cpp.o: /home/julien/test/project_oblo/src/main.
   /usr/include/c++/12/istream \
   /usr/include/c++/12/bits/istream.tcc \
   /home/julien/test/project_oblo/include/ADC.h \
-  /home/julien/test/project_oblo/include/AnalogMultiplexer.h \
   /usr/include/c++/12/cmath \
   /usr/include/math.h \
   /usr/include/aarch64-linux-gnu/bits/math-vector.h \
@@ -2075,6 +2099,7 @@ CMakeFiles/prj_exec.dir/src/main.cpp.o: /home/julien/test/project_oblo/src/main.
   /usr/include/c++/12/tr1/poly_hermite.tcc \
   /usr/include/c++/12/tr1/poly_laguerre.tcc \
   /usr/include/c++/12/tr1/riemann_zeta.tcc \
+  /home/julien/test/project_oblo/include/AnalogMultiplexer.h \
   /home/julien/test/project_oblo/include/ObloAPI.h \
   /usr/include/aarch64-linux-gnu/curl/curl.h \
   /usr/include/aarch64-linux-gnu/curl/curlver.h \

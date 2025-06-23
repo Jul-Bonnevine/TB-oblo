@@ -8,22 +8,55 @@ ADC::ADC(SPIInterface& spi, float vcc, float r_fixe, float r_fils, float beta, f
 
 bool ADC::sendSetup()
 {
- return false;
+    // SETUP register: 0b01100100
+    // CKSEL = 10 (clock interne, déclenché par SPI)
+    // REFSEL = 01 (référence externe)
+    uint8_t tx[1] = { 0x64 };
+    uint8_t rx[1] = { 0 };
+
+    return spi.transfer(tx, rx, 1);
 }
 
 bool ADC::sendConfig()
 {
-    return false;
+    if (channel > 3) {
+        std::cerr << "[ADC] Canal invalide (MAX11627 a 4 canaux).\n";
+        return false;
+    }
+
+    // CONFIG register :
+    // Bit 7 = 1 (indique une trame de conversion)
+    // CHSEL[3:0] = canal (bits 6:3)
+    // SCAN[1:0] = 00 → un seul canal
+    uint8_t tx[1] = {
+        static_cast<uint8_t>(0x80 | (channel << 3)) // Bit 7 = 1, CHSEL en bits 6:3, SCAN = 00
+    };
+    uint8_t rx[1] = { 0 };
+
+    return spi.transfer(tx, rx, 1);
 }
 
 void ADC::setChannel(uint8_t ch)
 {
-
+    if (ch < 4) {
+        channel = ch;
+    } else {
+        std::cerr << "[ADC] Canal hors limites (0–3).\n";
+    }
 }
 
 bool ADC::readRaw(uint16_t& value)
 {
-    return false;
+    uint8_t tx[2] = { 0x00, 0x00 };
+    uint8_t rx[2] = { 0 };
+
+    if (!spi.transfer(tx, rx, 2)) {
+        std::cerr << "[ADC] Erreur de transfert SPI lors de la lecture.\n";
+        return false;
+    }
+
+    value = ((rx[0] & 0x0F) << 8) | rx[1];  // 4 bits de padding + 12 bits MSB-first
+    return true;
 }
 
 
