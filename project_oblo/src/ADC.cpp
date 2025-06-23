@@ -24,12 +24,11 @@ bool ADC::sendConfig()
         return false;
     }
 
-    // CONFIG register :
-    // Bit 7 = 1 (indique une trame de conversion)
-    // CHSEL[3:0] = canal (bits 6:3)
-    // SCAN[1:0] = 00 → un seul canal
+    // Bit 7 = 1 (conversion register)
+    // CHSEL = canal sélectionné
+    // SCAN = 11 (one shot, no scan)
     uint8_t tx[1] = {
-        static_cast<uint8_t>(0x80 | (channel << 3)) // Bit 7 = 1, CHSEL en bits 6:3, SCAN = 00
+        static_cast<uint8_t>(0x80 | (channel << 3) | 0x06)
     };
     uint8_t rx[1] = { 0 };
 
