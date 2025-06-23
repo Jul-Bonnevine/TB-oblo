@@ -5,13 +5,20 @@
 #include <cstdint>
 #include <unistd.h>
 #include <iostream>
+#include <cmath>
 
 class ADC 
 {
 public:
 
     //Initialiser avec l'interface
-    explicit ADC(SPIInterface& spi);
+    explicit ADC(SPIInterface& spi, float vcc, float r_fixe, float r_fils, float beta, float r25, float t25);
+    
+    //Trame de setup
+    bool sendSetup();
+
+    //Trame de configuration
+    bool sendConfig();
 
     //Définition du canal à lire
     void setChannel(uint8_t ch);
@@ -26,11 +33,13 @@ private:
     SPIInterface& spi;
     uint8_t channel = 0;
 
-    //Trame de setup
-    bool sendSetup();
-
-    //Trame de configuration
-    bool sendConfig();
+    // Constantes physiques
+    float Vcc;
+    float R_fixe;
+    float R_fils;
+    float beta;
+    float R25;
+    float T25;
 };
 
 #endif // ADC_H

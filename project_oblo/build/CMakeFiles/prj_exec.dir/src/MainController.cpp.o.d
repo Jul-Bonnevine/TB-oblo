@@ -181,10 +181,8 @@ CMakeFiles/prj_exec.dir/src/MainController.cpp.o: \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
- /home/julien/test/project_oblo/include/ADC.h \
- /home/julien/test/project_oblo/include/AnalogMultiplexer.h \
- /usr/include/c++/12/cmath /usr/include/math.h \
- /usr/include/aarch64-linux-gnu/bits/math-vector.h \
+ /home/julien/test/project_oblo/include/ADC.h /usr/include/c++/12/cmath \
+ /usr/include/math.h /usr/include/aarch64-linux-gnu/bits/math-vector.h \
  /usr/include/aarch64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/aarch64-linux-gnu/bits/flt-eval-method.h \
  /usr/include/aarch64-linux-gnu/bits/fp-logb.h \
@@ -206,6 +204,7 @@ CMakeFiles/prj_exec.dir/src/MainController.cpp.o: \
  /usr/include/c++/12/tr1/poly_hermite.tcc \
  /usr/include/c++/12/tr1/poly_laguerre.tcc \
  /usr/include/c++/12/tr1/riemann_zeta.tcc \
+ /home/julien/test/project_oblo/include/AnalogMultiplexer.h \
  /home/julien/test/project_oblo/include/ObloAPI.h \
  /usr/include/aarch64-linux-gnu/curl/curl.h \
  /usr/include/aarch64-linux-gnu/curl/curlver.h \

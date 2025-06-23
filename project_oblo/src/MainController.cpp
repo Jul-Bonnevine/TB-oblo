@@ -5,7 +5,14 @@
 MainController::MainController()
     : adcSpi("/dev/spidev1.0", SPI_MODE_0, 8, 500000),
       muxSpi("/dev/spidev0.0", SPI_MODE_0, 8, 1000000),
-      adc(adcSpi),
+      adc(adcSpi, 
+          3.3f,    // Vcc en volts
+          2000.0f, // R_fixe en ohms
+          3.8f,    // R_fils en ohms
+          3950.0f, // Beta
+          1000.0f, // R25 en ohms
+          298.15f  // T25 en Kelvin
+      ),
       mux(muxSpi),
       api("0030DEABCDEF"),
       ntp("time.google.com") 
@@ -24,7 +31,7 @@ void MainController::run()
     }
 
     // === [2] Température mesurée (temporaire en attendant ADC) ===
-    float T_mes = 31.5f;
+    float T_mes = 8.5f;
     if (!api.sendTemperature(T_mes)) {
         std::cerr << "Échec de l'envoi de la température.\n";
     } else {
