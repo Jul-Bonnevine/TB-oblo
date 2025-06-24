@@ -31,7 +31,7 @@ void MainController::run()
     }
 
     // === [2] Température mesurée (temporaire en attendant ADC) ===
-    float T_mes = 8.5f;
+    float T_mes = 7.5f;
     if (!api.sendTemperature(T_mes)) {
         std::cerr << "Échec de l'envoi de la température.\n";
     } else {
@@ -88,7 +88,7 @@ void MainController::run()
     }
 
     // === [10] Lecture du canal 0 de l'ADC
-    processOneCycle(2);  // Lecture canal 2
+    processOneCycle(0);  // Lecture du canal
 
 }
 
