@@ -63,7 +63,9 @@ CMAKE_BINARY_DIR = /home/julien/test/project_oblo/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/corelib.dir/all
 all: CMakeFiles/prj_exec.dir/all
+all: CMakeFiles/testADC.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,8 +73,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/corelib.dir/clean
 clean: CMakeFiles/prj_exec.dir/clean
+clean: CMakeFiles/testADC.dir/clean
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/corelib.dir
+
+# All Build rule for target.
+CMakeFiles/corelib.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target corelib"
+.PHONY : CMakeFiles/corelib.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/corelib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 9
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/corelib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
+.PHONY : CMakeFiles/corelib.dir/rule
+
+# Convenience name for target.
+corelib: CMakeFiles/corelib.dir/rule
+.PHONY : corelib
+
+# clean rule for target.
+CMakeFiles/corelib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/clean
+.PHONY : CMakeFiles/corelib.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/prj_exec.dir
@@ -81,7 +111,7 @@ clean: CMakeFiles/prj_exec.dir/clean
 CMakeFiles/prj_exec.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target prj_exec"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=10,11,12,13,14,15,16,17,18 "Built target prj_exec"
 .PHONY : CMakeFiles/prj_exec.dir/all
 
 # Build rule for subdir invocation for target.
@@ -99,6 +129,32 @@ prj_exec: CMakeFiles/prj_exec.dir/rule
 CMakeFiles/prj_exec.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/clean
 .PHONY : CMakeFiles/prj_exec.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/testADC.dir
+
+# All Build rule for target.
+CMakeFiles/testADC.dir/all: CMakeFiles/corelib.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADC.dir/build.make CMakeFiles/testADC.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADC.dir/build.make CMakeFiles/testADC.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=19,20 "Built target testADC"
+.PHONY : CMakeFiles/testADC.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/testADC.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testADC.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
+.PHONY : CMakeFiles/testADC.dir/rule
+
+# Convenience name for target.
+testADC: CMakeFiles/testADC.dir/rule
+.PHONY : testADC
+
+# clean rule for target.
+CMakeFiles/testADC.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADC.dir/build.make CMakeFiles/testADC.dir/clean
+.PHONY : CMakeFiles/testADC.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

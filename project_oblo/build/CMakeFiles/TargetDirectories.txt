@@ -1,3 +1,5 @@
+/home/julien/test/project_oblo/build/CMakeFiles/corelib.dir
 /home/julien/test/project_oblo/build/CMakeFiles/prj_exec.dir
+/home/julien/test/project_oblo/build/CMakeFiles/testADC.dir
 /home/julien/test/project_oblo/build/CMakeFiles/edit_cache.dir
 /home/julien/test/project_oblo/build/CMakeFiles/rebuild_cache.dir

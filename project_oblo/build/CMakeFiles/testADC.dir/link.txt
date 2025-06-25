@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/testADC.dir/tests/testADC.cpp.o -o testADC  libcorelib.a 

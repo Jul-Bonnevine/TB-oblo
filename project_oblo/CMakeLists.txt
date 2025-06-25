@@ -7,12 +7,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Inclure les headers dans /include
 include_directories(include)
 
-# Créer la liste des sources
+# Créer la bibliothèque commune
 file(GLOB SOURCES "src/*.cpp")
+add_library(corelib ${SOURCES})
 
-# Créer l'exécutable
+# Exécutable principal
 add_executable(prj_exec ${SOURCES})
-
-# Ajouter la bibliothèque CURL
 find_package(CURL REQUIRED)
 target_link_libraries(prj_exec PRIVATE CURL::libcurl)
+
+# === Test ADC ===
+add_executable(testADC tests/testADC.cpp)
+target_link_libraries(testADC PRIVATE corelib)

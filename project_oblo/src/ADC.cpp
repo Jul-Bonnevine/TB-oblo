@@ -54,7 +54,17 @@ bool ADC::readRaw(uint16_t& value)
         return false;
     }
 
-    value = ((rx[0] & 0x0F) << 8) | rx[1];  // 4 bits de padding + 12 bits MSB-first
+    /*
+        Pour l'ADC. Il faut mettre cette ligne. Il n'y a pas de décalage 
+    */
+    //value = ((rx[0] & 0x0F) << 8) | rx[1];  // 4 bits de padding + 12 bits MSB-first
+
+    /*
+        Pour la génération avec waveform utiliser cette ligne. Un décalage est obligatoire
+        à cause d'un mauvais timing
+    */
+    value = (((rx[0] << 8) | rx[1]) << 1) & 0x0FFF;
+
     return true;
 }
 

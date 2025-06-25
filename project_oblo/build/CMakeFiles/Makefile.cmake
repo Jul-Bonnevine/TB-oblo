@@ -48,5 +48,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/corelib.dir/DependInfo.cmake"
   "CMakeFiles/prj_exec.dir/DependInfo.cmake"
+  "CMakeFiles/testADC.dir/DependInfo.cmake"
   )
