@@ -38,3 +38,7 @@ target_link_libraries(testObloAPI PRIVATE corelib)
 # === Test Simulator ===
 add_executable(testSimulator tests/testSimulator.cpp)
 target_link_libraries(testSimulator PRIVATE corelib)
+
+# === Test MainController ===
+add_executable(testMainController tests/testMainController.cpp)
+target_link_libraries(testMainController PRIVATE corelib)

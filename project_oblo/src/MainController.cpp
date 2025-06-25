@@ -19,9 +19,10 @@ MainController::MainController()
 {
 
 }
-
+/*
 void MainController::run()
-{   
+{  
+    
     // === [1] Heure NTP ===
     std::time_t now = ntp.getCurrentTime();
     if (now == -1) {
@@ -130,3 +131,4 @@ void MainController::processOneCycle(uint8_t adc_channel)
         std::cout << "[API] Température envoyée avec succès.\n";
     }    
 }
+*/

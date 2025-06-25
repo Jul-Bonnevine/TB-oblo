@@ -5,5 +5,6 @@
 /home/julien/test/project_oblo/build/CMakeFiles/testNTPClient.dir
 /home/julien/test/project_oblo/build/CMakeFiles/testObloAPI.dir
 /home/julien/test/project_oblo/build/CMakeFiles/testSimulator.dir
+/home/julien/test/project_oblo/build/CMakeFiles/testMainController.dir
 /home/julien/test/project_oblo/build/CMakeFiles/edit_cache.dir
 /home/julien/test/project_oblo/build/CMakeFiles/rebuild_cache.dir

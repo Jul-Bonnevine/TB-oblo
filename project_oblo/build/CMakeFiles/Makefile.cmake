@@ -55,4 +55,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/testNTPClient.dir/DependInfo.cmake"
   "CMakeFiles/testObloAPI.dir/DependInfo.cmake"
   "CMakeFiles/testSimulator.dir/DependInfo.cmake"
+  "CMakeFiles/testMainController.dir/DependInfo.cmake"
   )

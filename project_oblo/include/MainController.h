@@ -18,7 +18,13 @@ public:
     MainController();
 
     //programme de test
-    void run();
+    //void run();
+
+    //getter déclaré en inLine
+    ADC& getAdc() { return adc; }
+    AnalogMultiplexer& getMultiplexer() { return mux; }
+    ObloAPI& getApi() { return api; }
+    NTPClient& getNtp() { return ntp; }
 
 private:
     SPIInterface adcSpi;
@@ -29,7 +35,7 @@ private:
     NTPClient ntp;
 
     //Processus de test complet
-    void processOneCycle(uint8_t adc_channel);
+    //void processOneCycle(uint8_t adc_channel);
 };
 
 #endif // MAINCONTROLLER_H

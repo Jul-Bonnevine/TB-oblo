@@ -207,6 +207,19 @@ testSimulator/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testSimulator.dir/build.make CMakeFiles/testSimulator.dir/build
 .PHONY : testSimulator/fast
 
+#=============================================================================
+# Target rules for targets named testMainController
+
+# Build rule for target.
+testMainController: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testMainController
+.PHONY : testMainController
+
+# fast build rule for target.
+testMainController/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainController.dir/build.make CMakeFiles/testMainController.dir/build
+.PHONY : testMainController/fast
+
 src/ADC.o: src/ADC.cpp.o
 .PHONY : src/ADC.o
 
@@ -471,6 +484,30 @@ tests/testAnalogMultiplexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testAnalogMultiplexer.dir/build.make CMakeFiles/testAnalogMultiplexer.dir/tests/testAnalogMultiplexer.cpp.s
 .PHONY : tests/testAnalogMultiplexer.cpp.s
 
+tests/testMainController.o: tests/testMainController.cpp.o
+.PHONY : tests/testMainController.o
+
+# target to build an object file
+tests/testMainController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainController.dir/build.make CMakeFiles/testMainController.dir/tests/testMainController.cpp.o
+.PHONY : tests/testMainController.cpp.o
+
+tests/testMainController.i: tests/testMainController.cpp.i
+.PHONY : tests/testMainController.i
+
+# target to preprocess a source file
+tests/testMainController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainController.dir/build.make CMakeFiles/testMainController.dir/tests/testMainController.cpp.i
+.PHONY : tests/testMainController.cpp.i
+
+tests/testMainController.s: tests/testMainController.cpp.s
+.PHONY : tests/testMainController.s
+
+# target to generate assembly for a file
+tests/testMainController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainController.dir/build.make CMakeFiles/testMainController.dir/tests/testMainController.cpp.s
+.PHONY : tests/testMainController.cpp.s
+
 tests/testNTPClient.o: tests/testNTPClient.cpp.o
 .PHONY : tests/testNTPClient.o
 
@@ -555,6 +592,7 @@ help:
 	@echo "... prj_exec"
 	@echo "... testADC"
 	@echo "... testAnalogMultiplexer"
+	@echo "... testMainController"
 	@echo "... testNTPClient"
 	@echo "... testObloAPI"
 	@echo "... testSimulator"
@@ -588,6 +626,9 @@ help:
 	@echo "... tests/testAnalogMultiplexer.o"
 	@echo "... tests/testAnalogMultiplexer.i"
 	@echo "... tests/testAnalogMultiplexer.s"
+	@echo "... tests/testMainController.o"
+	@echo "... tests/testMainController.i"
+	@echo "... tests/testMainController.s"
 	@echo "... tests/testNTPClient.o"
 	@echo "... tests/testNTPClient.i"
 	@echo "... tests/testNTPClient.s"
