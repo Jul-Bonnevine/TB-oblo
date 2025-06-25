@@ -93,6 +93,7 @@ testADC_EXTERNAL_OBJECTS =
 testADC: CMakeFiles/testADC.dir/tests/testADC.cpp.o
 testADC: CMakeFiles/testADC.dir/build.make
 testADC: libcorelib.a
+testADC: /usr/lib/aarch64-linux-gnu/libcurl.so
 testADC: CMakeFiles/testADC.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable testADC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/testADC.dir/link.txt --verbose=$(VERBOSE)

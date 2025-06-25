@@ -51,4 +51,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/corelib.dir/DependInfo.cmake"
   "CMakeFiles/prj_exec.dir/DependInfo.cmake"
   "CMakeFiles/testADC.dir/DependInfo.cmake"
+  "CMakeFiles/testAnalogMultiplexer.dir/DependInfo.cmake"
+  "CMakeFiles/testNTPClient.dir/DependInfo.cmake"
+  "CMakeFiles/testObloAPI.dir/DependInfo.cmake"
+  "CMakeFiles/testSimulator.dir/DependInfo.cmake"
   )

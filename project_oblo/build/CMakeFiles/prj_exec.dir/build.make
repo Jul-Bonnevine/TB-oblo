@@ -204,6 +204,7 @@ prj_exec: CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o
 prj_exec: CMakeFiles/prj_exec.dir/src/Simulator.cpp.o
 prj_exec: CMakeFiles/prj_exec.dir/src/main.cpp.o
 prj_exec: CMakeFiles/prj_exec.dir/build.make
+prj_exec: libcorelib.a
 prj_exec: /usr/lib/aarch64-linux-gnu/libcurl.so
 prj_exec: CMakeFiles/prj_exec.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable prj_exec"

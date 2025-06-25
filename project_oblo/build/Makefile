@@ -155,6 +155,58 @@ testADC/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADC.dir/build.make CMakeFiles/testADC.dir/build
 .PHONY : testADC/fast
 
+#=============================================================================
+# Target rules for targets named testAnalogMultiplexer
+
+# Build rule for target.
+testAnalogMultiplexer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testAnalogMultiplexer
+.PHONY : testAnalogMultiplexer
+
+# fast build rule for target.
+testAnalogMultiplexer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testAnalogMultiplexer.dir/build.make CMakeFiles/testAnalogMultiplexer.dir/build
+.PHONY : testAnalogMultiplexer/fast
+
+#=============================================================================
+# Target rules for targets named testNTPClient
+
+# Build rule for target.
+testNTPClient: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testNTPClient
+.PHONY : testNTPClient
+
+# fast build rule for target.
+testNTPClient/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testNTPClient.dir/build.make CMakeFiles/testNTPClient.dir/build
+.PHONY : testNTPClient/fast
+
+#=============================================================================
+# Target rules for targets named testObloAPI
+
+# Build rule for target.
+testObloAPI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testObloAPI
+.PHONY : testObloAPI
+
+# fast build rule for target.
+testObloAPI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testObloAPI.dir/build.make CMakeFiles/testObloAPI.dir/build
+.PHONY : testObloAPI/fast
+
+#=============================================================================
+# Target rules for targets named testSimulator
+
+# Build rule for target.
+testSimulator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testSimulator
+.PHONY : testSimulator
+
+# fast build rule for target.
+testSimulator/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testSimulator.dir/build.make CMakeFiles/testSimulator.dir/build
+.PHONY : testSimulator/fast
+
 src/ADC.o: src/ADC.cpp.o
 .PHONY : src/ADC.o
 
@@ -395,6 +447,102 @@ tests/testADC.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADC.dir/build.make CMakeFiles/testADC.dir/tests/testADC.cpp.s
 .PHONY : tests/testADC.cpp.s
 
+tests/testAnalogMultiplexer.o: tests/testAnalogMultiplexer.cpp.o
+.PHONY : tests/testAnalogMultiplexer.o
+
+# target to build an object file
+tests/testAnalogMultiplexer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testAnalogMultiplexer.dir/build.make CMakeFiles/testAnalogMultiplexer.dir/tests/testAnalogMultiplexer.cpp.o
+.PHONY : tests/testAnalogMultiplexer.cpp.o
+
+tests/testAnalogMultiplexer.i: tests/testAnalogMultiplexer.cpp.i
+.PHONY : tests/testAnalogMultiplexer.i
+
+# target to preprocess a source file
+tests/testAnalogMultiplexer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testAnalogMultiplexer.dir/build.make CMakeFiles/testAnalogMultiplexer.dir/tests/testAnalogMultiplexer.cpp.i
+.PHONY : tests/testAnalogMultiplexer.cpp.i
+
+tests/testAnalogMultiplexer.s: tests/testAnalogMultiplexer.cpp.s
+.PHONY : tests/testAnalogMultiplexer.s
+
+# target to generate assembly for a file
+tests/testAnalogMultiplexer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testAnalogMultiplexer.dir/build.make CMakeFiles/testAnalogMultiplexer.dir/tests/testAnalogMultiplexer.cpp.s
+.PHONY : tests/testAnalogMultiplexer.cpp.s
+
+tests/testNTPClient.o: tests/testNTPClient.cpp.o
+.PHONY : tests/testNTPClient.o
+
+# target to build an object file
+tests/testNTPClient.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testNTPClient.dir/build.make CMakeFiles/testNTPClient.dir/tests/testNTPClient.cpp.o
+.PHONY : tests/testNTPClient.cpp.o
+
+tests/testNTPClient.i: tests/testNTPClient.cpp.i
+.PHONY : tests/testNTPClient.i
+
+# target to preprocess a source file
+tests/testNTPClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testNTPClient.dir/build.make CMakeFiles/testNTPClient.dir/tests/testNTPClient.cpp.i
+.PHONY : tests/testNTPClient.cpp.i
+
+tests/testNTPClient.s: tests/testNTPClient.cpp.s
+.PHONY : tests/testNTPClient.s
+
+# target to generate assembly for a file
+tests/testNTPClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testNTPClient.dir/build.make CMakeFiles/testNTPClient.dir/tests/testNTPClient.cpp.s
+.PHONY : tests/testNTPClient.cpp.s
+
+tests/testObloAPI.o: tests/testObloAPI.cpp.o
+.PHONY : tests/testObloAPI.o
+
+# target to build an object file
+tests/testObloAPI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testObloAPI.dir/build.make CMakeFiles/testObloAPI.dir/tests/testObloAPI.cpp.o
+.PHONY : tests/testObloAPI.cpp.o
+
+tests/testObloAPI.i: tests/testObloAPI.cpp.i
+.PHONY : tests/testObloAPI.i
+
+# target to preprocess a source file
+tests/testObloAPI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testObloAPI.dir/build.make CMakeFiles/testObloAPI.dir/tests/testObloAPI.cpp.i
+.PHONY : tests/testObloAPI.cpp.i
+
+tests/testObloAPI.s: tests/testObloAPI.cpp.s
+.PHONY : tests/testObloAPI.s
+
+# target to generate assembly for a file
+tests/testObloAPI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testObloAPI.dir/build.make CMakeFiles/testObloAPI.dir/tests/testObloAPI.cpp.s
+.PHONY : tests/testObloAPI.cpp.s
+
+tests/testSimulator.o: tests/testSimulator.cpp.o
+.PHONY : tests/testSimulator.o
+
+# target to build an object file
+tests/testSimulator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testSimulator.dir/build.make CMakeFiles/testSimulator.dir/tests/testSimulator.cpp.o
+.PHONY : tests/testSimulator.cpp.o
+
+tests/testSimulator.i: tests/testSimulator.cpp.i
+.PHONY : tests/testSimulator.i
+
+# target to preprocess a source file
+tests/testSimulator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testSimulator.dir/build.make CMakeFiles/testSimulator.dir/tests/testSimulator.cpp.i
+.PHONY : tests/testSimulator.cpp.i
+
+tests/testSimulator.s: tests/testSimulator.cpp.s
+.PHONY : tests/testSimulator.s
+
+# target to generate assembly for a file
+tests/testSimulator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testSimulator.dir/build.make CMakeFiles/testSimulator.dir/tests/testSimulator.cpp.s
+.PHONY : tests/testSimulator.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -406,6 +554,10 @@ help:
 	@echo "... corelib"
 	@echo "... prj_exec"
 	@echo "... testADC"
+	@echo "... testAnalogMultiplexer"
+	@echo "... testNTPClient"
+	@echo "... testObloAPI"
+	@echo "... testSimulator"
 	@echo "... src/ADC.o"
 	@echo "... src/ADC.i"
 	@echo "... src/ADC.s"
@@ -433,6 +585,18 @@ help:
 	@echo "... tests/testADC.o"
 	@echo "... tests/testADC.i"
 	@echo "... tests/testADC.s"
+	@echo "... tests/testAnalogMultiplexer.o"
+	@echo "... tests/testAnalogMultiplexer.i"
+	@echo "... tests/testAnalogMultiplexer.s"
+	@echo "... tests/testNTPClient.o"
+	@echo "... tests/testNTPClient.i"
+	@echo "... tests/testNTPClient.s"
+	@echo "... tests/testObloAPI.o"
+	@echo "... tests/testObloAPI.i"
+	@echo "... tests/testObloAPI.s"
+	@echo "... tests/testSimulator.o"
+	@echo "... tests/testSimulator.i"
+	@echo "... tests/testSimulator.s"
 .PHONY : help
 
 
