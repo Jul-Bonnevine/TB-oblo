@@ -27,7 +27,7 @@ public:
     bool readRaw(uint16_t& value);
 
     //conversion de la valeur de l'ADC en °C (T_mes)
-    float readTemperature();
+    float readTemperature(uint16_t adc_val);
 
 private:
     SPIInterface& spi;
