@@ -69,108 +69,10 @@ include CMakeFiles/prj_exec.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/prj_exec.dir/flags.make
 
-CMakeFiles/prj_exec.dir/src/ADC.cpp.o: CMakeFiles/prj_exec.dir/flags.make
-CMakeFiles/prj_exec.dir/src/ADC.cpp.o: /home/julien/test/project_oblo/src/ADC.cpp
-CMakeFiles/prj_exec.dir/src/ADC.cpp.o: CMakeFiles/prj_exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/prj_exec.dir/src/ADC.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/prj_exec.dir/src/ADC.cpp.o -MF CMakeFiles/prj_exec.dir/src/ADC.cpp.o.d -o CMakeFiles/prj_exec.dir/src/ADC.cpp.o -c /home/julien/test/project_oblo/src/ADC.cpp
-
-CMakeFiles/prj_exec.dir/src/ADC.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/prj_exec.dir/src/ADC.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/ADC.cpp > CMakeFiles/prj_exec.dir/src/ADC.cpp.i
-
-CMakeFiles/prj_exec.dir/src/ADC.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/prj_exec.dir/src/ADC.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/ADC.cpp -o CMakeFiles/prj_exec.dir/src/ADC.cpp.s
-
-CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o: CMakeFiles/prj_exec.dir/flags.make
-CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o: /home/julien/test/project_oblo/src/AnalogMultiplexer.cpp
-CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o: CMakeFiles/prj_exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o -MF CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o.d -o CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o -c /home/julien/test/project_oblo/src/AnalogMultiplexer.cpp
-
-CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/AnalogMultiplexer.cpp > CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.i
-
-CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/AnalogMultiplexer.cpp -o CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.s
-
-CMakeFiles/prj_exec.dir/src/MainController.cpp.o: CMakeFiles/prj_exec.dir/flags.make
-CMakeFiles/prj_exec.dir/src/MainController.cpp.o: /home/julien/test/project_oblo/src/MainController.cpp
-CMakeFiles/prj_exec.dir/src/MainController.cpp.o: CMakeFiles/prj_exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/prj_exec.dir/src/MainController.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/prj_exec.dir/src/MainController.cpp.o -MF CMakeFiles/prj_exec.dir/src/MainController.cpp.o.d -o CMakeFiles/prj_exec.dir/src/MainController.cpp.o -c /home/julien/test/project_oblo/src/MainController.cpp
-
-CMakeFiles/prj_exec.dir/src/MainController.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/prj_exec.dir/src/MainController.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/MainController.cpp > CMakeFiles/prj_exec.dir/src/MainController.cpp.i
-
-CMakeFiles/prj_exec.dir/src/MainController.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/prj_exec.dir/src/MainController.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/MainController.cpp -o CMakeFiles/prj_exec.dir/src/MainController.cpp.s
-
-CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o: CMakeFiles/prj_exec.dir/flags.make
-CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o: /home/julien/test/project_oblo/src/NTPClient.cpp
-CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o: CMakeFiles/prj_exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o -MF CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o.d -o CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o -c /home/julien/test/project_oblo/src/NTPClient.cpp
-
-CMakeFiles/prj_exec.dir/src/NTPClient.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/prj_exec.dir/src/NTPClient.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/NTPClient.cpp > CMakeFiles/prj_exec.dir/src/NTPClient.cpp.i
-
-CMakeFiles/prj_exec.dir/src/NTPClient.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/prj_exec.dir/src/NTPClient.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/NTPClient.cpp -o CMakeFiles/prj_exec.dir/src/NTPClient.cpp.s
-
-CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o: CMakeFiles/prj_exec.dir/flags.make
-CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o: /home/julien/test/project_oblo/src/ObloAPI.cpp
-CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o: CMakeFiles/prj_exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o -MF CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o.d -o CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o -c /home/julien/test/project_oblo/src/ObloAPI.cpp
-
-CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/ObloAPI.cpp > CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.i
-
-CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/ObloAPI.cpp -o CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.s
-
-CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o: CMakeFiles/prj_exec.dir/flags.make
-CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o: /home/julien/test/project_oblo/src/SPI_Interface.cpp
-CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o: CMakeFiles/prj_exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o -MF CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o.d -o CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o -c /home/julien/test/project_oblo/src/SPI_Interface.cpp
-
-CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/SPI_Interface.cpp > CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.i
-
-CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/SPI_Interface.cpp -o CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.s
-
-CMakeFiles/prj_exec.dir/src/Simulator.cpp.o: CMakeFiles/prj_exec.dir/flags.make
-CMakeFiles/prj_exec.dir/src/Simulator.cpp.o: /home/julien/test/project_oblo/src/Simulator.cpp
-CMakeFiles/prj_exec.dir/src/Simulator.cpp.o: CMakeFiles/prj_exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/prj_exec.dir/src/Simulator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/prj_exec.dir/src/Simulator.cpp.o -MF CMakeFiles/prj_exec.dir/src/Simulator.cpp.o.d -o CMakeFiles/prj_exec.dir/src/Simulator.cpp.o -c /home/julien/test/project_oblo/src/Simulator.cpp
-
-CMakeFiles/prj_exec.dir/src/Simulator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/prj_exec.dir/src/Simulator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/Simulator.cpp > CMakeFiles/prj_exec.dir/src/Simulator.cpp.i
-
-CMakeFiles/prj_exec.dir/src/Simulator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/prj_exec.dir/src/Simulator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/Simulator.cpp -o CMakeFiles/prj_exec.dir/src/Simulator.cpp.s
-
 CMakeFiles/prj_exec.dir/src/main.cpp.o: CMakeFiles/prj_exec.dir/flags.make
 CMakeFiles/prj_exec.dir/src/main.cpp.o: /home/julien/test/project_oblo/src/main.cpp
 CMakeFiles/prj_exec.dir/src/main.cpp.o: CMakeFiles/prj_exec.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/prj_exec.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/prj_exec.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/prj_exec.dir/src/main.cpp.o -MF CMakeFiles/prj_exec.dir/src/main.cpp.o.d -o CMakeFiles/prj_exec.dir/src/main.cpp.o -c /home/julien/test/project_oblo/src/main.cpp
 
 CMakeFiles/prj_exec.dir/src/main.cpp.i: cmake_force
@@ -183,31 +85,17 @@ CMakeFiles/prj_exec.dir/src/main.cpp.s: cmake_force
 
 # Object files for target prj_exec
 prj_exec_OBJECTS = \
-"CMakeFiles/prj_exec.dir/src/ADC.cpp.o" \
-"CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o" \
-"CMakeFiles/prj_exec.dir/src/MainController.cpp.o" \
-"CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o" \
-"CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o" \
-"CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o" \
-"CMakeFiles/prj_exec.dir/src/Simulator.cpp.o" \
 "CMakeFiles/prj_exec.dir/src/main.cpp.o"
 
 # External object files for target prj_exec
 prj_exec_EXTERNAL_OBJECTS =
 
-prj_exec: CMakeFiles/prj_exec.dir/src/ADC.cpp.o
-prj_exec: CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o
-prj_exec: CMakeFiles/prj_exec.dir/src/MainController.cpp.o
-prj_exec: CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o
-prj_exec: CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o
-prj_exec: CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o
-prj_exec: CMakeFiles/prj_exec.dir/src/Simulator.cpp.o
 prj_exec: CMakeFiles/prj_exec.dir/src/main.cpp.o
 prj_exec: CMakeFiles/prj_exec.dir/build.make
 prj_exec: libcorelib.a
 prj_exec: /usr/lib/aarch64-linux-gnu/libcurl.so
 prj_exec: CMakeFiles/prj_exec.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable prj_exec"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable prj_exec"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/prj_exec.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

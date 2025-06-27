@@ -95,12 +95,12 @@ clean: CMakeFiles/testMainController.dir/clean
 CMakeFiles/corelib.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target corelib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target corelib"
 .PHONY : CMakeFiles/corelib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/corelib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/corelib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
 .PHONY : CMakeFiles/corelib.dir/rule
@@ -121,12 +121,12 @@ CMakeFiles/corelib.dir/clean:
 CMakeFiles/prj_exec.dir/all: CMakeFiles/corelib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=10,11,12,13,14,15,16,17,18 "Built target prj_exec"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=9,10 "Built target prj_exec"
 .PHONY : CMakeFiles/prj_exec.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/prj_exec.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/prj_exec.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
 .PHONY : CMakeFiles/prj_exec.dir/rule
@@ -147,12 +147,12 @@ CMakeFiles/prj_exec.dir/clean:
 CMakeFiles/testADC.dir/all: CMakeFiles/corelib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADC.dir/build.make CMakeFiles/testADC.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADC.dir/build.make CMakeFiles/testADC.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=19,20 "Built target testADC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=11,12 "Built target testADC"
 .PHONY : CMakeFiles/testADC.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/testADC.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testADC.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
 .PHONY : CMakeFiles/testADC.dir/rule
@@ -173,12 +173,12 @@ CMakeFiles/testADC.dir/clean:
 CMakeFiles/testAnalogMultiplexer.dir/all: CMakeFiles/corelib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testAnalogMultiplexer.dir/build.make CMakeFiles/testAnalogMultiplexer.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testAnalogMultiplexer.dir/build.make CMakeFiles/testAnalogMultiplexer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=21,22 "Built target testAnalogMultiplexer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=13,14 "Built target testAnalogMultiplexer"
 .PHONY : CMakeFiles/testAnalogMultiplexer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/testAnalogMultiplexer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testAnalogMultiplexer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
 .PHONY : CMakeFiles/testAnalogMultiplexer.dir/rule
@@ -199,12 +199,12 @@ CMakeFiles/testAnalogMultiplexer.dir/clean:
 CMakeFiles/testNTPClient.dir/all: CMakeFiles/corelib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testNTPClient.dir/build.make CMakeFiles/testNTPClient.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testNTPClient.dir/build.make CMakeFiles/testNTPClient.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=25,26 "Built target testNTPClient"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=17,18 "Built target testNTPClient"
 .PHONY : CMakeFiles/testNTPClient.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/testNTPClient.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testNTPClient.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
 .PHONY : CMakeFiles/testNTPClient.dir/rule
@@ -225,12 +225,12 @@ CMakeFiles/testNTPClient.dir/clean:
 CMakeFiles/testObloAPI.dir/all: CMakeFiles/corelib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testObloAPI.dir/build.make CMakeFiles/testObloAPI.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testObloAPI.dir/build.make CMakeFiles/testObloAPI.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=27,28 "Built target testObloAPI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=19,20 "Built target testObloAPI"
 .PHONY : CMakeFiles/testObloAPI.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/testObloAPI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testObloAPI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
 .PHONY : CMakeFiles/testObloAPI.dir/rule
@@ -251,12 +251,12 @@ CMakeFiles/testObloAPI.dir/clean:
 CMakeFiles/testSimulator.dir/all: CMakeFiles/corelib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testSimulator.dir/build.make CMakeFiles/testSimulator.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testSimulator.dir/build.make CMakeFiles/testSimulator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=29,30 "Built target testSimulator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=21,22 "Built target testSimulator"
 .PHONY : CMakeFiles/testSimulator.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/testSimulator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testSimulator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
 .PHONY : CMakeFiles/testSimulator.dir/rule
@@ -277,12 +277,12 @@ CMakeFiles/testSimulator.dir/clean:
 CMakeFiles/testMainController.dir/all: CMakeFiles/corelib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainController.dir/build.make CMakeFiles/testMainController.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainController.dir/build.make CMakeFiles/testMainController.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=23,24 "Built target testMainController"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=15,16 "Built target testMainController"
 .PHONY : CMakeFiles/testMainController.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/testMainController.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/testMainController.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
 .PHONY : CMakeFiles/testMainController.dir/rule

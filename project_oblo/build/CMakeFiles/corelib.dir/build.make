@@ -167,20 +167,6 @@ CMakeFiles/corelib.dir/src/Simulator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/corelib.dir/src/Simulator.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/Simulator.cpp -o CMakeFiles/corelib.dir/src/Simulator.cpp.s
 
-CMakeFiles/corelib.dir/src/main.cpp.o: CMakeFiles/corelib.dir/flags.make
-CMakeFiles/corelib.dir/src/main.cpp.o: /home/julien/test/project_oblo/src/main.cpp
-CMakeFiles/corelib.dir/src/main.cpp.o: CMakeFiles/corelib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/corelib.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/main.cpp.o -MF CMakeFiles/corelib.dir/src/main.cpp.o.d -o CMakeFiles/corelib.dir/src/main.cpp.o -c /home/julien/test/project_oblo/src/main.cpp
-
-CMakeFiles/corelib.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/corelib.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/main.cpp > CMakeFiles/corelib.dir/src/main.cpp.i
-
-CMakeFiles/corelib.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/corelib.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/main.cpp -o CMakeFiles/corelib.dir/src/main.cpp.s
-
 # Object files for target corelib
 corelib_OBJECTS = \
 "CMakeFiles/corelib.dir/src/ADC.cpp.o" \
@@ -189,8 +175,7 @@ corelib_OBJECTS = \
 "CMakeFiles/corelib.dir/src/NTPClient.cpp.o" \
 "CMakeFiles/corelib.dir/src/ObloAPI.cpp.o" \
 "CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o" \
-"CMakeFiles/corelib.dir/src/Simulator.cpp.o" \
-"CMakeFiles/corelib.dir/src/main.cpp.o"
+"CMakeFiles/corelib.dir/src/Simulator.cpp.o"
 
 # External object files for target corelib
 corelib_EXTERNAL_OBJECTS =
@@ -202,10 +187,9 @@ libcorelib.a: CMakeFiles/corelib.dir/src/NTPClient.cpp.o
 libcorelib.a: CMakeFiles/corelib.dir/src/ObloAPI.cpp.o
 libcorelib.a: CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o
 libcorelib.a: CMakeFiles/corelib.dir/src/Simulator.cpp.o
-libcorelib.a: CMakeFiles/corelib.dir/src/main.cpp.o
 libcorelib.a: CMakeFiles/corelib.dir/build.make
 libcorelib.a: CMakeFiles/corelib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libcorelib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libcorelib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/corelib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/corelib.dir/link.txt --verbose=$(VERBOSE)
 

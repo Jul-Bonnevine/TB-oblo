@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/prj_exec.dir/src/ADC.cpp.o CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o CMakeFiles/prj_exec.dir/src/MainController.cpp.o CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o CMakeFiles/prj_exec.dir/src/Simulator.cpp.o CMakeFiles/prj_exec.dir/src/main.cpp.o -o prj_exec  libcorelib.a /usr/lib/aarch64-linux-gnu/libcurl.so 
+/usr/bin/c++ CMakeFiles/prj_exec.dir/src/main.cpp.o -o prj_exec  libcorelib.a /usr/lib/aarch64-linux-gnu/libcurl.so 

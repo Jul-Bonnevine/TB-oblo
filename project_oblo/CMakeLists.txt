@@ -10,35 +10,31 @@ include_directories(include)
 # Charger CURL
 find_package(CURL REQUIRED)
 
-# Créer la bibliothèque commune
-file(GLOB SOURCES "src/*.cpp")
-add_library(corelib ${SOURCES})
+# Créer la bibliothèque commune (sans main.cpp)
+file(GLOB_RECURSE CORE_SOURCES "src/*.cpp")
+list(REMOVE_ITEM CORE_SOURCES "${CMAKE_SOURCE_DIR}/src/main.cpp")
+add_library(corelib ${CORE_SOURCES})
 target_link_libraries(corelib PUBLIC CURL::libcurl)
 
-# Exécutable principal
-add_executable(prj_exec ${SOURCES})
+# Exécutable principal (optionnel, si main.cpp est utilisé plus tard)
+add_executable(prj_exec src/main.cpp)
 target_link_libraries(prj_exec PRIVATE corelib)
 
-# === Test ADC ===
+# === Tests unitaires ===
 add_executable(testADC tests/testADC.cpp)
 target_link_libraries(testADC PRIVATE corelib)
 
-# === Test AnalogMultiplexer ===
 add_executable(testAnalogMultiplexer tests/testAnalogMultiplexer.cpp)
 target_link_libraries(testAnalogMultiplexer PRIVATE corelib)
 
-# === Test NTPClient ===
 add_executable(testNTPClient tests/testNTPClient.cpp)
 target_link_libraries(testNTPClient PRIVATE corelib)
 
-# === Test ObloAPI ===
 add_executable(testObloAPI tests/testObloAPI.cpp)
 target_link_libraries(testObloAPI PRIVATE corelib)
 
-# === Test Simulator ===
 add_executable(testSimulator tests/testSimulator.cpp)
 target_link_libraries(testSimulator PRIVATE corelib)
 
-# === Test MainController ===
 add_executable(testMainController tests/testMainController.cpp)
 target_link_libraries(testMainController PRIVATE corelib)

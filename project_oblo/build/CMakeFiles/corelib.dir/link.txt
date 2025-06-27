@@ -1,2 +1,2 @@
-/usr/bin/ar qc libcorelib.a CMakeFiles/corelib.dir/src/ADC.cpp.o CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o CMakeFiles/corelib.dir/src/MainController.cpp.o CMakeFiles/corelib.dir/src/NTPClient.cpp.o CMakeFiles/corelib.dir/src/ObloAPI.cpp.o CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o CMakeFiles/corelib.dir/src/Simulator.cpp.o CMakeFiles/corelib.dir/src/main.cpp.o
+/usr/bin/ar qc libcorelib.a CMakeFiles/corelib.dir/src/ADC.cpp.o CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o CMakeFiles/corelib.dir/src/MainController.cpp.o CMakeFiles/corelib.dir/src/NTPClient.cpp.o CMakeFiles/corelib.dir/src/ObloAPI.cpp.o CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o CMakeFiles/corelib.dir/src/Simulator.cpp.o
 /usr/bin/ranlib libcorelib.a

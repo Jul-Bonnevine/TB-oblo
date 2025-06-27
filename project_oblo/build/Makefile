@@ -226,7 +226,6 @@ src/ADC.o: src/ADC.cpp.o
 # target to build an object file
 src/ADC.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/ADC.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/ADC.cpp.o
 .PHONY : src/ADC.cpp.o
 
 src/ADC.i: src/ADC.cpp.i
@@ -235,7 +234,6 @@ src/ADC.i: src/ADC.cpp.i
 # target to preprocess a source file
 src/ADC.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/ADC.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/ADC.cpp.i
 .PHONY : src/ADC.cpp.i
 
 src/ADC.s: src/ADC.cpp.s
@@ -244,7 +242,6 @@ src/ADC.s: src/ADC.cpp.s
 # target to generate assembly for a file
 src/ADC.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/ADC.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/ADC.cpp.s
 .PHONY : src/ADC.cpp.s
 
 src/AnalogMultiplexer.o: src/AnalogMultiplexer.cpp.o
@@ -253,7 +250,6 @@ src/AnalogMultiplexer.o: src/AnalogMultiplexer.cpp.o
 # target to build an object file
 src/AnalogMultiplexer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.o
 .PHONY : src/AnalogMultiplexer.cpp.o
 
 src/AnalogMultiplexer.i: src/AnalogMultiplexer.cpp.i
@@ -262,7 +258,6 @@ src/AnalogMultiplexer.i: src/AnalogMultiplexer.cpp.i
 # target to preprocess a source file
 src/AnalogMultiplexer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.i
 .PHONY : src/AnalogMultiplexer.cpp.i
 
 src/AnalogMultiplexer.s: src/AnalogMultiplexer.cpp.s
@@ -271,7 +266,6 @@ src/AnalogMultiplexer.s: src/AnalogMultiplexer.cpp.s
 # target to generate assembly for a file
 src/AnalogMultiplexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/AnalogMultiplexer.cpp.s
 .PHONY : src/AnalogMultiplexer.cpp.s
 
 src/MainController.o: src/MainController.cpp.o
@@ -280,7 +274,6 @@ src/MainController.o: src/MainController.cpp.o
 # target to build an object file
 src/MainController.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/MainController.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/MainController.cpp.o
 .PHONY : src/MainController.cpp.o
 
 src/MainController.i: src/MainController.cpp.i
@@ -289,7 +282,6 @@ src/MainController.i: src/MainController.cpp.i
 # target to preprocess a source file
 src/MainController.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/MainController.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/MainController.cpp.i
 .PHONY : src/MainController.cpp.i
 
 src/MainController.s: src/MainController.cpp.s
@@ -298,7 +290,6 @@ src/MainController.s: src/MainController.cpp.s
 # target to generate assembly for a file
 src/MainController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/MainController.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/MainController.cpp.s
 .PHONY : src/MainController.cpp.s
 
 src/NTPClient.o: src/NTPClient.cpp.o
@@ -307,7 +298,6 @@ src/NTPClient.o: src/NTPClient.cpp.o
 # target to build an object file
 src/NTPClient.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/NTPClient.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/NTPClient.cpp.o
 .PHONY : src/NTPClient.cpp.o
 
 src/NTPClient.i: src/NTPClient.cpp.i
@@ -316,7 +306,6 @@ src/NTPClient.i: src/NTPClient.cpp.i
 # target to preprocess a source file
 src/NTPClient.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/NTPClient.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/NTPClient.cpp.i
 .PHONY : src/NTPClient.cpp.i
 
 src/NTPClient.s: src/NTPClient.cpp.s
@@ -325,7 +314,6 @@ src/NTPClient.s: src/NTPClient.cpp.s
 # target to generate assembly for a file
 src/NTPClient.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/NTPClient.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/NTPClient.cpp.s
 .PHONY : src/NTPClient.cpp.s
 
 src/ObloAPI.o: src/ObloAPI.cpp.o
@@ -334,7 +322,6 @@ src/ObloAPI.o: src/ObloAPI.cpp.o
 # target to build an object file
 src/ObloAPI.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/ObloAPI.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.o
 .PHONY : src/ObloAPI.cpp.o
 
 src/ObloAPI.i: src/ObloAPI.cpp.i
@@ -343,7 +330,6 @@ src/ObloAPI.i: src/ObloAPI.cpp.i
 # target to preprocess a source file
 src/ObloAPI.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/ObloAPI.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.i
 .PHONY : src/ObloAPI.cpp.i
 
 src/ObloAPI.s: src/ObloAPI.cpp.s
@@ -352,7 +338,6 @@ src/ObloAPI.s: src/ObloAPI.cpp.s
 # target to generate assembly for a file
 src/ObloAPI.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/ObloAPI.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/ObloAPI.cpp.s
 .PHONY : src/ObloAPI.cpp.s
 
 src/SPI_Interface.o: src/SPI_Interface.cpp.o
@@ -361,7 +346,6 @@ src/SPI_Interface.o: src/SPI_Interface.cpp.o
 # target to build an object file
 src/SPI_Interface.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.o
 .PHONY : src/SPI_Interface.cpp.o
 
 src/SPI_Interface.i: src/SPI_Interface.cpp.i
@@ -370,7 +354,6 @@ src/SPI_Interface.i: src/SPI_Interface.cpp.i
 # target to preprocess a source file
 src/SPI_Interface.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/SPI_Interface.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.i
 .PHONY : src/SPI_Interface.cpp.i
 
 src/SPI_Interface.s: src/SPI_Interface.cpp.s
@@ -379,7 +362,6 @@ src/SPI_Interface.s: src/SPI_Interface.cpp.s
 # target to generate assembly for a file
 src/SPI_Interface.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/SPI_Interface.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/SPI_Interface.cpp.s
 .PHONY : src/SPI_Interface.cpp.s
 
 src/Simulator.o: src/Simulator.cpp.o
@@ -388,7 +370,6 @@ src/Simulator.o: src/Simulator.cpp.o
 # target to build an object file
 src/Simulator.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/Simulator.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/Simulator.cpp.o
 .PHONY : src/Simulator.cpp.o
 
 src/Simulator.i: src/Simulator.cpp.i
@@ -397,7 +378,6 @@ src/Simulator.i: src/Simulator.cpp.i
 # target to preprocess a source file
 src/Simulator.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/Simulator.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/Simulator.cpp.i
 .PHONY : src/Simulator.cpp.i
 
 src/Simulator.s: src/Simulator.cpp.s
@@ -406,7 +386,6 @@ src/Simulator.s: src/Simulator.cpp.s
 # target to generate assembly for a file
 src/Simulator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/Simulator.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/Simulator.cpp.s
 .PHONY : src/Simulator.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -414,7 +393,6 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/main.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
@@ -423,7 +401,6 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/main.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
@@ -432,7 +409,6 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/main.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/prj_exec.dir/build.make CMakeFiles/prj_exec.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 

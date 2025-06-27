@@ -15,7 +15,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/julien/test/project_oblo/src/ObloAPI.cpp" "CMakeFiles/corelib.dir/src/ObloAPI.cpp.o" "gcc" "CMakeFiles/corelib.dir/src/ObloAPI.cpp.o.d"
   "/home/julien/test/project_oblo/src/SPI_Interface.cpp" "CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o" "gcc" "CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o.d"
   "/home/julien/test/project_oblo/src/Simulator.cpp" "CMakeFiles/corelib.dir/src/Simulator.cpp.o" "gcc" "CMakeFiles/corelib.dir/src/Simulator.cpp.o.d"
-  "/home/julien/test/project_oblo/src/main.cpp" "CMakeFiles/corelib.dir/src/main.cpp.o" "gcc" "CMakeFiles/corelib.dir/src/main.cpp.o.d"
   )
 
 # Targets to which this target links.

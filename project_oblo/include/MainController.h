@@ -13,14 +13,9 @@
 
 class MainController {
 public:
-
-    //Initialisation des modules
     MainController();
 
-    //programme de test
-    //void run();
-
-    //getter déclaré en inLine
+    // Accesseurs pour les composants
     ADC& getAdc() { return adc; }
     AnalogMultiplexer& getMultiplexer() { return mux; }
     ObloAPI& getApi() { return api; }
@@ -33,9 +28,6 @@ private:
     AnalogMultiplexer mux;
     ObloAPI api;
     NTPClient ntp;
-
-    //Processus de test complet
-    //void processOneCycle(uint8_t adc_channel);
 };
 
 #endif // MAINCONTROLLER_H

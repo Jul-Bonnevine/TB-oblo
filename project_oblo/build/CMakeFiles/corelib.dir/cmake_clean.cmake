@@ -13,8 +13,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o.d"
   "CMakeFiles/corelib.dir/src/Simulator.cpp.o"
   "CMakeFiles/corelib.dir/src/Simulator.cpp.o.d"
-  "CMakeFiles/corelib.dir/src/main.cpp.o"
-  "CMakeFiles/corelib.dir/src/main.cpp.o.d"
   "libcorelib.a"
   "libcorelib.pdb"
 )
