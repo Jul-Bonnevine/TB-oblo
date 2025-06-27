@@ -7,7 +7,7 @@ int main() {
     ObloAPI api(mac);
 
     // === Test 1 : envoi de température mesurée ===
-    float temp_test = 12.5f;
+    float temp_test = 10.5f;
     std::cout << "[API] Envoi de T = " << temp_test << " °C...\n";
     if (api.sendTemperature(temp_test)) {
         std::cout << "[API] Température envoyée avec succès.\n";
