@@ -24,17 +24,16 @@ int main() {
 
     adc.setChannel(0);
 
-    while (true) {
         if (!adc.sendSetup()) {
             std::cerr << "Erreur SETUP\n";
-            break;
-        }
+            return 1;
+        } //ewfjejrger
 
         usleep(10);
 
         if (!adc.sendConfig()) {
             std::cerr << "Erreur CONFIG\n";
-            break;
+            return 1;
         }
 
         usleep(20);
@@ -42,18 +41,13 @@ int main() {
         uint16_t raw = 0;
         if (!adc.readRaw(raw)) {
             std::cerr << "Erreur lecture raw\n";
-            break;
+            return 1;
         }
 
-        std::cout << "Trame brute corrigée : 0x" << std::hex << raw
-                  << " (0b" << std::bitset<12>(raw) << ")\n";
+        std::cout << "Valeur ADC brute : " << std::dec << raw << "\n";
 
-        float temp = adc.readTemperature();
-        std::cout << "→ Température mesurée : " << std::dec << temp << " °C\n";
+        float temp = adc.readTemperature(raw);
+        std::cout << "→ Température mesurée : " << temp << " °C\n";
 
-        std::cout << "------------------------------\n";
-        usleep(500000);  // 500 ms
-    }
-
-    return 0;
+        return 0;
 }
