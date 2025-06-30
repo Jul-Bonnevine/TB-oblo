@@ -1,9 +1,12 @@
 #include "MainController.h"
+#include "Simulator.h"
 #include <iostream>
 #include <unistd.h>
+#include <ctime>
 
-void processOneCycle(MainController& controller, uint8_t adc_channel) {
-    controller.getAdc().setChannel(adc_channel);
+// Fonction pour lire et convertir la température avec raw
+float readAndConvertTemperature(MainController& controller, uint8_t channel) {
+    controller.getAdc().setChannel(channel);
 
     for (int i = 0; i < 5; ++i) {
         if (!controller.getAdc().sendSetup()) {
@@ -19,50 +22,50 @@ void processOneCycle(MainController& controller, uint8_t adc_channel) {
         usleep(500000);
     }
 
-    usleep(10);
-
-    float T_mes = controller.getAdc().readTemperature();
-    std::cout << "[ADC] Température mesurée : " << T_mes << " °C\n";
-
-    if (!controller.getApi().sendTemperature(T_mes)) {
-        std::cerr << "[API] Échec envoi température.\n";
+    uint16_t raw_adc_value = 0;
+    if (!controller.getAdc().readRaw(raw_adc_value)) {
+        std::cerr << "[ADC] Erreur lecture ADC\n";
+        return NAN;
     }
+
+    float tempC = controller.getAdc().readTemperature(raw_adc_value);
+    std::cout << "[ADC] Température mesurée : " << tempC << " °C\n";
+    return tempC;
 }
 
 int main() {
     MainController controller;
 
-    bool modeManuel = true;  // ← Passe à true pour tester une valeur manuelle
-    float T_mes = 0.0f;
+    // 1. Lire et traiter les valeurs de l’ADC
+    float T_mes = readAndConvertTemperature(controller, 0);
 
-    if (modeManuel) {
-        T_mes = 7.5f;  // Valeur fictive pour test
-        std::cout << "[TEST] Mode manuel : T_mes = " << T_mes << " °C\n";
-    } else {
-        processOneCycle(controller, 0);  // Trames visibles à l'oscillo
-        T_mes = controller.getAdc().readTemperature();
-        std::cout << "[TEST] Température réelle mesurée : " << T_mes << " °C\n";
+    // 2. Envoi de la température mesurée à l'API
+    if (!controller.getApi().sendTemperature(T_mes)) {
+        std::cerr << "[API] Échec envoi température.\n";
     }
 
-    // Envoi température mesurée
-    controller.getApi().sendTemperature(T_mes);
-
-    // Heure NTP
+    // 3. Récupérer l'heure NTP
     std::time_t now = controller.getNtp().getCurrentTime();
     if (now != -1) {
-        std::cout << "[TEST] Heure NTP : " << std::ctime(&now);
+        std::cout << "[NTP] Heure actuelle : " << std::ctime(&now);
+    } else {
+        std::cerr << "[NTP] Erreur récupération heure.\n";
     }
 
-    // Récupération météo et paramètres
+    // 4. Récupérer météo et paramètres
     float T_prevu = 0, n = 0, k_m = 0;
-    controller.getApi().getForecast(T_prevu);
-    controller.getApi().getParameters(n, k_m);
+    if (!controller.getApi().getForecast(T_prevu)) {
+        std::cerr << "[API] Erreur récupération prévision météo.\n";
+    }
+    if (!controller.getApi().getParameters(n, k_m)) {
+        std::cerr << "[API] Erreur récupération paramètres.\n";
+    }
 
-    // Calcul température simulée
+    // 5. Calcul température simulée
     float T_sim = Simulator::computeSimulatedTemperature(T_mes, T_prevu, n, k_m);
     float T_utilisee = (T_prevu > T_mes) ? T_sim : T_mes;
 
-    // Envoi au MUX
+    // 6. Conversion en canal MUX et sélection
     uint8_t canal = controller.getMultiplexer().convertTemperatureToChannel(T_utilisee);
     controller.getMultiplexer().selectChannel(canal);
 
