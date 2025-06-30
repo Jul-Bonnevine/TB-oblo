@@ -2,18 +2,12 @@
 
 ADC::ADC(SPIInterface& spi, const TemperatureSensorConfig& config)
     : spi(spi), config(config)
-{
-
-}
+{}
 
 bool ADC::sendSetup()
 {
-    // SETUP register: 0b01100100
-    // CKSEL = 10 (clock interne, déclenché par SPI)
-    // REFSEL = 01 (référence externe)
     uint8_t tx[1] = { 0x64 };
     uint8_t rx[1] = { 0 };
-
     return spi.transfer(tx, rx, 1);
 }
 
@@ -24,9 +18,6 @@ bool ADC::sendConfig()
         return false;
     }
 
-    // Bit 7 = 1 (conversion register)
-    // CHSEL = canal sélectionné
-    // SCAN = 11 (one shot, no scan)
     uint8_t tx[1] = {
         static_cast<uint8_t>(0x80 | (channel << 3) | 0x06)
     };
@@ -54,30 +45,26 @@ bool ADC::readRaw(uint16_t& value)
         return false;
     }
 
-    /*
-        Pour l'ADC. Il faut mettre cette ligne. Il n'y a pas de décalage 
-    */
-    value = ((rx[0] & 0x0F) << 8) | rx[1];  // 4 bits de padding + 12 bits MSB-first
-
-    /*
-        Pour la génération avec waveform utiliser cette ligne. Un décalage est obligatoire
-        à cause d'un mauvais timing
-    */
-    //value = (((rx[0] << 8) | rx[1]) << 1) & 0x0FFF;
-
+    value = ((rx[0] & 0x0F) << 8) | rx[1];
     return true;
 }
-
 
 float ADC::readTemperature(uint16_t adc_val)
 {
     const float adc_resolution = 4096.0f;
-    float Vout = (adc_val * config.Vcc) / adc_resolution;
-    float Vref = config.Vcc;
 
-    float Rsonde = ((-1.0f * (Vout * (config.R_fils + config.R_fixe) - Vref * config.R_fils)) /
-                   (Vout - Vref));
-    float Rntc = Rsonde - config.R_fils;
+    float Vcc = config.getVcc();
+    float R_fixe = config.getRFixe();
+    float R_fils = config.getRFils();
+    float beta = config.getBeta();
+    float R25 = config.getR25();
+    float T25 = config.getT25();
+
+    float Vout = (adc_val * Vcc) / adc_resolution;
+    float Vref = Vcc;
+
+    float Rsonde = ((-1.0f * (Vout * (R_fils + R_fixe) - Vref * R_fils)) / (Vout - Vref));
+    float Rntc = Rsonde - R_fils;
 
     std::cout << "ADC brut: " << adc_val << "\n";
     std::cout << "Vout: " << Vout << " V\n";
@@ -89,8 +76,6 @@ float ADC::readTemperature(uint16_t adc_val)
         return NAN;
     }
 
-    float tempK = (config.beta * config.T25) / (log(Rntc / config.R25) * config.T25 + config.beta);
-    float tempC = tempK - 273.15f;
-
-    return tempC;
+    float tempK = (beta * T25) / (log(Rntc / R25) * T25 + beta);
+    return tempK - 273.15f;
 }

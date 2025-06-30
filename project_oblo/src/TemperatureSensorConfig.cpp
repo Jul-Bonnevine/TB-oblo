@@ -10,3 +10,11 @@ TemperatureSensorConfig::TemperatureSensorConfig(float vcc, float rFixe, float r
 TemperatureSensorConfig::TemperatureSensorConfig()
     : Vcc(0.0f), R_fixe(0.0f), R_fils(0.0f), beta(0.0f), R25(0.0f), T25(0.0f)
 {}
+
+// Getters
+float TemperatureSensorConfig::getVcc() const    { return Vcc; }
+float TemperatureSensorConfig::getRFixe() const  { return R_fixe; }
+float TemperatureSensorConfig::getRFils() const  { return R_fils; }
+float TemperatureSensorConfig::getBeta() const   { return beta; }
+float TemperatureSensorConfig::getR25() const    { return R25; }
+float TemperatureSensorConfig::getT25() const    { return T25; }
