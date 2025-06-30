@@ -2,6 +2,7 @@
 
 #include "SPI_Interface.h"
 #include "ADC.h"
+#include "TemperatureSensorConfig.h"
 #include <iostream>
 #include <bitset>
 #include <unistd.h>
@@ -13,15 +14,17 @@ int main() {
         return 1;
     }
 
-    ADC adc(spi,
-            3.3f,    // Vcc en volts
-            22000.0f, // R_fixe
-            3.8f,    // R_fils
-            3960.0f, // Bêta
-            10000.0f, // R25
-            298.15f  // T25 (Kelvin)
+    // Configuration physique du capteur
+    TemperatureSensorConfig config(
+        3.3f,     // Vcc en volts
+        22000.0f, // R_fixe
+        3.8f,     // R_fils
+        3960.0f,  // Bêta
+        10000.0f, // R25
+        298.15f   // T25 en Kelvin
     );
 
+    ADC adc(spi, config);
     adc.setChannel(0);
 
         if (!adc.sendSetup()) {

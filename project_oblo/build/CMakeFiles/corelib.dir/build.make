@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/julien/test/project_oblo
+CMAKE_SOURCE_DIR = /home/julien/git_test/TB-oblo/project_oblo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/julien/test/project_oblo/build
+CMAKE_BINARY_DIR = /home/julien/git_test/TB-oblo/project_oblo/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/corelib.dir/depend.make
@@ -70,102 +70,116 @@ include CMakeFiles/corelib.dir/progress.make
 include CMakeFiles/corelib.dir/flags.make
 
 CMakeFiles/corelib.dir/src/ADC.cpp.o: CMakeFiles/corelib.dir/flags.make
-CMakeFiles/corelib.dir/src/ADC.cpp.o: /home/julien/test/project_oblo/src/ADC.cpp
+CMakeFiles/corelib.dir/src/ADC.cpp.o: /home/julien/git_test/TB-oblo/project_oblo/src/ADC.cpp
 CMakeFiles/corelib.dir/src/ADC.cpp.o: CMakeFiles/corelib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/corelib.dir/src/ADC.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/ADC.cpp.o -MF CMakeFiles/corelib.dir/src/ADC.cpp.o.d -o CMakeFiles/corelib.dir/src/ADC.cpp.o -c /home/julien/test/project_oblo/src/ADC.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/corelib.dir/src/ADC.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/ADC.cpp.o -MF CMakeFiles/corelib.dir/src/ADC.cpp.o.d -o CMakeFiles/corelib.dir/src/ADC.cpp.o -c /home/julien/git_test/TB-oblo/project_oblo/src/ADC.cpp
 
 CMakeFiles/corelib.dir/src/ADC.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/corelib.dir/src/ADC.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/ADC.cpp > CMakeFiles/corelib.dir/src/ADC.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/git_test/TB-oblo/project_oblo/src/ADC.cpp > CMakeFiles/corelib.dir/src/ADC.cpp.i
 
 CMakeFiles/corelib.dir/src/ADC.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/corelib.dir/src/ADC.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/ADC.cpp -o CMakeFiles/corelib.dir/src/ADC.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/git_test/TB-oblo/project_oblo/src/ADC.cpp -o CMakeFiles/corelib.dir/src/ADC.cpp.s
 
 CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o: CMakeFiles/corelib.dir/flags.make
-CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o: /home/julien/test/project_oblo/src/AnalogMultiplexer.cpp
+CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o: /home/julien/git_test/TB-oblo/project_oblo/src/AnalogMultiplexer.cpp
 CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o: CMakeFiles/corelib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o -MF CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o.d -o CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o -c /home/julien/test/project_oblo/src/AnalogMultiplexer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o -MF CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o.d -o CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.o -c /home/julien/git_test/TB-oblo/project_oblo/src/AnalogMultiplexer.cpp
 
 CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/AnalogMultiplexer.cpp > CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/git_test/TB-oblo/project_oblo/src/AnalogMultiplexer.cpp > CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.i
 
 CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/AnalogMultiplexer.cpp -o CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/git_test/TB-oblo/project_oblo/src/AnalogMultiplexer.cpp -o CMakeFiles/corelib.dir/src/AnalogMultiplexer.cpp.s
 
 CMakeFiles/corelib.dir/src/MainController.cpp.o: CMakeFiles/corelib.dir/flags.make
-CMakeFiles/corelib.dir/src/MainController.cpp.o: /home/julien/test/project_oblo/src/MainController.cpp
+CMakeFiles/corelib.dir/src/MainController.cpp.o: /home/julien/git_test/TB-oblo/project_oblo/src/MainController.cpp
 CMakeFiles/corelib.dir/src/MainController.cpp.o: CMakeFiles/corelib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/corelib.dir/src/MainController.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/MainController.cpp.o -MF CMakeFiles/corelib.dir/src/MainController.cpp.o.d -o CMakeFiles/corelib.dir/src/MainController.cpp.o -c /home/julien/test/project_oblo/src/MainController.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/corelib.dir/src/MainController.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/MainController.cpp.o -MF CMakeFiles/corelib.dir/src/MainController.cpp.o.d -o CMakeFiles/corelib.dir/src/MainController.cpp.o -c /home/julien/git_test/TB-oblo/project_oblo/src/MainController.cpp
 
 CMakeFiles/corelib.dir/src/MainController.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/corelib.dir/src/MainController.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/MainController.cpp > CMakeFiles/corelib.dir/src/MainController.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/git_test/TB-oblo/project_oblo/src/MainController.cpp > CMakeFiles/corelib.dir/src/MainController.cpp.i
 
 CMakeFiles/corelib.dir/src/MainController.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/corelib.dir/src/MainController.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/MainController.cpp -o CMakeFiles/corelib.dir/src/MainController.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/git_test/TB-oblo/project_oblo/src/MainController.cpp -o CMakeFiles/corelib.dir/src/MainController.cpp.s
 
 CMakeFiles/corelib.dir/src/NTPClient.cpp.o: CMakeFiles/corelib.dir/flags.make
-CMakeFiles/corelib.dir/src/NTPClient.cpp.o: /home/julien/test/project_oblo/src/NTPClient.cpp
+CMakeFiles/corelib.dir/src/NTPClient.cpp.o: /home/julien/git_test/TB-oblo/project_oblo/src/NTPClient.cpp
 CMakeFiles/corelib.dir/src/NTPClient.cpp.o: CMakeFiles/corelib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/corelib.dir/src/NTPClient.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/NTPClient.cpp.o -MF CMakeFiles/corelib.dir/src/NTPClient.cpp.o.d -o CMakeFiles/corelib.dir/src/NTPClient.cpp.o -c /home/julien/test/project_oblo/src/NTPClient.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/corelib.dir/src/NTPClient.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/NTPClient.cpp.o -MF CMakeFiles/corelib.dir/src/NTPClient.cpp.o.d -o CMakeFiles/corelib.dir/src/NTPClient.cpp.o -c /home/julien/git_test/TB-oblo/project_oblo/src/NTPClient.cpp
 
 CMakeFiles/corelib.dir/src/NTPClient.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/corelib.dir/src/NTPClient.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/NTPClient.cpp > CMakeFiles/corelib.dir/src/NTPClient.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/git_test/TB-oblo/project_oblo/src/NTPClient.cpp > CMakeFiles/corelib.dir/src/NTPClient.cpp.i
 
 CMakeFiles/corelib.dir/src/NTPClient.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/corelib.dir/src/NTPClient.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/NTPClient.cpp -o CMakeFiles/corelib.dir/src/NTPClient.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/git_test/TB-oblo/project_oblo/src/NTPClient.cpp -o CMakeFiles/corelib.dir/src/NTPClient.cpp.s
 
 CMakeFiles/corelib.dir/src/ObloAPI.cpp.o: CMakeFiles/corelib.dir/flags.make
-CMakeFiles/corelib.dir/src/ObloAPI.cpp.o: /home/julien/test/project_oblo/src/ObloAPI.cpp
+CMakeFiles/corelib.dir/src/ObloAPI.cpp.o: /home/julien/git_test/TB-oblo/project_oblo/src/ObloAPI.cpp
 CMakeFiles/corelib.dir/src/ObloAPI.cpp.o: CMakeFiles/corelib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/corelib.dir/src/ObloAPI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/ObloAPI.cpp.o -MF CMakeFiles/corelib.dir/src/ObloAPI.cpp.o.d -o CMakeFiles/corelib.dir/src/ObloAPI.cpp.o -c /home/julien/test/project_oblo/src/ObloAPI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/corelib.dir/src/ObloAPI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/ObloAPI.cpp.o -MF CMakeFiles/corelib.dir/src/ObloAPI.cpp.o.d -o CMakeFiles/corelib.dir/src/ObloAPI.cpp.o -c /home/julien/git_test/TB-oblo/project_oblo/src/ObloAPI.cpp
 
 CMakeFiles/corelib.dir/src/ObloAPI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/corelib.dir/src/ObloAPI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/ObloAPI.cpp > CMakeFiles/corelib.dir/src/ObloAPI.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/git_test/TB-oblo/project_oblo/src/ObloAPI.cpp > CMakeFiles/corelib.dir/src/ObloAPI.cpp.i
 
 CMakeFiles/corelib.dir/src/ObloAPI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/corelib.dir/src/ObloAPI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/ObloAPI.cpp -o CMakeFiles/corelib.dir/src/ObloAPI.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/git_test/TB-oblo/project_oblo/src/ObloAPI.cpp -o CMakeFiles/corelib.dir/src/ObloAPI.cpp.s
 
 CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o: CMakeFiles/corelib.dir/flags.make
-CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o: /home/julien/test/project_oblo/src/SPI_Interface.cpp
+CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o: /home/julien/git_test/TB-oblo/project_oblo/src/SPI_Interface.cpp
 CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o: CMakeFiles/corelib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o -MF CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o.d -o CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o -c /home/julien/test/project_oblo/src/SPI_Interface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o -MF CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o.d -o CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o -c /home/julien/git_test/TB-oblo/project_oblo/src/SPI_Interface.cpp
 
 CMakeFiles/corelib.dir/src/SPI_Interface.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/corelib.dir/src/SPI_Interface.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/SPI_Interface.cpp > CMakeFiles/corelib.dir/src/SPI_Interface.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/git_test/TB-oblo/project_oblo/src/SPI_Interface.cpp > CMakeFiles/corelib.dir/src/SPI_Interface.cpp.i
 
 CMakeFiles/corelib.dir/src/SPI_Interface.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/corelib.dir/src/SPI_Interface.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/SPI_Interface.cpp -o CMakeFiles/corelib.dir/src/SPI_Interface.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/git_test/TB-oblo/project_oblo/src/SPI_Interface.cpp -o CMakeFiles/corelib.dir/src/SPI_Interface.cpp.s
 
 CMakeFiles/corelib.dir/src/Simulator.cpp.o: CMakeFiles/corelib.dir/flags.make
-CMakeFiles/corelib.dir/src/Simulator.cpp.o: /home/julien/test/project_oblo/src/Simulator.cpp
+CMakeFiles/corelib.dir/src/Simulator.cpp.o: /home/julien/git_test/TB-oblo/project_oblo/src/Simulator.cpp
 CMakeFiles/corelib.dir/src/Simulator.cpp.o: CMakeFiles/corelib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/corelib.dir/src/Simulator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/Simulator.cpp.o -MF CMakeFiles/corelib.dir/src/Simulator.cpp.o.d -o CMakeFiles/corelib.dir/src/Simulator.cpp.o -c /home/julien/test/project_oblo/src/Simulator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/corelib.dir/src/Simulator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/Simulator.cpp.o -MF CMakeFiles/corelib.dir/src/Simulator.cpp.o.d -o CMakeFiles/corelib.dir/src/Simulator.cpp.o -c /home/julien/git_test/TB-oblo/project_oblo/src/Simulator.cpp
 
 CMakeFiles/corelib.dir/src/Simulator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/corelib.dir/src/Simulator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/test/project_oblo/src/Simulator.cpp > CMakeFiles/corelib.dir/src/Simulator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/git_test/TB-oblo/project_oblo/src/Simulator.cpp > CMakeFiles/corelib.dir/src/Simulator.cpp.i
 
 CMakeFiles/corelib.dir/src/Simulator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/corelib.dir/src/Simulator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/test/project_oblo/src/Simulator.cpp -o CMakeFiles/corelib.dir/src/Simulator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/git_test/TB-oblo/project_oblo/src/Simulator.cpp -o CMakeFiles/corelib.dir/src/Simulator.cpp.s
+
+CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.o: CMakeFiles/corelib.dir/flags.make
+CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.o: /home/julien/git_test/TB-oblo/project_oblo/src/TemperatureSensorConfig.cpp
+CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.o: CMakeFiles/corelib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.o -MF CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.o.d -o CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.o -c /home/julien/git_test/TB-oblo/project_oblo/src/TemperatureSensorConfig.cpp
+
+CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/julien/git_test/TB-oblo/project_oblo/src/TemperatureSensorConfig.cpp > CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.i
+
+CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/julien/git_test/TB-oblo/project_oblo/src/TemperatureSensorConfig.cpp -o CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.s
 
 # Object files for target corelib
 corelib_OBJECTS = \
@@ -175,7 +189,8 @@ corelib_OBJECTS = \
 "CMakeFiles/corelib.dir/src/NTPClient.cpp.o" \
 "CMakeFiles/corelib.dir/src/ObloAPI.cpp.o" \
 "CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o" \
-"CMakeFiles/corelib.dir/src/Simulator.cpp.o"
+"CMakeFiles/corelib.dir/src/Simulator.cpp.o" \
+"CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.o"
 
 # External object files for target corelib
 corelib_EXTERNAL_OBJECTS =
@@ -187,9 +202,10 @@ libcorelib.a: CMakeFiles/corelib.dir/src/NTPClient.cpp.o
 libcorelib.a: CMakeFiles/corelib.dir/src/ObloAPI.cpp.o
 libcorelib.a: CMakeFiles/corelib.dir/src/SPI_Interface.cpp.o
 libcorelib.a: CMakeFiles/corelib.dir/src/Simulator.cpp.o
+libcorelib.a: CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.o
 libcorelib.a: CMakeFiles/corelib.dir/build.make
 libcorelib.a: CMakeFiles/corelib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/julien/test/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libcorelib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libcorelib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/corelib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/corelib.dir/link.txt --verbose=$(VERBOSE)
 
@@ -202,6 +218,6 @@ CMakeFiles/corelib.dir/clean:
 .PHONY : CMakeFiles/corelib.dir/clean
 
 CMakeFiles/corelib.dir/depend:
-	cd /home/julien/test/project_oblo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/julien/test/project_oblo /home/julien/test/project_oblo /home/julien/test/project_oblo/build /home/julien/test/project_oblo/build /home/julien/test/project_oblo/build/CMakeFiles/corelib.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/julien/git_test/TB-oblo/project_oblo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/julien/git_test/TB-oblo/project_oblo /home/julien/git_test/TB-oblo/project_oblo /home/julien/git_test/TB-oblo/project_oblo/build /home/julien/git_test/TB-oblo/project_oblo/build /home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles/corelib.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/corelib.dir/depend
 

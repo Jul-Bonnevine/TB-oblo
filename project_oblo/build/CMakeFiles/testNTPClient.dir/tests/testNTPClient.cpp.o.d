@@ -1,7 +1,7 @@
 CMakeFiles/testNTPClient.dir/tests/testNTPClient.cpp.o: \
- /home/julien/test/project_oblo/tests/testNTPClient.cpp \
+ /home/julien/git_test/TB-oblo/project_oblo/tests/testNTPClient.cpp \
  /usr/include/stdc-predef.h \
- /home/julien/test/project_oblo/include/NTPClient.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/NTPClient.h \
  /usr/include/c++/12/string \
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/os_defines.h \

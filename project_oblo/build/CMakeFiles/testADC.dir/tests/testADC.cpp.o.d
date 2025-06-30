@@ -1,7 +1,7 @@
 CMakeFiles/testADC.dir/tests/testADC.cpp.o: \
- /home/julien/test/project_oblo/tests/testADC.cpp \
+ /home/julien/git_test/TB-oblo/project_oblo/tests/testADC.cpp \
  /usr/include/stdc-predef.h \
- /home/julien/test/project_oblo/include/SPI_Interface.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/SPI_Interface.h \
  /usr/include/c++/12/string \
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/os_defines.h \
@@ -180,8 +180,9 @@ CMakeFiles/testADC.dir/tests/testADC.cpp.o: \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
- /home/julien/test/project_oblo/include/ADC.h \
- /home/julien/test/project_oblo/include/SPI_Interface.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/ADC.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/SPI_Interface.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/TemperatureSensorConfig.h \
  /usr/include/c++/12/cmath /usr/include/math.h \
  /usr/include/aarch64-linux-gnu/bits/math-vector.h \
  /usr/include/aarch64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -204,4 +205,6 @@ CMakeFiles/testADC.dir/tests/testADC.cpp.o: \
  /usr/include/c++/12/tr1/modified_bessel_func.tcc \
  /usr/include/c++/12/tr1/poly_hermite.tcc \
  /usr/include/c++/12/tr1/poly_laguerre.tcc \
- /usr/include/c++/12/tr1/riemann_zeta.tcc /usr/include/c++/12/bitset
+ /usr/include/c++/12/tr1/riemann_zeta.tcc \
+ /home/julien/git_test/TB-oblo/project_oblo/include/TemperatureSensorConfig.h \
+ /usr/include/c++/12/bitset

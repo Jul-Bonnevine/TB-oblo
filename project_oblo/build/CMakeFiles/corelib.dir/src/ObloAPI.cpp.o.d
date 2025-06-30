@@ -1,7 +1,7 @@
 CMakeFiles/corelib.dir/src/ObloAPI.cpp.o: \
- /home/julien/test/project_oblo/src/ObloAPI.cpp \
+ /home/julien/git_test/TB-oblo/project_oblo/src/ObloAPI.cpp \
  /usr/include/stdc-predef.h \
- /home/julien/test/project_oblo/include/ObloAPI.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/ObloAPI.h \
  /usr/include/c++/12/string \
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/os_defines.h \

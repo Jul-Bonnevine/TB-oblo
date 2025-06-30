@@ -1,7 +1,7 @@
 #include "ADC.h"
 
-ADC::ADC(SPIInterface& spi, float vcc, float r_fixe, float r_fils, float beta, float r25, float t25)
-    : spi(spi), Vcc(vcc), R_fixe(r_fixe), R_fils(r_fils), beta(beta), R25(r25), T25(t25)
+ADC::ADC(SPIInterface& spi, const TemperatureSensorConfig& config)
+    : spi(spi), config(config)
 {
 
 }
@@ -72,12 +72,12 @@ bool ADC::readRaw(uint16_t& value)
 float ADC::readTemperature(uint16_t adc_val)
 {
     const float adc_resolution = 4096.0f;
-    float Vout = (adc_val * Vcc) / adc_resolution;
-    float Vref = Vcc;
+    float Vout = (adc_val * config.Vcc) / adc_resolution;
+    float Vref = config.Vcc;
 
-    float Rsonde = ((-1.0f * (Vout * (R_fils + R_fixe) - Vref * R_fils)) /
+    float Rsonde = ((-1.0f * (Vout * (config.R_fils + config.R_fixe) - Vref * config.R_fils)) /
                    (Vout - Vref));
-    float Rntc = Rsonde - R_fils;
+    float Rntc = Rsonde - config.R_fils;
 
     std::cout << "ADC brut: " << adc_val << "\n";
     std::cout << "Vout: " << Vout << " V\n";
@@ -89,7 +89,7 @@ float ADC::readTemperature(uint16_t adc_val)
         return NAN;
     }
 
-    float tempK = (beta * T25) / (log(Rntc / R25) * T25 + beta);
+    float tempK = (config.beta * config.T25) / (log(Rntc / config.R25) * config.T25 + config.beta);
     float tempC = tempK - 273.15f;
 
     return tempC;

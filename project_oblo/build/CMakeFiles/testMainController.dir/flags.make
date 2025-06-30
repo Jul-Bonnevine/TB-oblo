@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/julien/test/project_oblo/include
+CXX_INCLUDES = -I/home/julien/git_test/TB-oblo/project_oblo/include
 
 CXX_FLAGS = -std=gnu++17
 

@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/julien/test/project_oblo/tests/testObloAPI.cpp" "CMakeFiles/testObloAPI.dir/tests/testObloAPI.cpp.o" "gcc" "CMakeFiles/testObloAPI.dir/tests/testObloAPI.cpp.o.d"
+  "/home/julien/git_test/TB-oblo/project_oblo/tests/testObloAPI.cpp" "CMakeFiles/testObloAPI.dir/tests/testObloAPI.cpp.o" "gcc" "CMakeFiles/testObloAPI.dir/tests/testObloAPI.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/julien/test/project_oblo/build/CMakeFiles/corelib.dir/DependInfo.cmake"
+  "/home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles/corelib.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

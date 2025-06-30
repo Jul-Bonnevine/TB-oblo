@@ -1,8 +1,8 @@
 CMakeFiles/corelib.dir/src/MainController.cpp.o: \
- /home/julien/test/project_oblo/src/MainController.cpp \
+ /home/julien/git_test/TB-oblo/project_oblo/src/MainController.cpp \
  /usr/include/stdc-predef.h \
- /home/julien/test/project_oblo/include/MainController.h \
- /home/julien/test/project_oblo/include/SPI_Interface.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/MainController.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/SPI_Interface.h \
  /usr/include/c++/12/string \
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/os_defines.h \
@@ -181,8 +181,10 @@ CMakeFiles/corelib.dir/src/MainController.cpp.o: \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
- /home/julien/test/project_oblo/include/ADC.h /usr/include/c++/12/cmath \
- /usr/include/math.h /usr/include/aarch64-linux-gnu/bits/math-vector.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/ADC.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/TemperatureSensorConfig.h \
+ /usr/include/c++/12/cmath /usr/include/math.h \
+ /usr/include/aarch64-linux-gnu/bits/math-vector.h \
  /usr/include/aarch64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/aarch64-linux-gnu/bits/flt-eval-method.h \
  /usr/include/aarch64-linux-gnu/bits/fp-logb.h \
@@ -204,8 +206,8 @@ CMakeFiles/corelib.dir/src/MainController.cpp.o: \
  /usr/include/c++/12/tr1/poly_hermite.tcc \
  /usr/include/c++/12/tr1/poly_laguerre.tcc \
  /usr/include/c++/12/tr1/riemann_zeta.tcc \
- /home/julien/test/project_oblo/include/AnalogMultiplexer.h \
- /home/julien/test/project_oblo/include/ObloAPI.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/AnalogMultiplexer.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/ObloAPI.h \
  /usr/include/aarch64-linux-gnu/curl/curl.h \
  /usr/include/aarch64-linux-gnu/curl/curlver.h \
  /usr/include/aarch64-linux-gnu/curl/system.h \
@@ -344,8 +346,8 @@ CMakeFiles/corelib.dir/src/MainController.cpp.o: \
  /usr/include/nlohmann/ordered_map.hpp /usr/include/c++/12/any \
  /usr/include/nlohmann/detail/macro_unscope.hpp \
  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
- /home/julien/test/project_oblo/include/Simulator.h \
- /home/julien/test/project_oblo/include/NTPClient.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/Simulator.h \
+ /home/julien/git_test/TB-oblo/project_oblo/include/NTPClient.h \
  /usr/include/arpa/inet.h /usr/include/netinet/in.h \
  /usr/include/aarch64-linux-gnu/bits/in.h /usr/include/netdb.h \
  /usr/include/rpc/netdb.h \

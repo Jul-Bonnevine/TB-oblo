@@ -2,6 +2,7 @@
 #define ADC_H
 
 #include "SPI_Interface.h"
+#include "TemperatureSensorConfig.h"
 #include <cstdint>
 #include <unistd.h>
 #include <iostream>
@@ -12,7 +13,7 @@ class ADC
 public:
 
     //Initialiser avec l'interface
-    explicit ADC(SPIInterface& spi, float vcc, float r_fixe, float r_fils, float beta, float r25, float t25);
+    explicit ADC(SPIInterface& spi, const TemperatureSensorConfig& config);
     
     //Trame de setup
     bool sendSetup();
@@ -34,12 +35,7 @@ private:
     uint8_t channel = 0;
 
     // Constantes physiques
-    float Vcc;
-    float R_fixe;
-    float R_fils;
-    float beta;
-    float R25;
-    float T25;
+    TemperatureSensorConfig config;
 };
 
 #endif // ADC_H

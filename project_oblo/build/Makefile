@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/julien/test/project_oblo
+CMAKE_SOURCE_DIR = /home/julien/git_test/TB-oblo/project_oblo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/julien/test/project_oblo/build
+CMAKE_BINARY_DIR = /home/julien/git_test/TB-oblo/project_oblo/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles /home/julien/test/project_oblo/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles /home/julien/git_test/TB-oblo/project_oblo/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/test/project_oblo/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/julien/git_test/TB-oblo/project_oblo/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -388,6 +388,30 @@ src/Simulator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/Simulator.cpp.s
 .PHONY : src/Simulator.cpp.s
 
+src/TemperatureSensorConfig.o: src/TemperatureSensorConfig.cpp.o
+.PHONY : src/TemperatureSensorConfig.o
+
+# target to build an object file
+src/TemperatureSensorConfig.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.o
+.PHONY : src/TemperatureSensorConfig.cpp.o
+
+src/TemperatureSensorConfig.i: src/TemperatureSensorConfig.cpp.i
+.PHONY : src/TemperatureSensorConfig.i
+
+# target to preprocess a source file
+src/TemperatureSensorConfig.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.i
+.PHONY : src/TemperatureSensorConfig.cpp.i
+
+src/TemperatureSensorConfig.s: src/TemperatureSensorConfig.cpp.s
+.PHONY : src/TemperatureSensorConfig.s
+
+# target to generate assembly for a file
+src/TemperatureSensorConfig.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/corelib.dir/build.make CMakeFiles/corelib.dir/src/TemperatureSensorConfig.cpp.s
+.PHONY : src/TemperatureSensorConfig.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -593,6 +617,9 @@ help:
 	@echo "... src/Simulator.o"
 	@echo "... src/Simulator.i"
 	@echo "... src/Simulator.s"
+	@echo "... src/TemperatureSensorConfig.o"
+	@echo "... src/TemperatureSensorConfig.i"
+	@echo "... src/TemperatureSensorConfig.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
