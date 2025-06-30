@@ -69,10 +69,8 @@ int main() {
     uint8_t canal = controller.getMultiplexer().convertTemperatureToChannel(T_utilisee);
     controller.getMultiplexer().selectChannel(canal);
 
-    for (int i = 0; i < 2; ++i) {
-        controller.getMultiplexer().selectChannel(canal);
-        usleep(500000);
-    }
+    usleep(500000);
+    
 
     return 0;
 }
