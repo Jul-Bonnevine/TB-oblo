@@ -63,10 +63,9 @@ int main() {
 
     // 5. Calcul température simulée
     float T_sim = Simulator::computeSimulatedTemperature(T_mes, T_prevu, n, k_m);
-    float T_utilisee = (T_prevu > T_mes) ? T_sim : T_mes;
-
+    
     // 6. Conversion en canal MUX et sélection
-    uint8_t canal = controller.getMultiplexer().convertTemperatureToChannel(T_utilisee);
+    uint8_t canal = controller.getMultiplexer().convertTemperatureToChannel(T_sim);
     controller.getMultiplexer().selectChannel(canal);
 
     usleep(500000);
