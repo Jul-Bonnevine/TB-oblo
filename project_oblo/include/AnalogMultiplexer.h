@@ -10,7 +10,9 @@
 class AnalogMultiplexer {
 public:
 
-    // Initalisation avec le SPI
+    /*Initialiser avec l'interface
+        - spi : gérer la communication SPI de l'ADC
+    */
     AnalogMultiplexer(SPIInterface& spi);
 
     //Conversion °C en valeur comprise entre 0-31

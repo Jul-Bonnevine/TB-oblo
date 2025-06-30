@@ -2,7 +2,8 @@
 
 #define NTP_TIMESTAMP_DELTA 2208988800ull
 
-NTPClient::NTPClient(const std::string& server) {
+NTPClient::NTPClient(const std::string& server) 
+{
     ntpServer = server;
 }
 
