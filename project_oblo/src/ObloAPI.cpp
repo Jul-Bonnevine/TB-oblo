@@ -7,9 +7,9 @@ static size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::stri
     return size * nmemb;
 }
 
-ObloAPI::ObloAPI(const std::string& mac) : mac_address(mac)
+ObloAPI::ObloAPI(const std::string& mac)
 {
-
+    mac_address = mac;
 }
 
 bool ObloAPI::sendTemperature(float temp)

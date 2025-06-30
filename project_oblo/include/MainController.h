@@ -13,15 +13,19 @@
 
 class MainController {
 public:
+
+    //Constructeur
     MainController();
 
-    // Accesseurs pour les composants
+    //Getter des objets pour un accès hors classe
     ADC& getAdc() { return adc; }
     AnalogMultiplexer& getMultiplexer() { return mux; }
     ObloAPI& getApi() { return api; }
     NTPClient& getNtp() { return ntp; }
 
 private:
+
+    //Déclaration des objets
     SPIInterface adcSpi;
     SPIInterface muxSpi;
     ADC adc;
@@ -30,4 +34,4 @@ private:
     NTPClient ntp;
 };
 
-#endif // MAINCONTROLLER_H
+#endif

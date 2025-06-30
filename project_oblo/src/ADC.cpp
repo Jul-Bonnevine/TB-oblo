@@ -2,18 +2,27 @@
 
 ADC::ADC(SPIInterface& spi, const TemperatureSensorConfig& config)
     : spi(spi), config(config)
-{}
+{
+
+}
 
 bool ADC::sendSetup()
 {
-    uint8_t tx[1] = { 0x64 };
+    /*Envoie de la trame
+        - CKSEL1 : 1, CKSEL : 1 pour fixer le clock en externe
+        - REFSEL1 : 0, REFSEL0 : 1 pour fixer la tension de référence en externe
+
+        ==> 0b011101xx 
+    */
+    uint8_t tx[1] = { 0x74 };
     uint8_t rx[1] = { 0 };
     return spi.transfer(tx, rx, 1);
 }
 
 bool ADC::sendConfig()
 {
-    if (channel > 3) {
+    if (channel > 3) 
+    {
         std::cerr << "[ADC] Canal invalide (MAX11627 a 4 canaux).\n";
         return false;
     }

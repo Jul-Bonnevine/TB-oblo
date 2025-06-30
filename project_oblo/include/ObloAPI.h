@@ -15,14 +15,16 @@ public:
     //Post sur l'api la température mesurée
     bool sendTemperature(float temp);
 
-    //Get température prévuue
+    //Get température prévue
     bool getForecast(float& forecast);
 
     //Get des paramètres pour calculer la température simulée
     bool getParameters(float& n, float& k_m);
 
 private:
+
+    //Adresse mac
     std::string mac_address;
 };
 
-#endif // OBLOAPI_H
+#endif

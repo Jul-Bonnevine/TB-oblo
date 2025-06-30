@@ -12,10 +12,13 @@ class ADC
 {
 public:
 
-    //Initialiser avec l'interface
-    explicit ADC(SPIInterface& spi, const TemperatureSensorConfig& config);
+    /*Initialiser avec l'interface et les paramètres de la sonde
+        - spi : gérer la communication SPI de l'ADC
+        - congif : configurer la sonde de température mesurée
+    */
+    ADC(SPIInterface& spi, const TemperatureSensorConfig& config);
     
-    //Trame de setup
+    //Trame de setup envoyée à l'ADC
     bool sendSetup();
 
     //Trame de configuration
@@ -31,11 +34,15 @@ public:
     float readTemperature(uint16_t adc_val);
 
 private:
+
+    //Référence vers SPI_Interface
     SPIInterface& spi;
+
+    //Initialisation du cannal, sur le canal 0
     uint8_t channel = 0;
 
-    // Constantes physiques
+    //Paramètres réel de la sonde
     TemperatureSensorConfig config;
 };
 
-#endif // ADC_H
+#endif

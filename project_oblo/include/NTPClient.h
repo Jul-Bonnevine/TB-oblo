@@ -23,4 +23,4 @@ private:
     std::string ntpServer;
 };
 
-#endif // NTPCLIENT_H
+#endif

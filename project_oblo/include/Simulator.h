@@ -8,4 +8,4 @@ public:
     static float computeSimulatedTemperature(float T_mes, float T_forecast, float n, float k_m);
 };
 
-#endif // SIMULATOR_H
+#endif

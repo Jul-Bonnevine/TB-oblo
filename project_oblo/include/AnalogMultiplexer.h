@@ -11,17 +11,18 @@ class AnalogMultiplexer {
 public:
 
     // Initalisation avec le SPI
-    explicit AnalogMultiplexer(SPIInterface& spi);
+    AnalogMultiplexer(SPIInterface& spi);
 
-    //Conversion °C -> valeur entre 0-31
+    //Conversion °C en valeur comprise entre 0-31
     uint8_t convertTemperatureToChannel(float temp);
 
     //Envoie de la trame SPI pour la sélection du canal
     bool selectChannel(uint8_t channel);
 
 private:
+    //Référence vers SPI_Interface
     SPIInterface& spi;
 
 };
 
-#endif // ANALOGMULTIPLEXER_H
+#endif
