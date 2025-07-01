@@ -4,23 +4,21 @@
 #include <unistd.h>
 #include <ctime>
 
-// Fonction pour lire et convertir la température avec raw
+// Fonction pour La séquence de configuratuon et la lecture de valeur
 float readAndConvertTemperature(MainController& controller, uint8_t channel) {
     controller.getAdc().setChannel(channel);
 
-    for (int i = 0; i < 5; ++i) {
-        if (!controller.getAdc().sendSetup()) {
-            std::cerr << "Erreur SETUP\n";
-        }
-        usleep(500000);
-    }
 
-    for (int i = 0; i < 5; ++i) {
-        if (!controller.getAdc().sendConfig()) {
-            std::cerr << "Erreur CONFIG\n";
-        }
-        usleep(500000);
+    if (!controller.getAdc().sendSetup()) {
+        std::cerr << "Erreur SETUP\n";
     }
+    usleep(500000);
+
+
+    if (!controller.getAdc().sendConfig()) {
+        std::cerr << "Erreur CONFIG\n";
+    }
+    usleep(500000);
 
     uint16_t raw_adc_value = 0;
     if (!controller.getAdc().readRaw(raw_adc_value)) {
@@ -44,15 +42,9 @@ int main() {
         std::cerr << "[API] Échec envoi température.\n";
     }
 
-    // 3. Récupérer l'heure NTP
-    std::time_t now = controller.getNtp().getCurrentTime();
-    if (now != -1) {
-        std::cout << "[NTP] Heure actuelle : " << std::ctime(&now);
-    } else {
-        std::cerr << "[NTP] Erreur récupération heure.\n";
-    }
+    std::cout << "\n";
 
-    // 4. Récupérer météo et paramètres
+    // 3. Récupérer météo et paramètres
     float T_prevu = 0, n = 0, k_m = 0;
     if (!controller.getApi().getForecast(T_prevu)) {
         std::cerr << "[API] Erreur récupération prévision météo.\n";
@@ -61,12 +53,20 @@ int main() {
         std::cerr << "[API] Erreur récupération paramètres.\n";
     }
 
-    // 5. Calcul température simulée
+    // 4. Calcul température simulée
     float T_sim = Simulator::computeSimulatedTemperature(T_mes, T_prevu, n, k_m);
     
-    // 6. Conversion en canal MUX et sélection
+    // 5. Conversion en canal MUX et sélection
     uint8_t canal = controller.getMultiplexer().convertTemperatureToChannel(T_sim);
     controller.getMultiplexer().selectChannel(canal);
+
+    // 6. Récupérer l'heure NTP
+    std::time_t now = controller.getNtp().getCurrentTime();
+    if (now != -1) {
+        std::cout << "[NTP] Heure actuelle : " << std::ctime(&now);
+    } else {
+        std::cerr << "[NTP] Erreur récupération heure.\n";
+    }
 
     usleep(500000);
     
