@@ -21,6 +21,7 @@ using json = nlohmann::json;
  * 
  * The prototype for this callback function is described here:
  * https://curl.se/libcurl/c/CURLOPT_WRITEFUNCTION.html
+ * @note This description is taken from the link above
  */
 static size_t WriteCallback(
     char* receivedData,
@@ -38,8 +39,13 @@ ObloAPI::ObloAPI(const std::string& mac) : mac_address(mac)
 
 }
 
+
+/*
+* Post the measured temperature to the API.
+*/
 bool ObloAPI::sendTemperature(float temp)
 {
+    //Set 2 decimal places for the temperature
     std::ostringstream oss;
     oss << std::fixed << std::setprecision(2) << temp;
     std::string tempStr = oss.str();
@@ -54,11 +60,17 @@ bool ObloAPI::sendTemperature(float temp)
     CURLcode result;
     std::string responseBuffer;
 
+    // Set the target URL for the POST request
     curl_easy_setopt(curlHandle, CURLOPT_URL, requestUrl.c_str());
+
+    // Specify the POST body (empty in this case, data is sent via URL parameters)
     curl_easy_setopt(curlHandle, CURLOPT_POSTFIELDS, "");
+
+    // Set the callback function to handle the server's response
     curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, WriteCallback);
+
+    // Provide a pointer to the response buffer where data will be stored
     curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, &responseBuffer);
-    curl_easy_setopt(curlHandle, CURLOPT_POST, 1L);
 
     result = curl_easy_perform(curlHandle);
     if (result != CURLE_OK) {
@@ -74,6 +86,7 @@ bool ObloAPI::sendTemperature(float temp)
     return true;
 }
 
+// Get the forecast temperature from the API.
 bool ObloAPI::getForecast(float& forecast) {
     std::string requestUrl =
         "https://dev.oblosolutions.ch/tb25hesso_forecast?mac_address=" + mac_address;
@@ -98,6 +111,7 @@ bool ObloAPI::getForecast(float& forecast) {
     }
 }
 
+// Get the parameters for calculating the simulated temperature.
 bool ObloAPI::getParameters(float& n, float& k_m) {
     std::string requestUrl =
         "https://dev.oblosolutions.ch/tb25hesso_param?mac_address=" + mac_address;
@@ -124,18 +138,24 @@ bool ObloAPI::getParameters(float& n, float& k_m) {
     }
 }
 
+// Perform a GET request to the specified URL and store the response in the provided buffer.
 bool ObloAPI::performGet(const std::string& requestUrl, std::string& responseBuffer) {
     CURL* curlHandle = curl_easy_init();
     if (!curlHandle) return false;
 
     CURLcode result;
 
+    // Set the target URL for the GET request
     curl_easy_setopt(curlHandle, CURLOPT_URL, requestUrl.c_str());
+
+    // Set the callback function to handle the server's response
     curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, WriteCallback);
+
+    // Provide a pointer to the response buffer where data will be stored
     curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, &responseBuffer);
+
+    // Explicitly set GET mode (optional if no POST/PUT is set)
     curl_easy_setopt(curlHandle, CURLOPT_HTTPGET, 1L);
-    curl_easy_setopt(curlHandle, CURLOPT_SSL_VERIFYPEER, 0L);
-    curl_easy_setopt(curlHandle, CURLOPT_SSL_VERIFYHOST, 0L);
 
     result = curl_easy_perform(curlHandle);
     if (result != CURLE_OK) {

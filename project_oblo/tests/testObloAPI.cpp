@@ -2,39 +2,39 @@
 #include <iostream>
 
 int main() {
-    // MAC fictive ou réelle à ajuster
+    // Dummy or real MAC to be adjusted
     std::string mac = "0030DEABCDEF";
     ObloAPI api(mac);
 
-    // === Test 1 : envoi de température mesurée ===
+    // === Test 1: measured temperature sent ===
     float temp_test = 10.5f;
-    std::cout << "[API] Envoi de T = " << temp_test << " °C...\n";
+    std::cout << "[API] Sending T = " << temp_test << " °C...\n";
     if (api.sendTemperature(temp_test)) {
-        std::cout << "[API] Température envoyée avec succès.\n";
+        std::cout << "[API] Temperature sent successfully.\n";
     } else {
-        std::cerr << "[API] Échec de l'envoi de température.\n";
+        std::cerr << "[API] Error sending temperature.\n";
     }
 
     std::cout << "------------------------------------\n";
 
-    // === Test 2 : récupération de la température prévue ===
+    // === Test 2: retrieve forecast temperature ===
     float T_prevu = 0.0f;
-    std::cout << "[API] Récupération de la température prévue...\n";
+    std::cout << "[API] Retrieving forecast temperature...\n";
     if (api.getForecast(T_prevu)) {
-        std::cout << "[API] Température prévue = " << T_prevu << " °C\n";
+        std::cout << "[API] Forecast temperature = " << T_prevu << " °C\n";
     } else {
-        std::cerr << "[API] Erreur lors de la récupération météo.\n";
+        std::cerr << "[API] Error retrieving forecast temperature.\n";
     }
 
     std::cout << "------------------------------------\n";
 
-    // === Test 3 : récupération des paramètres n et k_m ===
+    // === Test 3: retrieve parameters n and k_m ===
     float n = 0.0f, k_m = 0.0f;
-    std::cout << "[API] Récupération des paramètres n et k_m...\n";
+    std::cout << "[API] Retrieving parameters n and k_m...\n";
     if (api.getParameters(n, k_m)) {
-        std::cout << "[API] Paramètres reçus : n = " << n << ", k_m = " << k_m << "\n";
+        std::cout << "[API] Parameters received: n = " << n << ", k_m = " << k_m << "\n";
     } else {
-        std::cerr << "[API] Erreur de récupération des paramètres.\n";
+        std::cerr << "[API] Error retrieving parameters.\n";
     }
 
     return 0;
