@@ -7,23 +7,36 @@
 #include <unistd.h>
 #include <cmath>
 
+/**
+ * @class AnalogMultiplexer
+ * @brief Converts the temperature into a channel for the analogue multiplexer.
+ *        Manages channel selection via SPI.
+ */
 class AnalogMultiplexer {
 public:
 
-    /*Initialise with the interface
-        - spi: manage the ADC's SPI communication
-    */
+    /**
+     * @brief Constructor.
+     * @param spi Reference to the SPI interface used to control the multiplexer.
+     */
     AnalogMultiplexer(SPIInterface& spi);
 
-    //Converts °C to a value between 0-31
+    /**
+     * @brief Converts a temperature (°C) into a 5-bit channel index (0-31).
+     * @param temp Temperature in degrees Celsius.
+     * @return Corresponding channel index (0 to 31).
+     */
     uint8_t convertTemperatureToChannel(float temp);
 
-    //Sending the SPI frame for channel selection
+    /**
+     * @brief Sends the SPI frame to select the desired analog channel.
+     * @param channel Channel number to select (0 to 31).
+     * @return True if the SPI transmission was successful.
+     */
     bool selectChannel(uint8_t channel);
 
 private:
-    //Reference to SPI_Interface
-    SPIInterface& spi;
+    SPIInterface& spi; ///< Reference to the SPI interface used for communication.
 
 };
 

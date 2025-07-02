@@ -8,41 +8,56 @@
 #include <iostream>
 #include <cmath>
 
+/**
+ * @class ADC
+ * @brief Configures the ADC and retrieves its values. Manages the conversion of raw values to temperature.
+ */
 class ADC 
 {
 public:
-
-    /*Initialise with interface and probe parameters
-        - spi: manage the ADC's SPI communication
-        - congif: configure the measured temperature sensor
-    */
+    /**
+     * @brief Constructor.
+     * @param spi Reference to the SPI interface used to communicate with the ADC.
+     * @param config Configuration parameters for the connected temperature probe.
+     */
     ADC(SPIInterface& spi, const TemperatureSensorConfig& config);
     
-    //Setup frame sent to ADC
+    /**
+     * @brief Sends the setup frame to the ADC.
+     * @return True if the SPI transmission was successful.
+     */
     bool sendSetup();
 
-    //Configuration frame
+    /**
+     * @brief Sends the configuration frame to the ADC.
+     * @return True if the SPI transmission was successful.
+     */
     bool sendConfig();
 
-    //Definition of the channel to be read
+    /**
+     * @brief Selects the input channel to be read.
+     * @param ch Channel number initialized to 0.
+     */
     void setChannel(uint8_t ch);
 
-    //reading the ADC output value
+    /**
+     * @brief Reads the raw digital output from the ADC.
+     * @param value Reference to store the ADC raw value (12 bits).
+     * @return True if the read was successful.
+     */
     bool readRaw(uint16_t& value);
 
-    //conversion of ADC value to °C
+    /**
+     * @brief Converts a raw ADC value to temperature in °C.
+     * @param adc_val Raw ADC value.
+     * @return Temperature measured in degrees Celsius.
+     */
     float readTemperature(uint16_t adc_val);
 
 private:
-
-    //Reference to SPI_Interface
-    SPIInterface& spi;
-
-    //Channel initialisation
-    uint8_t channel = 0;
-
-    //Actual probe parameters
-    TemperatureSensorConfig config;
+    SPIInterface& spi;               ///< Reference to SPI interface.
+    uint8_t channel = 0;            ///< Currently selected input channel.
+    TemperatureSensorConfig config; ///< Parameters of the connected temperature probe.
 };
 
 #endif

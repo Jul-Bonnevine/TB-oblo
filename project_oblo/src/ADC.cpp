@@ -1,3 +1,7 @@
+/**
+ * @file ADC.cpp
+ * @brief Implements the ADC class for temperature acquisition via SPI and conversion in °C.
+ */
 #include "ADC.h"
 
 ADC::ADC(SPIInterface& spi, const TemperatureSensorConfig& config)

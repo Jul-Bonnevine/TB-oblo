@@ -10,17 +10,27 @@
 #include <netdb.h>
 #include <iostream>
 
+/**
+ * @class NTPClient
+ * @brief Retrieves the current time from an NTP server using UDP.
+ */
 class NTPClient {
 public:
 
-    //Initialising the server with time.google.com
+    /**
+     * @brief Constructor.
+     * @param server NTP server address (default: time.google.com).
+     */
     NTPClient(const std::string& server = "time.google.com");
 
-    //Retrieve the time from the NTP server
+    /**
+     * @brief Retrieves the current time from the NTP server.
+     * @return Current time as a std::time_t value.
+     */
     std::time_t getCurrentTime();
 
 private:
-    std::string ntpServer;
+    std::string ntpServer; ///< NTP server address.
 };
 
 #endif

@@ -33,12 +33,14 @@ float readAndConvertTemperature(MainController& controller, uint8_t channel) {
 
 int main() {
     MainController controller;
-    int loop_test = 0;
+    int loop_test = 1;
+    int channel_tested = 0;
     while(1)
     {
         std::cout << "============= [TestMainController] test number : " << loop_test << " =============\n";
+        std::cout << "==========Testing channel " << channel_tested << "==========\n";
         // 1. read and process ADC values
-        float T_mes = readAndConvertTemperature(controller, 0);
+        float T_mes = readAndConvertTemperature(controller, channel_tested);
 
         // 2. send measured temperature to API
         if (!controller.getApi().sendTemperature(T_mes)) {
@@ -73,6 +75,13 @@ int main() {
         std::cout << "============= [TestMainController] end of test number : " << loop_test << " =============\n";
         usleep(60000000);
         loop_test = loop_test + 1;
+
+        if (channel_tested > 3) 
+        {
+            channel_tested = 0;
+        } else {
+            channel_tested++;
+        }
     }
         return 0;
 }
