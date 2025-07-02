@@ -1,3 +1,7 @@
+/**
+ * @file NTPClient.cpp
+ * @brief Implements the NTPClient class for retrieving time from an NTP server via UDP.
+ */
 #include "NTPClient.h"
 
 #define NTP_TIMESTAMP_DELTA 2208988800ull   //seconds since 1 January 1900
@@ -9,7 +13,8 @@ NTPClient::NTPClient(const std::string& server)
 
  std::time_t NTPClient::getCurrentTime()
  {
-    /*Creation of the UDP socket
+    /*
+        Creation of the UDP socket
         - AF_INET : IPV4 socket
         - SOCK_DGRAM: UDP mode
         - IPPROTO_UDP: protocol used
@@ -21,13 +26,15 @@ NTPClient::NTPClient(const std::string& server)
         return -1;
     } 
 
-    /*2 second timeout on reception
+    /*  
+        2 second timeout on reception
         - avoids indefinite blockages
     */
     struct timeval timeout = {2, 0};
     setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout));
 
-    /*structure for getaddrinfo()
+    /*
+        structure for getaddrinfo()
         - AF_INET : filter for IPv4
         - SOCK_DGRAM : filter for UDP
         - IPPROTO : UDP protocol
@@ -95,7 +102,7 @@ NTPClient::NTPClient(const std::string& server)
     close(sock);
 
     /*
-       - The NTP timestamp sent by the
+        - The NTP timestamp sent by the
         server is in the 4 bytes at offset 40.
         - memcpy(): copies the 4 bytes of packet[40]
         into seconds. 
@@ -108,7 +115,7 @@ NTPClient::NTPClient(const std::string& server)
     */
     seconds = ntohl(seconds); 
 
-    /*Conversion NTP  Unix
+    /*  Conversion NTP  Unix
         - NTP counts from 01.01.1900
         - time_t (UNIX) counts from 01.01.1970
         It is therefore necessary to make this subtraction to have the correct year

@@ -1,3 +1,7 @@
+/**
+ * @file SPI_Interface.cpp
+ * @brief Implements the SPIInterface class to handle SPI communication on Linux using spidev.
+ */
 #include "SPI_Interface.h"
 
 SPIInterface::SPIInterface(const std::string& device, uint8_t mode, uint8_t bits, uint32_t speed)
@@ -12,12 +16,14 @@ SPIInterface::SPIInterface(const std::string& device, uint8_t mode, uint8_t bits
         return;
     }
 
-    /*SPI configuration
-        - SPI_IOC_WR_MODE: SPI mode
-        - SPI_IOC_WR_BITS_PER_WORD: number of bits per frame
-        - SPI_IOC_WR_MAX_SPEED_HZ: Maximum transmission speed
-    link: https://elixir.bootlin.com/linux/v6.15.4/source/include/uapi/linux/spi/spidev.h#L111
-    */
+    /*
+     * Configure SPI interface
+     * - SPI_IOC_WR_MODE: Sets the SPI mode
+     * - SPI_IOC_WR_BITS_PER_WORD: Sets the number of bits per word
+     * - SPI_IOC_WR_MAX_SPEED_HZ: Sets the max speed (Hz)
+     * 
+     * Ref: https://elixir.bootlin.com/linux/v6.15.4/source/include/uapi/linux/spi/spidev.h#L111
+     */
     ioctl(fd, SPI_IOC_WR_MODE, &mode);              
     ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits);     
     ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed);     
@@ -38,16 +44,17 @@ bool SPIInterface::transfer(const uint8_t* tx, uint8_t* rx, size_t len)
         return false;
     }
 
-    /*Structure to describe an SPI transfer
-        - tx_buff : point to the data to be transmitted (MOSI)
-        - rx_buff: points to the receive buffer (MISO)
-        - len: number of bytes to be transferred
-        - speed_hz: set to 0 because speed is used in the constructor
-        - delay_usecs: no delay between transfers
-        - bit_per_word: set to 0 because the value is used in the constructor
-        - cs_change: Chip select change flag (0 = keep CS active, 1 = deactivate after transfer)
-    link: https://docs.huihoo.com/doxygen/linux/kernel/3.7/structspi__ioc__transfer.html#ab32597ad72699fd3481059340fdae62c
-    */
+    /*
+     * Prepare SPI transfer struct:
+     * - tx_buf: Pointer to data sent on MOSI
+     * - rx_buf: Pointer to buffer for data received on MISO
+     * - len: Number of bytes transferred
+     * - speed_hz, bits_per_word: 0 = use defaults set earlier
+     * - delay_usecs: 0 = no delay
+     * - cs_change: 0 = keep chip select active after transfer
+     *
+     * Ref: https://docs.huihoo.com/doxygen/linux/kernel/3.7/structspi__ioc__transfer.html
+     */
     struct spi_ioc_transfer tr 
     {
         .tx_buf = (uint64_t)tx,

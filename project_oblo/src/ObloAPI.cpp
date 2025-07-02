@@ -1,3 +1,9 @@
+/**
+ * @file ObloAPI.cpp
+ * @brief Implements the ObloAPI class for communicating with the Oblo web service.
+ * 
+ * Based on: https://github.com/voidlib/cpp-curl-example/blob/main/2_http_get_post.cpp
+ */
 #include "ObloAPI.h"
 #include <curl/curl.h>
 #include <nlohmann/json.hpp>
@@ -6,9 +12,6 @@
 #include <iomanip>
 
 using json = nlohmann::json;
-/*
-    link : https://github.com/voidlib/cpp-curl-example/blob/main/2_http_get_post.cpp
-*/
 
 /**
  * Callback function for writing received data to a string.
@@ -39,13 +42,11 @@ ObloAPI::ObloAPI(const std::string& mac) : mac_address(mac)
 
 }
 
-
-/*
-* Post the measured temperature to the API.
-*/
 bool ObloAPI::sendTemperature(float temp)
 {
-    //Set 2 decimal places for the temperature
+    /*
+        Send the temperature data to the API.
+    */
     std::ostringstream oss;
     oss << std::fixed << std::setprecision(2) << temp;
     std::string tempStr = oss.str();
@@ -86,7 +87,6 @@ bool ObloAPI::sendTemperature(float temp)
     return true;
 }
 
-// Get the forecast temperature from the API.
 bool ObloAPI::getForecast(float& forecast) {
     std::string requestUrl =
         "https://dev.oblosolutions.ch/tb25hesso_forecast?mac_address=" + mac_address;
@@ -111,7 +111,6 @@ bool ObloAPI::getForecast(float& forecast) {
     }
 }
 
-// Get the parameters for calculating the simulated temperature.
 bool ObloAPI::getParameters(float& n, float& k_m) {
     std::string requestUrl =
         "https://dev.oblosolutions.ch/tb25hesso_param?mac_address=" + mac_address;
@@ -138,7 +137,6 @@ bool ObloAPI::getParameters(float& n, float& k_m) {
     }
 }
 
-// Perform a GET request to the specified URL and store the response in the provided buffer.
 bool ObloAPI::performGet(const std::string& requestUrl, std::string& responseBuffer) {
     CURL* curlHandle = curl_easy_init();
     if (!curlHandle) return false;

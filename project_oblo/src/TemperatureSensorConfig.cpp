@@ -1,3 +1,7 @@
+/**
+ * @file TemperatureSensorConfig.cpp
+ * @brief Implements the TemperatureSensorConfig class for storing thermistor parameters.
+ */
 #include "TemperatureSensorConfig.h"
 
 TemperatureSensorConfig::TemperatureSensorConfig()   

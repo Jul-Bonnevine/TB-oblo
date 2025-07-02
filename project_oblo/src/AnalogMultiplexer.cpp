@@ -1,3 +1,7 @@
+/**
+ * @file AnalogMultiplexer.cpp
+ * @brief Implements the AnalogMultiplexer class for temperature to channel conversion and channel selection via SPI.
+ */
 #include "AnalogMultiplexer.h"
 
 AnalogMultiplexer::AnalogMultiplexer(SPIInterface& spi) : spi(spi)
@@ -7,7 +11,9 @@ AnalogMultiplexer::AnalogMultiplexer(SPIInterface& spi) : spi(spi)
 
 uint8_t AnalogMultiplexer::convertTemperatureToChannel(float temp)
 {
-    //Limit the range from -15°C to 30.5°C
+    /*
+        Limit the range from -15°C to 30.5°C
+    */
     if (temp < -15.0f) temp = -15.0f;
     if (temp > 31.5f) temp = 31.5f;
 
@@ -28,8 +34,9 @@ bool AnalogMultiplexer::selectChannel(uint8_t channel)
   
   uint8_t command[1] = { uint8_t(channel & 0x1F) };
   uint8_t rx[1] = {0x00};
-
-  // Sending a single SPI frame (1 byte)
+  /*
+      Sending a single SPI frame (1 byte)
+  */
   bool success = spi.transfer(command, rx, 1);
   if (!success) 
   {
