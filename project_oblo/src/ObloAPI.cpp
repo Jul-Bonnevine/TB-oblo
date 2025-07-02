@@ -1,95 +1,152 @@
 #include "ObloAPI.h"
-using json = nlohmann::json;
+#include <curl/curl.h>
+#include <nlohmann/json.hpp>
+#include <iostream>
+#include <sstream>
+#include <iomanip>
 
-// Fonction callback pour CURL, qui écrit la réponse dans une string
-static size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* output) {
-    output->append((char*)contents, size * nmemb);
-    return size * nmemb;
+using json = nlohmann::json;
+/*
+    link : https://github.com/voidlib/cpp-curl-example/blob/main/2_http_get_post.cpp
+*/
+
+/**
+ * Callback function for writing received data to a string.
+ * @param receivedData Buffer containing received data.
+ * @param dataSize Size of each data block received.
+ * @param dataBlocks Number of data blocks received.
+ * @param outputBuffer Pointer to a string where the received data will be stored.
+ * @return The total number of bytes taken care of. If this number differs from 
+ * the number of bytes provided, it'll signal an error to the library.
+ * 
+ * The prototype for this callback function is described here:
+ * https://curl.se/libcurl/c/CURLOPT_WRITEFUNCTION.html
+ */
+static size_t WriteCallback(
+    char* receivedData,
+    size_t dataSize,
+    size_t dataBlocks,
+    void* outputBuffer
+) {
+    std::string* strBuffer = static_cast<std::string*>(outputBuffer);
+    strBuffer->append(receivedData, dataSize * dataBlocks);
+    return dataSize * dataBlocks;
 }
 
-ObloAPI::ObloAPI(const std::string& mac)
+ObloAPI::ObloAPI(const std::string& mac) : mac_address(mac)
 {
-    mac_address = mac;
+
 }
 
 bool ObloAPI::sendTemperature(float temp)
 {
-    std::string url = "https://dev.oblosolutions.ch/tb25hesso_param?mac_address=" + mac_address +
-                      "&measured_temp=" + std::to_string(temp);
+    std::ostringstream oss;
+    oss << std::fixed << std::setprecision(2) << temp;
+    std::string tempStr = oss.str();
 
-    std::cout << "Envoi vers : " << url << std::endl;
+    std::string requestUrl =
+        "https://dev.oblosolutions.ch/tb25hesso_param?mac_address=" + mac_address +
+        "&measured_temp=" + tempStr;
 
-    CURL* curl = curl_easy_init();
-    if (!curl) return false;
+    CURL* curlHandle = curl_easy_init();
+    if (!curlHandle) return false;
 
-    curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-    curl_easy_setopt(curl, CURLOPT_POST, 1L);
-    curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "");
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
-    //curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);      //Ligne pour voir les logs en cas d'erreurs
+    CURLcode result;
+    std::string responseBuffer;
 
-    CURLcode res = curl_easy_perform(curl);
-    curl_easy_cleanup(curl);
+    curl_easy_setopt(curlHandle, CURLOPT_URL, requestUrl.c_str());
+    curl_easy_setopt(curlHandle, CURLOPT_POSTFIELDS, "");
+    curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, WriteCallback);
+    curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, &responseBuffer);
+    curl_easy_setopt(curlHandle, CURLOPT_POST, 1L);
 
-    return res == CURLE_OK;
+    result = curl_easy_perform(curlHandle);
+    if (result != CURLE_OK) {
+        std::cerr << "POST failed: " << curl_easy_strerror(result) << std::endl;
+        curl_easy_cleanup(curlHandle);
+        return false;
+    }
+
+    std::cout << "POST request URL: " << requestUrl << std::endl;
+    std::cout << "Server response: " << responseBuffer << std::endl;
+
+    curl_easy_cleanup(curlHandle);
+    return true;
 }
 
-bool ObloAPI::getForecast(float& forecast)
-{
-    std::string url = "https://dev.oblosolutions.ch/tb25hesso_forecast?mac_address=" + mac_address;
-    std::string response;
+bool ObloAPI::getForecast(float& forecast) {
+    std::string requestUrl =
+        "https://dev.oblosolutions.ch/tb25hesso_forecast?mac_address=" + mac_address;
+    std::string responseBuffer;
 
-    CURL* curl = curl_easy_init();
-    if (!curl) return false;
-
-    curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
-
-    CURLcode res = curl_easy_perform(curl);
-    curl_easy_cleanup(curl);
-
-    if (res != CURLE_OK) return false;
+    if (!performGet(requestUrl, responseBuffer)) return false;
 
     try {
-        json data = json::parse(response);
-        forecast = data["forecast"][0]["temperature"];
-        return true;
-    } catch (json::exception& e) {
-        std::cerr << "Error JSON (forecast) : " << e.what() << std::endl;
+        json data = json::parse(responseBuffer);
+        if (data.contains("forecast") &&
+            !data["forecast"].empty() &&
+            data["forecast"][0].contains("temperature")) {
+            forecast = data["forecast"][0]["temperature"];
+            return true;
+        }
+
+        std::cerr << "Forecast JSON invalid." << std::endl;
+        return false;
+    } catch (const json::exception& e) {
+        std::cerr << "JSON error: " << e.what() << std::endl;
         return false;
     }
 }
 
-bool ObloAPI::getParameters(float& n, float& k_m)
-{
-    std::string url = "https://dev.oblosolutions.ch/tb25hesso_param?mac_address=" + mac_address;
-    std::string response;
+bool ObloAPI::getParameters(float& n, float& k_m) {
+    std::string requestUrl =
+        "https://dev.oblosolutions.ch/tb25hesso_param?mac_address=" + mac_address;
+    std::string responseBuffer;
 
-    CURL* curl = curl_easy_init();
-    if (!curl) return false;
-
-    curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
-    curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
-
-    CURLcode res = curl_easy_perform(curl);
-    curl_easy_cleanup(curl);
-
-    if (res != CURLE_OK) return false;
+    if (!performGet(requestUrl, responseBuffer)) return false;
 
     try {
-        json data = json::parse(response);
-        n = data["param"][0]["n"];
-        k_m = data["param"][0]["k_m"];
-        return true;
-    } catch (json::exception& e) {
-        std::cerr << "Error JSON (parameters) : " << e.what() << std::endl;
+        json data = json::parse(responseBuffer);
+        if (data.contains("param") && !data["param"].empty()) {
+            const auto& param = data["param"][0];
+            if (param.contains("n") && param.contains("k_m")) {
+                n = param["n"];
+                k_m = param["k_m"];
+                return true;
+            }
+        }
+
+        std::cerr << "Parameter JSON invalid." << std::endl;
+        return false;
+    } catch (const json::exception& e) {
+        std::cerr << "JSON error: " << e.what() << std::endl;
         return false;
     }
+}
+
+bool ObloAPI::performGet(const std::string& requestUrl, std::string& responseBuffer) {
+    CURL* curlHandle = curl_easy_init();
+    if (!curlHandle) return false;
+
+    CURLcode result;
+
+    curl_easy_setopt(curlHandle, CURLOPT_URL, requestUrl.c_str());
+    curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, WriteCallback);
+    curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, &responseBuffer);
+    curl_easy_setopt(curlHandle, CURLOPT_HTTPGET, 1L);
+    curl_easy_setopt(curlHandle, CURLOPT_SSL_VERIFYPEER, 0L);
+    curl_easy_setopt(curlHandle, CURLOPT_SSL_VERIFYHOST, 0L);
+
+    result = curl_easy_perform(curlHandle);
+    if (result != CURLE_OK) {
+        std::cerr << "GET failed: " << curl_easy_strerror(result) << std::endl;
+        curl_easy_cleanup(curlHandle);
+        return false;
+    }
+
+    std::cout << "GET request URL: " << requestUrl << std::endl;
+    std::cout << "Server response: " << responseBuffer << std::endl;
+
+    curl_easy_cleanup(curlHandle);
+    return true;
 }

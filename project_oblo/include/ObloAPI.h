@@ -10,7 +10,7 @@ class ObloAPI {
 public:
 
     //Initialisation with the given mac address
-    explicit ObloAPI(const std::string& mac);
+    ObloAPI(const std::string& mac);
 
     //Post the measured temperature to the api
     bool sendTemperature(float temp);
@@ -25,6 +25,8 @@ private:
 
     //Mac address
     std::string mac_address;
+
+    bool performGet(const std::string& url, std::string& response);
 };
 
 #endif
