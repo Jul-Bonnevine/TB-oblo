@@ -59,7 +59,7 @@ bool ObloAPI::getForecast(float& forecast)
         forecast = data["forecast"][0]["temperature"];
         return true;
     } catch (json::exception& e) {
-        std::cerr << "Erreur JSON (forecast) : " << e.what() << std::endl;
+        std::cerr << "Error JSON (forecast) : " << e.what() << std::endl;
         return false;
     }
 }
@@ -89,7 +89,7 @@ bool ObloAPI::getParameters(float& n, float& k_m)
         k_m = data["param"][0]["k_m"];
         return true;
     } catch (json::exception& e) {
-        std::cerr << "Erreur JSON (paramètres) : " << e.what() << std::endl;
+        std::cerr << "Error JSON (parameters) : " << e.what() << std::endl;
         return false;
     }
 }

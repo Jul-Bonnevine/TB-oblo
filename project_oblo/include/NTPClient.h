@@ -13,10 +13,10 @@
 class NTPClient {
 public:
 
-    //Initialisation avec time.google.com 
-    explicit NTPClient(const std::string& server = "time.google.com");
+    //Initialising the server with time.google.com
+    NTPClient(const std::string& server = "time.google.com");
 
-    //Récupérer l'heure sur le serveur NTP
+    //Retrieve the time from the NTP server
     std::time_t getCurrentTime();
 
 private:

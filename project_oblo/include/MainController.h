@@ -14,10 +14,10 @@
 class MainController {
 public:
 
-    //Constructeur
+    //Initialising objects
     MainController();
 
-    //Getter des objets pour un accès hors classe
+    //Getter objects for out-of-class access
     ADC& getAdc() { return adc; }
     AnalogMultiplexer& getMultiplexer() { return mux; }
     ObloAPI& getApi() { return api; }
@@ -25,7 +25,7 @@ public:
 
 private:
 
-    //Déclaration des objets
+    //Declaration of objects
     SPIInterface adcSpi;
     SPIInterface muxSpi;
     ADC adc;

@@ -1,8 +1,9 @@
 #include "MainController.h"
 
-// Ce main est prévu pour le déploiement réel, pas pour les tests.
-// Les tests sont dans le repo /tests/
-
+/*
+    This main is for actual deployment, not testing.
+    Tests are in the /tests/ repo.
+*/
 int main() 
 {
     return 0;

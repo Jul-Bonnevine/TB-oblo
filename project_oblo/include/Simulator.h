@@ -4,7 +4,7 @@
 class Simulator {
 public:
 
-    //Calcul de la température simulée
+    //Calculation of simulated temperature
     static float computeSimulatedTemperature(float T_mes, float T_forecast, float n, float k_m);
 };
 

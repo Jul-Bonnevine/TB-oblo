@@ -4,72 +4,75 @@
 #include <unistd.h>
 #include <ctime>
 
-// Fonction pour La séquence de configuratuon et la lecture de valeur
+// Function for configuration sequence and value reading
 float readAndConvertTemperature(MainController& controller, uint8_t channel) {
     controller.getAdc().setChannel(channel);
 
 
     if (!controller.getAdc().sendSetup()) {
-        std::cerr << "Erreur SETUP\n";
+        std::cerr << "Error SETUP\n";
     }
     usleep(500000);
 
 
     if (!controller.getAdc().sendConfig()) {
-        std::cerr << "Erreur CONFIG\n";
+        std::cerr << "Error CONFIG\n";
     }
     usleep(500000);
 
     uint16_t raw_adc_value = 0;
     if (!controller.getAdc().readRaw(raw_adc_value)) {
-        std::cerr << "[ADC] Erreur lecture ADC\n";
+        std::cerr << "[ADC] ADC reading error\n";
         return NAN;
     }
 
     float tempC = controller.getAdc().readTemperature(raw_adc_value);
-    std::cout << "[ADC] Température mesurée : " << tempC << " °C\n";
+    std::cout << "[ADC] Measured temperature : " << tempC << " °C\n";
     return tempC;
 }
 
 int main() {
     MainController controller;
+    int loop_test = 0;
+    while(1)
+    {
+        std::cout << "============= [TestMainController] test number : " << loop_test << " =============\n";
+        // 1. read and process ADC values
+        float T_mes = readAndConvertTemperature(controller, 0);
 
-    // 1. Lire et traiter les valeurs de l’ADC
-    float T_mes = readAndConvertTemperature(controller, 0);
+        // 2. send measured temperature to API
+        if (!controller.getApi().sendTemperature(T_mes)) {
+            std::cerr << "[API] Failed to send temperature.\n";
+        }
+        std::cout << "\n";
 
-    // 2. Envoi de la température mesurée à l'API
-    if (!controller.getApi().sendTemperature(T_mes)) {
-        std::cerr << "[API] Échec envoi température.\n";
+        // 3. retrieve weather and settings
+        float T_prevu = 0, n = 0, k_m = 0;
+        if (!controller.getApi().getForecast(T_prevu)) {
+            std::cerr << "[API] Weather forecast recovery error.\n";
+        }
+        if (!controller.getApi().getParameters(n, k_m)) {
+            std::cerr << "[API] Parameter recovery error.\n";
+        }
+
+        // 4. Simulated temperature calculation
+        float T_sim = Simulator::computeSimulatedTemperature(T_mes, T_prevu, n, k_m);
+        std::cout << "[SIM] Simulated temperature:" << T_sim << " °C\n";
+        
+        // 5. MUX channel conversion and selection
+        uint8_t canal = controller.getMultiplexer().convertTemperatureToChannel(T_sim);
+        controller.getMultiplexer().selectChannel(canal);
+
+        // 6. Recover NTP time
+        std::time_t now = controller.getNtp().getCurrentTime();
+        if (now != -1) {
+            std::cout << "[NTP] Current time : " << std::ctime(&now);
+        } else {
+            std::cerr << "[NTP] Time recovery error.\n";
+        }
+        std::cout << "============= [TestMainController] end of test number : " << loop_test << " =============\n";
+        usleep(60000000);
+        loop_test = loop_test + 1;
     }
-
-    std::cout << "\n";
-
-    // 3. Récupérer météo et paramètres
-    float T_prevu = 0, n = 0, k_m = 0;
-    if (!controller.getApi().getForecast(T_prevu)) {
-        std::cerr << "[API] Erreur récupération prévision météo.\n";
-    }
-    if (!controller.getApi().getParameters(n, k_m)) {
-        std::cerr << "[API] Erreur récupération paramètres.\n";
-    }
-
-    // 4. Calcul température simulée
-    float T_sim = Simulator::computeSimulatedTemperature(T_mes, T_prevu, n, k_m);
-    
-    // 5. Conversion en canal MUX et sélection
-    uint8_t canal = controller.getMultiplexer().convertTemperatureToChannel(T_sim);
-    controller.getMultiplexer().selectChannel(canal);
-
-    // 6. Récupérer l'heure NTP
-    std::time_t now = controller.getNtp().getCurrentTime();
-    if (now != -1) {
-        std::cout << "[NTP] Heure actuelle : " << std::ctime(&now);
-    } else {
-        std::cerr << "[NTP] Erreur récupération heure.\n";
-    }
-
-    usleep(500000);
-    
-
-    return 0;
+        return 0;
 }

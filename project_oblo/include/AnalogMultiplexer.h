@@ -10,19 +10,19 @@
 class AnalogMultiplexer {
 public:
 
-    /*Initialiser avec l'interface
-        - spi : gérer la communication SPI de l'ADC
+    /*Initialise with the interface
+        - spi: manage the ADC's SPI communication
     */
     AnalogMultiplexer(SPIInterface& spi);
 
-    //Conversion °C en valeur comprise entre 0-31
+    //Converts °C to a value between 0-31
     uint8_t convertTemperatureToChannel(float temp);
 
-    //Envoie de la trame SPI pour la sélection du canal
+    //Sending the SPI frame for channel selection
     bool selectChannel(uint8_t channel);
 
 private:
-    //Référence vers SPI_Interface
+    //Reference to SPI_Interface
     SPIInterface& spi;
 
 };
