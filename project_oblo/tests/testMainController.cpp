@@ -8,23 +8,27 @@
 float readAndConvertTemperature(MainController& controller, uint8_t channel) {
     controller.getAdc().setChannel(channel);
 
-
+    // Send the setup and configuration frames to the ADC
     if (!controller.getAdc().sendSetup()) {
         std::cerr << "Error SETUP\n";
     }
     usleep(500000);
 
+    // Send the configuration frame to the ADC
     if (!controller.getAdc().sendConfig()) {
         std::cerr << "Error CONFIG\n";
     }
     usleep(500000);
 
     uint16_t raw_adc_value = 0;
+
+    // Read the raw ADC value
     if (!controller.getAdc().readRaw(raw_adc_value)) {
         std::cerr << "[ADC] ADC reading error\n";
         return NAN;
     }
 
+    //Get the temperature in Celsius from the raw ADC value
     float tempC = controller.getAdc().readTemperature(raw_adc_value);
     std::cout << "[ADC] Measured temperature : " << tempC << " °C\n";
     return tempC;
