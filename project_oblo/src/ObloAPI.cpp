@@ -100,6 +100,8 @@ bool ObloAPI::getForecast(float& forecast)
     // Construct the request URL with the MAC address
     std::string requestUrl =
         "https://dev.oblosolutions.ch/tb25hesso_forecast?mac_address=" + mac_address;
+
+    // Prepare a buffer to store the response
     std::string responseBuffer;
 
     // Perform the GET request to retrieve the forecast
@@ -123,8 +125,8 @@ bool ObloAPI::getForecast(float& forecast)
             return true;
             //}
 
-        std::cerr << "Forecast JSON invalid." << std::endl;
-        return false;
+        /*std::cerr << "Forecast JSON invalid." << std::endl;
+        return false;*/
     } 
     // Handle JSON parsing errors
     catch (const json::exception& e) 
@@ -134,27 +136,48 @@ bool ObloAPI::getForecast(float& forecast)
     }
 }
 
-bool ObloAPI::getParameters(float& n, float& k_m) {
+bool ObloAPI::getParameters(float& n, float& k_m)
+{
+    // Construct the request URL with the MAC address
     std::string requestUrl =
         "https://dev.oblosolutions.ch/tb25hesso_param?mac_address=" + mac_address;
+    
+    // Prepare a buffer to store the response
     std::string responseBuffer;
 
-    if (!performGet(requestUrl, responseBuffer)) return false;
+    // Perform the GET request to retrieve the parameters
+    performGet(requestUrl, responseBuffer);
 
-    try {
+    try 
+    {
+        // Parse the JSON response
         json data = json::parse(responseBuffer);
-        if (data.contains("param") && !data["param"].empty()) {
+
+        /** Check if the JSON contains the "param" key and if it has a valid structure.
+         * The parameters "n" and "k_m" are expected to be in the first element of the "param" array.
+         * If the structure is valid, extract the parameter values.
+         */
+         
+        /*if (data.contains("param") && !data["param"].empty()) 
+        {*/
             const auto& param = data["param"][0];
-            if (param.contains("n") && param.contains("k_m")) {
+
+            /** Check if the parameter structure is valid. 
+             * The parameters "n" and "k_m" are expected to be present.
+             */
+            /*if (param.contains("n") && param.contains("k_m")) 
+            {*/
                 n = param["n"];
                 k_m = param["k_m"];
                 return true;
-            }
-        }
+            //}
+        //}
 
-        std::cerr << "Parameter JSON invalid." << std::endl;
-        return false;
-    } catch (const json::exception& e) {
+        /*std::cerr << "Parameter JSON invalid." << std::endl;
+        return false;*/
+    } 
+    catch (const json::exception& e) 
+    {
         std::cerr << "JSON error: " << e.what() << std::endl;
         return false;
     }
