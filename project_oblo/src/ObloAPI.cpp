@@ -24,7 +24,7 @@ using json = nlohmann::json;
  * 
  * The prototype for this callback function is described here:
  * https://curl.se/libcurl/c/CURLOPT_WRITEFUNCTION.html
- * @note This description is taken from the link above
+ * @note This function is taken from the example in the link above.
  */
 static size_t WriteCallback(
     char* receivedData,
@@ -44,9 +44,11 @@ ObloAPI::ObloAPI(const std::string& mac) : mac_address(mac)
 
 bool ObloAPI::sendTemperature(float temp)
 {
-    /*
-        Send the temperature data to the API.
-    */
+    /**
+     * Send the temperature data to the API.
+     * The temperature is formatted to two decimal places
+     * using std::ostringstream and std::setprecision.
+     */
     std::ostringstream oss;
     oss << std::fixed << std::setprecision(2) << temp;
     std::string tempStr = oss.str();
@@ -56,56 +58,77 @@ bool ObloAPI::sendTemperature(float temp)
         "&measured_temp=" + tempStr;
 
     CURL* curlHandle = curl_easy_init();
-    if (!curlHandle) return false;
+    if (curlHandle)
+    {
+        CURLcode result;
+        std::string responseBuffer;
 
-    CURLcode result;
-    std::string responseBuffer;
+        // Set the target URL for the POST request
+        curl_easy_setopt(curlHandle, CURLOPT_URL, requestUrl.c_str());
 
-    // Set the target URL for the POST request
-    curl_easy_setopt(curlHandle, CURLOPT_URL, requestUrl.c_str());
+        // Specify the POST body (empty in this case, data is sent via URL parameters)
+        curl_easy_setopt(curlHandle, CURLOPT_POSTFIELDS, "");
 
-    // Specify the POST body (empty in this case, data is sent via URL parameters)
-    curl_easy_setopt(curlHandle, CURLOPT_POSTFIELDS, "");
+        // Set the callback function to handle the server's response
+        curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, WriteCallback);
 
-    // Set the callback function to handle the server's response
-    curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, WriteCallback);
+        // Provide a pointer to the response buffer where data will be stored
+        curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, &responseBuffer);
 
-    // Provide a pointer to the response buffer where data will be stored
-    curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, &responseBuffer);
+        result = curl_easy_perform(curlHandle);
+        if (result != CURLE_OK) 
+        {
+            std::cerr << "POST failed: " << curl_easy_strerror(result) << std::endl;
+            return false;
+        }
 
-    result = curl_easy_perform(curlHandle);
-    if (result != CURLE_OK) {
-        std::cerr << "POST failed: " << curl_easy_strerror(result) << std::endl;
+        std::cout << "POST request URL: " << requestUrl << std::endl;
+        std::cout << "Server response: " << responseBuffer << std::endl;
+
         curl_easy_cleanup(curlHandle);
+        return true;
+    }
+    else
+    {
+        std::cerr << "Failed to initialize CURL." << std::endl;
         return false;
     }
-
-    std::cout << "POST request URL: " << requestUrl << std::endl;
-    std::cout << "Server response: " << responseBuffer << std::endl;
-
-    curl_easy_cleanup(curlHandle);
-    return true;
 }
 
-bool ObloAPI::getForecast(float& forecast) {
+bool ObloAPI::getForecast(float& forecast)
+{
+    // Construct the request URL with the MAC address
     std::string requestUrl =
         "https://dev.oblosolutions.ch/tb25hesso_forecast?mac_address=" + mac_address;
     std::string responseBuffer;
 
-    if (!performGet(requestUrl, responseBuffer)) return false;
+    // Perform the GET request to retrieve the forecast
+    performGet(requestUrl, responseBuffer);
 
-    try {
+    try 
+    {
+
+        // Parse the JSON response
         json data = json::parse(responseBuffer);
-        if (data.contains("forecast") &&
+        /**
+        * Check if the JSON contains the "forecast" key and if it has a valid structure.
+        * The forecast temperature is expected to be in the first element of the "forecast" array.
+        * If the structure is valid, extract the temperature value.
+        */
+        /*if (data.contains("forecast") &&
             !data["forecast"].empty() &&
-            data["forecast"][0].contains("temperature")) {
+            data["forecast"][0].contains("temperature")) 
+            {*/
             forecast = data["forecast"][0]["temperature"];
             return true;
-        }
+            //}
 
         std::cerr << "Forecast JSON invalid." << std::endl;
         return false;
-    } catch (const json::exception& e) {
+    } 
+    // Handle JSON parsing errors
+    catch (const json::exception& e) 
+    {
         std::cerr << "JSON error: " << e.what() << std::endl;
         return false;
     }
@@ -139,32 +162,40 @@ bool ObloAPI::getParameters(float& n, float& k_m) {
 
 bool ObloAPI::performGet(const std::string& requestUrl, std::string& responseBuffer) {
     CURL* curlHandle = curl_easy_init();
-    if (!curlHandle) return false;
+    if (curlHandle)
+    {
+        CURLcode result;
 
-    CURLcode result;
+        // Set the target URL for the GET request
+        curl_easy_setopt(curlHandle, CURLOPT_URL, requestUrl.c_str());
 
-    // Set the target URL for the GET request
-    curl_easy_setopt(curlHandle, CURLOPT_URL, requestUrl.c_str());
+        // Set the callback function to handle the server's response
+        curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, WriteCallback);
 
-    // Set the callback function to handle the server's response
-    curl_easy_setopt(curlHandle, CURLOPT_WRITEFUNCTION, WriteCallback);
+        // Provide a pointer to the response buffer where data will be stored
+        curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, &responseBuffer);
 
-    // Provide a pointer to the response buffer where data will be stored
-    curl_easy_setopt(curlHandle, CURLOPT_WRITEDATA, &responseBuffer);
+        // Explicitly set GET mode (optional if no POST/PUT is set)
+        curl_easy_setopt(curlHandle, CURLOPT_HTTPGET, 1L);
 
-    // Explicitly set GET mode (optional if no POST/PUT is set)
-    curl_easy_setopt(curlHandle, CURLOPT_HTTPGET, 1L);
+        result = curl_easy_perform(curlHandle);
+        if (result != CURLE_OK) 
+        {
+            std::cerr << "GET failed: " << curl_easy_strerror(result) << std::endl;
+            return false;
+        }
 
-    result = curl_easy_perform(curlHandle);
-    if (result != CURLE_OK) {
-        std::cerr << "GET failed: " << curl_easy_strerror(result) << std::endl;
+        std::cout << "GET request URL: " << requestUrl << std::endl;
+        std::cout << "Server response: " << responseBuffer << std::endl;
+
         curl_easy_cleanup(curlHandle);
+        return true;
+    }
+    else
+    {
+        std::cerr << "Failed to initialize CURL." << std::endl;
         return false;
     }
 
-    std::cout << "GET request URL: " << requestUrl << std::endl;
-    std::cout << "Server response: " << responseBuffer << std::endl;
-
-    curl_easy_cleanup(curlHandle);
-    return true;
+    
 }
