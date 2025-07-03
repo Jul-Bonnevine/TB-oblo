@@ -7,13 +7,6 @@
  */
 class TemperatureSensorConfig {
 public:
-
-    /**
-     * @brief Default constructor.
-     * Sets all probe parameters to 0.
-     */
-    TemperatureSensorConfig();
-
     /**
      * @brief Constructor with parameters.
      * @param vcc Supply voltage.

@@ -1,3 +1,7 @@
+/**
+ * @file MainController.cpp
+ * @brief Implements the MainController class which sets up all system components.
+ */
 #include "MainController.h"
 
 MainController::MainController() :adcSpi("/dev/spidev1.0", SPI_MODE_0, 8, 500000),

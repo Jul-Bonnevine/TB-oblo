@@ -19,9 +19,9 @@ public:
 
     /**
      * @brief Constructor.
-     * @param server NTP server address (default: time.google.com).
+     * @param server NTP server address.
      */
-    NTPClient(const std::string& server = "time.google.com");
+    NTPClient(const std::string& server);
 
     /**
      * @brief Retrieves the current time from the NTP server.

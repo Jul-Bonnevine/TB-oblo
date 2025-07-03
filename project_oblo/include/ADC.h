@@ -54,6 +54,13 @@ public:
      */
     float readTemperature(uint16_t adc_val);
 
+    /**
+     * @brief Gets the SPI interface used by the ADC. Inline function for easy access.
+     * @return Reference to the SPIInterface instance.
+     */
+    SPIInterface& getSpi() { return spi; }
+
+
 private:
     SPIInterface& spi;               ///< Reference to SPI interface.
     uint8_t channel = 0;            ///< Currently selected input channel.

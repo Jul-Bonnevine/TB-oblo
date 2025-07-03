@@ -35,6 +35,13 @@ public:
      */
     bool selectChannel(uint8_t channel);
 
+    /**
+     * @brief Gets the SPI interface used by the multiplexer.
+     * @return Reference to the SPIInterface instance.
+     */
+    SPIInterface& getSpi() { return spi; }
+
+
 private:
     SPIInterface& spi; ///< Reference to the SPI interface used for communication.
 

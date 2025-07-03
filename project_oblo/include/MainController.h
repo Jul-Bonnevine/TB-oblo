@@ -19,9 +19,14 @@ class MainController {
 public:
 
     /**
-     * @brief Initialising objects.
-     * Constructs all required components for the system.
-     */
+    * @brief Constructs and initializes all required components for the system.
+    * 
+    * - Initializes SPI interfaces for ADC and multiplexer.
+    * - Configures the ADC with sensor parameters (Vcc, R_fixed, R_wires, Beta, R25, T25).
+    * - Instantiates the analog multiplexer using the second SPI interface.
+    * - Creates the API client using a fixed MAC address.
+    * - Initializes the NTP client with a specified server.
+    */
     MainController();
 
     /**

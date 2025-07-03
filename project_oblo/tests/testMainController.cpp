@@ -14,7 +14,6 @@ float readAndConvertTemperature(MainController& controller, uint8_t channel) {
     }
     usleep(500000);
 
-
     if (!controller.getAdc().sendConfig()) {
         std::cerr << "Error CONFIG\n";
     }
@@ -35,6 +34,15 @@ int main() {
     MainController controller;
     int loop_test = 1;
     int channel_tested = 0;
+
+    //Check if SPI interfaces are valid
+    if (!(controller.getAdc().getSpi().isValid() && controller.getMultiplexer().getSpi().isValid())) 
+    {
+        std::cerr << "[MAIN] SPI initialization failed.\n";
+        return 1;
+    }
+
+    //while loop for testing all the process
     while(1)
     {
         std::cout << "============= [TestMainController] test number : " << loop_test << " =============\n";
@@ -43,17 +51,20 @@ int main() {
         float T_mes = readAndConvertTemperature(controller, channel_tested);
 
         // 2. send measured temperature to API
-        if (!controller.getApi().sendTemperature(T_mes)) {
+        if (!controller.getApi().sendTemperature(T_mes)) 
+        {
             std::cerr << "[API] Failed to send temperature.\n";
         }
         std::cout << "\n";
 
         // 3. retrieve weather and settings
         float T_prevu = 0, n = 0, k_m = 0;
-        if (!controller.getApi().getForecast(T_prevu)) {
+        if (!controller.getApi().getForecast(T_prevu)) 
+        {
             std::cerr << "[API] Weather forecast recovery error.\n";
         }
-        if (!controller.getApi().getParameters(n, k_m)) {
+        if (!controller.getApi().getParameters(n, k_m)) 
+        {
             std::cerr << "[API] Parameter recovery error.\n";
         }
 
@@ -67,12 +78,17 @@ int main() {
 
         // 6. Recover NTP time
         std::time_t now = controller.getNtp().getCurrentTime();
-        if (now != -1) {
-            std::cout << "[NTP] Current time : " << std::ctime(&now);
-        } else {
+        if (now == -1) {
             std::cerr << "[NTP] Time recovery error.\n";
         }
+        else 
+        {
+            std::cout << "[NTP] Current time : " << std::ctime(&now);
+        }
+        
         std::cout << "============= [TestMainController] end of test number : " << loop_test << " =============\n";
+
+        // Sleep for 60 seconds before the next iteration
         usleep(60000000);
         loop_test = loop_test + 1;
 
