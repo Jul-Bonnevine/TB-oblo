@@ -50,31 +50,39 @@ int main() {
         // 1. read and process ADC values
         float T_mes = readAndConvertTemperature(controller, channel_tested);
 
-        // 2. send measured temperature to API
-        if (!controller.getApi().sendTemperature(T_mes)) 
+        if(std::isnan(T_mes) || T_mes < -15.0f || T_mes > 40.0f)    
         {
-            std::cerr << "[API] Failed to send temperature.\n";
+            std::cerr << "[MAIN] Temperature reading error.\n";
         }
-        std::cout << "\n";
+        else 
+        {
+            // 2. send measured temperature to API
+            if (!controller.getApi().sendTemperature(T_mes)) 
+            {
+                std::cerr << "[API] Failed to send temperature.\n";
+            }
+            std::cout << "\n";
 
-        // 3. retrieve weather and settings
-        float T_pred = 0, n = 0, k_m = 0;
-        if (!controller.getApi().getForecast(T_pred)) 
-        {
-            std::cerr << "[API] Weather forecast recovery error.\n";
-        }
-        if (!controller.getApi().getParameters(n, k_m)) 
-        {
-            std::cerr << "[API] Parameter recovery error.\n";
-        }
+            // 3. retrieve weather and settings
+            float T_pred = 0, n = 0, k_m = 0;
+            if (!controller.getApi().getForecast(T_pred)) 
+            {
+                std::cerr << "[API] Weather forecast recovery error.\n";
+            }
+            if (!controller.getApi().getParameters(n, k_m)) 
+            {
+                std::cerr << "[API] Parameter recovery error.\n";
+            }
 
-        // 4. Simulated temperature calculation
-        float T_sim = Simulator::computeSimulatedTemperature(T_mes, T_pred, n, k_m);
-        std::cout << "[SIM] Simulated temperature:" << T_sim << " °C\n";
+            // 4. Simulated temperature calculation
+            float T_sim = Simulator::computeSimulatedTemperature(T_mes, T_pred, n, k_m);
+            std::cout << "[SIM] Simulated temperature:" << T_sim << " °C\n";
+            
+            // 5. MUX channel conversion and selection
+            uint8_t channel = controller.getMultiplexer().convertTemperatureToChannel(T_sim);
+            controller.getMultiplexer().selectChannel(channel);
+        }
         
-        // 5. MUX channel conversion and selection
-        uint8_t channel = controller.getMultiplexer().convertTemperatureToChannel(T_sim);
-        controller.getMultiplexer().selectChannel(channel);
 
         // 6. Recover NTP time
         std::time_t now = controller.getNtp().getCurrentTime();
