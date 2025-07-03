@@ -33,8 +33,8 @@ public:
 
     /**
      * @brief Reads and writes SPI frames (MOSI/MISO).
-     * @param tx Buffer for data to be sent.
-     * @param rx Buffer for storing received data.
+     * @param tx Buffer for data to be sent (MOSI).
+     * @param rx Buffer for storing received data (MISO).
      * @param len Buffer length (bytes).
      * @return True if the transfer was successful, false otherwise.
      */

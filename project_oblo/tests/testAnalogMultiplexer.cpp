@@ -14,16 +14,20 @@ int main() {
     AnalogMultiplexer mux(muxSpi);
 
     // Temperatures to test: cover the entire useful range
-    std::vector<float> temperatures = {
+    std::vector<float> temperatures = 
+    {
         -20.0f, -15.0f, -10.0f, 0.0f, 7.5f, 15.0f, 17.5f, 25.0f, 30.0f, 31.5f
     };
 
-    for (float temp : temperatures) {
-        uint8_t canal = mux.convertTemperatureToChannel(temp);
-        std::cout << "[MUX-TEST] T = " << temp << " °C to channel " << static_cast<int>(canal) << "\n";
+    // Test each temperature
+    for (float temp : temperatures) 
+    {
+        uint8_t channel = mux.convertTemperatureToChannel(temp);
+        std::cout << "[MUX-TEST] T = " << temp << " °C to channel " << (int)(channel) << "\n";
 
-        if (!mux.selectChannel(canal)) {
-            std::cerr << "[MUX-TEST] SPI failure for channel " << static_cast<int>(canal) << "\n";
+        if (!mux.selectChannel(channel)) 
+        {
+            std::cerr << "[MUX-TEST] SPI failure for channel " << (int)(channel) << "\n";
         }
 
         usleep(500000);  // for oscilloscope observation

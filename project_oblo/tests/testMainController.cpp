@@ -58,8 +58,8 @@ int main() {
         std::cout << "\n";
 
         // 3. retrieve weather and settings
-        float T_prevu = 0, n = 0, k_m = 0;
-        if (!controller.getApi().getForecast(T_prevu)) 
+        float T_pred = 0, n = 0, k_m = 0;
+        if (!controller.getApi().getForecast(T_pred)) 
         {
             std::cerr << "[API] Weather forecast recovery error.\n";
         }
@@ -69,12 +69,12 @@ int main() {
         }
 
         // 4. Simulated temperature calculation
-        float T_sim = Simulator::computeSimulatedTemperature(T_mes, T_prevu, n, k_m);
+        float T_sim = Simulator::computeSimulatedTemperature(T_mes, T_pred, n, k_m);
         std::cout << "[SIM] Simulated temperature:" << T_sim << " °C\n";
         
         // 5. MUX channel conversion and selection
-        uint8_t canal = controller.getMultiplexer().convertTemperatureToChannel(T_sim);
-        controller.getMultiplexer().selectChannel(canal);
+        uint8_t channel = controller.getMultiplexer().convertTemperatureToChannel(T_sim);
+        controller.getMultiplexer().selectChannel(channel);
 
         // 6. Recover NTP time
         std::time_t now = controller.getNtp().getCurrentTime();

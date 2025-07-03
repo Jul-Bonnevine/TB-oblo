@@ -3,20 +3,24 @@
 #include <chrono>
 #include <thread>
 
-int main() {
+int main() 
+{
     NTPClient client("time.google.com");
 
-    while (true) {
+    while (true) 
+    {
         std::time_t now = client.getCurrentTime();
 
         if (now == -1) {
-            std::cerr << "[NTP] Erreur lors de la récupération de l'heure.\n";
+            std::cerr << "[NTP] Error retrieving time.\n";
         } else {
-            std::cout << "[NTP] Heure actuelle : " << std::ctime(&now);
+            std::cout << "[NTP] Current time: " << std::ctime(&now);
         }
 
         std::cout << "------------------------------------\n";
-        std::this_thread::sleep_for(std::chrono::minutes(1));
+        
+        usleep(60000000); // Wait for 60 seconds before the next request
+
     }
 
     return 0;

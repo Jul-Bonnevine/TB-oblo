@@ -25,6 +25,8 @@ int main() {
     );
 
     ADC adc(spi, config);
+    
+    // Set the channel to read (0-3)
     adc.setChannel(0);
 
         if (!adc.sendSetup()) {

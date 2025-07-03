@@ -18,9 +18,9 @@ SPIInterface::SPIInterface(const std::string& device, uint8_t mode, uint8_t bits
 
     /*
      * Configure SPI interface
-     * - SPI_IOC_WR_MODE: Sets the SPI mode
-     * - SPI_IOC_WR_BITS_PER_WORD: Sets the number of bits per word
-     * - SPI_IOC_WR_MAX_SPEED_HZ: Sets the max speed (Hz)
+     * SPI_IOC_WR_MODE: Sets the SPI mode
+     * SPI_IOC_WR_BITS_PER_WORD: Sets the number of bits per word
+     * SPI_IOC_WR_MAX_SPEED_HZ: Sets the max speed (Hz)
      * 
      * Ref: https://elixir.bootlin.com/linux/v6.15.4/source/include/uapi/linux/spi/spidev.h#L111
      */
@@ -46,12 +46,12 @@ bool SPIInterface::transfer(const uint8_t* tx, uint8_t* rx, size_t len)
 
     /*
      * Prepare SPI transfer struct:
-     * - tx_buf: Pointer to data sent on MOSI
-     * - rx_buf: Pointer to buffer for data received on MISO
-     * - len: Number of bytes transferred
-     * - speed_hz, bits_per_word: 0 = use defaults set earlier
-     * - delay_usecs: 0 = no delay
-     * - cs_change: 0 = keep chip select active after transfer
+     * tx_buf: Pointer to data sent on MOSI
+     * rx_buf: Pointer to buffer for data received on MISO
+     * len: Number of bytes transferred
+     * speed_hz, bits_per_word: 0 = use defaults set earlier
+     * delay_usecs: 0 = no delay
+     * cs_change: 0 = keep chip select active after transfer
      *
      * Ref: https://docs.huihoo.com/doxygen/linux/kernel/3.7/structspi__ioc__transfer.html
      */
