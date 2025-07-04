@@ -103,13 +103,13 @@ int main() {
         // Sleep for 60 seconds before the next iteration
         usleep(60000000);
         loop_test = loop_test + 1;
-
+/*
         if (channel_tested > 3) 
         {
             channel_tested = 0;
         } else {
             channel_tested++;
-        }
+        }*/
     }
         return 0;
 }
