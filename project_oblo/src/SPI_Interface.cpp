@@ -71,7 +71,7 @@ bool SPIInterface::transfer(const uint8_t* tx, uint8_t* rx, size_t len)
 }
 
 // Checks that the SPI file is valid
-bool SPIInterface::isValid() const 
+bool SPIInterface::isValid()
 {
     return fd >= 0;
 }

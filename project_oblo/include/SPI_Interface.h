@@ -44,7 +44,7 @@ public:
      * @brief Checks if the SPI interface is valid.
      * @return True if the SPI interface is valid, false otherwise.
      */
-    bool isValid() const;
+    bool isValid();
 
 private:
     int fd; ///< File descriptor for the SPI device.
