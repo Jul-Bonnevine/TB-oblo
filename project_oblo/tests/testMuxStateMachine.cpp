@@ -2,7 +2,6 @@
 #include "AnalogMultiplexer.h"
 #include <iostream>
 #include <unistd.h>
-#include <vector>
 #include <cstdint>
 
 // États de la machine
@@ -11,7 +10,6 @@ enum class MuxTestState {
     CONVERT_TEMP,
     SELECT_CHANNEL,
     WAIT_OSCILLO,
-    NEXT_TEMPERATURE,
     FINISHED,
     ERROR
 };
@@ -25,11 +23,9 @@ int main() {
 
     AnalogMultiplexer mux(muxSpi);
 
-    std::vector<float> temperatures = {
-        -20.0f, -15.0f, -10.0f, 0.0f, 7.5f, 15.0f, 17.5f, 25.0f, 30.0f, 31.5f
-    };
+    // Température unique à modifier facilement
+    float testTemperature = 25.0f;
 
-    size_t index = 0;
     float currentTemp = 0.0f;
     uint8_t currentChannel = 0;
     bool selectionSuccess = true;
@@ -44,7 +40,7 @@ int main() {
                 break;
 
             case MuxTestState::CONVERT_TEMP:
-                currentTemp = temperatures[index];
+                currentTemp = testTemperature;
                 currentChannel = mux.convertTemperatureToChannel(currentTemp);
                 std::cout << "[MUX-TEST] T = " << currentTemp << " °C → channel " << static_cast<int>(currentChannel) << "\n";
                 break;
@@ -60,16 +56,12 @@ int main() {
                 usleep(500000); // 500 ms pour oscilloscope
                 break;
 
-            case MuxTestState::NEXT_TEMPERATURE:
-                // rien à faire ici
-                break;
-
             case MuxTestState::FINISHED:
-                std::cout << "[MUX-TEST] All temperatures tested.\n";
+                std::cout << "[MUX-TEST] Test finished.\n";
                 return 0;
 
             case MuxTestState::ERROR:
-                std::cerr << "[MUX-TEST] Aborting test due to error.\n";
+                std::cerr << "[MUX-TEST] Test aborted due to error.\n";
                 return 1;
         }
 
@@ -88,17 +80,12 @@ int main() {
                 break;
 
             case MuxTestState::WAIT_OSCILLO:
-                currentState = MuxTestState::NEXT_TEMPERATURE;
-                break;
-
-            case MuxTestState::NEXT_TEMPERATURE:
-                index++;
-                currentState = (index >= temperatures.size()) ? MuxTestState::FINISHED : MuxTestState::CONVERT_TEMP;
+                currentState = MuxTestState::FINISHED;
                 break;
 
             case MuxTestState::FINISHED:
             case MuxTestState::ERROR:
-                // handled by action switch
+                // handled in action switch
                 break;
         }
     }
