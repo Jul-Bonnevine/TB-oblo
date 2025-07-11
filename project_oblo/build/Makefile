@@ -220,6 +220,19 @@ testMainController/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainController.dir/build.make CMakeFiles/testMainController.dir/build
 .PHONY : testMainController/fast
 
+#=============================================================================
+# Target rules for targets named testMainControllerStateMachine
+
+# Build rule for target.
+testMainControllerStateMachine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testMainControllerStateMachine
+.PHONY : testMainControllerStateMachine
+
+# fast build rule for target.
+testMainControllerStateMachine/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainControllerStateMachine.dir/build.make CMakeFiles/testMainControllerStateMachine.dir/build
+.PHONY : testMainControllerStateMachine/fast
+
 src/ADC.o: src/ADC.cpp.o
 .PHONY : src/ADC.o
 
@@ -508,6 +521,30 @@ tests/testMainController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainController.dir/build.make CMakeFiles/testMainController.dir/tests/testMainController.cpp.s
 .PHONY : tests/testMainController.cpp.s
 
+tests/testMainControllerStateMachine.o: tests/testMainControllerStateMachine.cpp.o
+.PHONY : tests/testMainControllerStateMachine.o
+
+# target to build an object file
+tests/testMainControllerStateMachine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainControllerStateMachine.dir/build.make CMakeFiles/testMainControllerStateMachine.dir/tests/testMainControllerStateMachine.cpp.o
+.PHONY : tests/testMainControllerStateMachine.cpp.o
+
+tests/testMainControllerStateMachine.i: tests/testMainControllerStateMachine.cpp.i
+.PHONY : tests/testMainControllerStateMachine.i
+
+# target to preprocess a source file
+tests/testMainControllerStateMachine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainControllerStateMachine.dir/build.make CMakeFiles/testMainControllerStateMachine.dir/tests/testMainControllerStateMachine.cpp.i
+.PHONY : tests/testMainControllerStateMachine.cpp.i
+
+tests/testMainControllerStateMachine.s: tests/testMainControllerStateMachine.cpp.s
+.PHONY : tests/testMainControllerStateMachine.s
+
+# target to generate assembly for a file
+tests/testMainControllerStateMachine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainControllerStateMachine.dir/build.make CMakeFiles/testMainControllerStateMachine.dir/tests/testMainControllerStateMachine.cpp.s
+.PHONY : tests/testMainControllerStateMachine.cpp.s
+
 tests/testNTPClient.o: tests/testNTPClient.cpp.o
 .PHONY : tests/testNTPClient.o
 
@@ -593,6 +630,7 @@ help:
 	@echo "... testADC"
 	@echo "... testAnalogMultiplexer"
 	@echo "... testMainController"
+	@echo "... testMainControllerStateMachine"
 	@echo "... testNTPClient"
 	@echo "... testObloAPI"
 	@echo "... testSimulator"
@@ -632,6 +670,9 @@ help:
 	@echo "... tests/testMainController.o"
 	@echo "... tests/testMainController.i"
 	@echo "... tests/testMainController.s"
+	@echo "... tests/testMainControllerStateMachine.o"
+	@echo "... tests/testMainControllerStateMachine.i"
+	@echo "... tests/testMainControllerStateMachine.s"
 	@echo "... tests/testNTPClient.o"
 	@echo "... tests/testNTPClient.i"
 	@echo "... tests/testNTPClient.s"

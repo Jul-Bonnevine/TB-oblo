@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/testMainControllerStateMachine.dir/tests/testMainControllerStateMachine.cpp.o -o testMainControllerStateMachine  libcorelib.a /usr/lib/aarch64-linux-gnu/libcurl.so 

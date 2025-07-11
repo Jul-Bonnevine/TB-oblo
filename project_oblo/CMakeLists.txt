@@ -38,3 +38,6 @@ target_link_libraries(testSimulator PRIVATE corelib)
 
 add_executable(testMainController tests/testMainController.cpp)
 target_link_libraries(testMainController PRIVATE corelib)
+
+add_executable(testMainControllerStateMachine tests/testMainControllerStateMachine.cpp)
+target_link_libraries(testMainControllerStateMachine PRIVATE corelib)
