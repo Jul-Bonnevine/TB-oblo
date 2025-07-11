@@ -246,6 +246,19 @@ testADCStateMachine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADCStateMachine.dir/build.make CMakeFiles/testADCStateMachine.dir/build
 .PHONY : testADCStateMachine/fast
 
+#=============================================================================
+# Target rules for targets named testMuxStateMachine
+
+# Build rule for target.
+testMuxStateMachine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testMuxStateMachine
+.PHONY : testMuxStateMachine
+
+# fast build rule for target.
+testMuxStateMachine/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMuxStateMachine.dir/build.make CMakeFiles/testMuxStateMachine.dir/build
+.PHONY : testMuxStateMachine/fast
+
 src/ADC.o: src/ADC.cpp.o
 .PHONY : src/ADC.o
 
@@ -582,6 +595,30 @@ tests/testMainControllerStateMachine.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainControllerStateMachine.dir/build.make CMakeFiles/testMainControllerStateMachine.dir/tests/testMainControllerStateMachine.cpp.s
 .PHONY : tests/testMainControllerStateMachine.cpp.s
 
+tests/testMuxStateMachine.o: tests/testMuxStateMachine.cpp.o
+.PHONY : tests/testMuxStateMachine.o
+
+# target to build an object file
+tests/testMuxStateMachine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMuxStateMachine.dir/build.make CMakeFiles/testMuxStateMachine.dir/tests/testMuxStateMachine.cpp.o
+.PHONY : tests/testMuxStateMachine.cpp.o
+
+tests/testMuxStateMachine.i: tests/testMuxStateMachine.cpp.i
+.PHONY : tests/testMuxStateMachine.i
+
+# target to preprocess a source file
+tests/testMuxStateMachine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMuxStateMachine.dir/build.make CMakeFiles/testMuxStateMachine.dir/tests/testMuxStateMachine.cpp.i
+.PHONY : tests/testMuxStateMachine.cpp.i
+
+tests/testMuxStateMachine.s: tests/testMuxStateMachine.cpp.s
+.PHONY : tests/testMuxStateMachine.s
+
+# target to generate assembly for a file
+tests/testMuxStateMachine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMuxStateMachine.dir/build.make CMakeFiles/testMuxStateMachine.dir/tests/testMuxStateMachine.cpp.s
+.PHONY : tests/testMuxStateMachine.cpp.s
+
 tests/testNTPClient.o: tests/testNTPClient.cpp.o
 .PHONY : tests/testNTPClient.o
 
@@ -669,6 +706,7 @@ help:
 	@echo "... testAnalogMultiplexer"
 	@echo "... testMainController"
 	@echo "... testMainControllerStateMachine"
+	@echo "... testMuxStateMachine"
 	@echo "... testNTPClient"
 	@echo "... testObloAPI"
 	@echo "... testSimulator"
@@ -714,6 +752,9 @@ help:
 	@echo "... tests/testMainControllerStateMachine.o"
 	@echo "... tests/testMainControllerStateMachine.i"
 	@echo "... tests/testMainControllerStateMachine.s"
+	@echo "... tests/testMuxStateMachine.o"
+	@echo "... tests/testMuxStateMachine.i"
+	@echo "... tests/testMuxStateMachine.s"
 	@echo "... tests/testNTPClient.o"
 	@echo "... tests/testNTPClient.i"
 	@echo "... tests/testNTPClient.s"

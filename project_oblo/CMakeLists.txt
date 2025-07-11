@@ -44,3 +44,6 @@ target_link_libraries(testMainControllerStateMachine PRIVATE corelib)
 
 add_executable(testADCStateMachine tests/testADCStateMachine.cpp)
 target_link_libraries(testADCStateMachine PRIVATE corelib)
+
+add_executable(testMuxStateMachine tests/testMuxStateMachine.cpp)
+target_link_libraries(testMuxStateMachine PRIVATE corelib)
