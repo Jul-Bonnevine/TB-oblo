@@ -57,4 +57,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/testSimulator.dir/DependInfo.cmake"
   "CMakeFiles/testMainController.dir/DependInfo.cmake"
   "CMakeFiles/testMainControllerStateMachine.dir/DependInfo.cmake"
+  "CMakeFiles/testADCStateMachine.dir/DependInfo.cmake"
   )

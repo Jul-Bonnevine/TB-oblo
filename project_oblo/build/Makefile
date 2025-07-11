@@ -233,6 +233,19 @@ testMainControllerStateMachine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testMainControllerStateMachine.dir/build.make CMakeFiles/testMainControllerStateMachine.dir/build
 .PHONY : testMainControllerStateMachine/fast
 
+#=============================================================================
+# Target rules for targets named testADCStateMachine
+
+# Build rule for target.
+testADCStateMachine: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 testADCStateMachine
+.PHONY : testADCStateMachine
+
+# fast build rule for target.
+testADCStateMachine/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADCStateMachine.dir/build.make CMakeFiles/testADCStateMachine.dir/build
+.PHONY : testADCStateMachine/fast
+
 src/ADC.o: src/ADC.cpp.o
 .PHONY : src/ADC.o
 
@@ -473,6 +486,30 @@ tests/testADC.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADC.dir/build.make CMakeFiles/testADC.dir/tests/testADC.cpp.s
 .PHONY : tests/testADC.cpp.s
 
+tests/testADCStateMachine.o: tests/testADCStateMachine.cpp.o
+.PHONY : tests/testADCStateMachine.o
+
+# target to build an object file
+tests/testADCStateMachine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADCStateMachine.dir/build.make CMakeFiles/testADCStateMachine.dir/tests/testADCStateMachine.cpp.o
+.PHONY : tests/testADCStateMachine.cpp.o
+
+tests/testADCStateMachine.i: tests/testADCStateMachine.cpp.i
+.PHONY : tests/testADCStateMachine.i
+
+# target to preprocess a source file
+tests/testADCStateMachine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADCStateMachine.dir/build.make CMakeFiles/testADCStateMachine.dir/tests/testADCStateMachine.cpp.i
+.PHONY : tests/testADCStateMachine.cpp.i
+
+tests/testADCStateMachine.s: tests/testADCStateMachine.cpp.s
+.PHONY : tests/testADCStateMachine.s
+
+# target to generate assembly for a file
+tests/testADCStateMachine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/testADCStateMachine.dir/build.make CMakeFiles/testADCStateMachine.dir/tests/testADCStateMachine.cpp.s
+.PHONY : tests/testADCStateMachine.cpp.s
+
 tests/testAnalogMultiplexer.o: tests/testAnalogMultiplexer.cpp.o
 .PHONY : tests/testAnalogMultiplexer.o
 
@@ -628,6 +665,7 @@ help:
 	@echo "... corelib"
 	@echo "... prj_exec"
 	@echo "... testADC"
+	@echo "... testADCStateMachine"
 	@echo "... testAnalogMultiplexer"
 	@echo "... testMainController"
 	@echo "... testMainControllerStateMachine"
@@ -664,6 +702,9 @@ help:
 	@echo "... tests/testADC.o"
 	@echo "... tests/testADC.i"
 	@echo "... tests/testADC.s"
+	@echo "... tests/testADCStateMachine.o"
+	@echo "... tests/testADCStateMachine.i"
+	@echo "... tests/testADCStateMachine.s"
 	@echo "... tests/testAnalogMultiplexer.o"
 	@echo "... tests/testAnalogMultiplexer.i"
 	@echo "... tests/testAnalogMultiplexer.s"

@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/testADCStateMachine.dir/tests/testADCStateMachine.cpp.o -o testADCStateMachine  libcorelib.a /usr/lib/aarch64-linux-gnu/libcurl.so 
