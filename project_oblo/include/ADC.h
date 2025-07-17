@@ -19,7 +19,7 @@ public:
      * @brief Constructor.
      * @param spi Reference to the SPI interface used to communicate with the ADC.
      * @param config Configuration parameters for the connected temperature probe.
-     */
+    */
     ADC(SPIInterface& spi, const TemperatureSensorConfig& config);
     
     /**

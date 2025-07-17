@@ -180,7 +180,7 @@ bool ObloAPI::getParameters(float& n, float& k_m)
     {
         std::cerr << "JSON error: " << e.what() << std::endl;
         return false;
-    }
+}
 }
 
 bool ObloAPI::performGet(const std::string& requestUrl, std::string& responseBuffer) {
