@@ -172,7 +172,6 @@ bool ObloAPI::getParameters(float& n, float& k_m)
                 return true;
             //}
         //}
-
         /*std::cerr << "Parameter JSON invalid." << std::endl;
         return false;*/
     } 

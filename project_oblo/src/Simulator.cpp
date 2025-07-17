@@ -13,8 +13,7 @@
         * Formula for simulated temperature.
         * This formula is given by the Oblo engineering team.
         */
-        float delta = T_forecast - T_mes;
-        return T_mes + delta * n * std::exp(-k_m);
+        return T_mes + (T_forecast - T_mes) * n * std::exp(-k_m);
     } 
     else 
     {
