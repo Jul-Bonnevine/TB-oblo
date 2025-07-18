@@ -24,7 +24,7 @@ int main() {
     AnalogMultiplexer mux(muxSpi);
 
     // Température de test configurable
-    float testTemperature = 20.0f;
+    float testTemperature = -15.0f;
 
     // Variables de test (initialisées dans INIT)
     float currentTemp;

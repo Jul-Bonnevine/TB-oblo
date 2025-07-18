@@ -31,7 +31,7 @@ int main() {
         3.3f,     // Vcc
         22000.0f, // R_fixed
         3.8f,     // R_wires
-        3960.0f,  // Beta
+        3977.0f,  // Beta
         10000.0f, // R25
         298.15f   // T25 (K)
     );
@@ -131,7 +131,7 @@ int main() {
 
             case ADCState::DONE:
             case ADCState::ERROR:
-                usleep(60000000);  // 60 sec pause entre chaque test
+                usleep(6000000);  // 60 sec pause entre chaque test
                 currentState = ADCState::INIT;
                 loop_count++;
                 break;
