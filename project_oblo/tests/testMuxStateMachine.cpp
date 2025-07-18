@@ -23,12 +23,13 @@ int main() {
 
     AnalogMultiplexer mux(muxSpi);
 
-    // Température unique à modifier facilement
-    float testTemperature = 25.0f;
+    // Température de test configurable
+    float testTemperature = 20.0f;
 
-    float currentTemp = 0.0f;
-    uint8_t currentChannel = 0;
-    bool selectionSuccess = true;
+    // Variables de test (initialisées dans INIT)
+    float currentTemp;
+    uint8_t currentChannel;
+    bool selectionSuccess;
 
     MuxTestState currentState = MuxTestState::INIT;
 
@@ -37,6 +38,9 @@ int main() {
         switch (currentState) {
             case MuxTestState::INIT:
                 std::cout << "[MUX-TEST] Initialization OK\n";
+                currentTemp = 0.0f;
+                currentChannel = 0;
+                selectionSuccess = true;
                 break;
 
             case MuxTestState::CONVERT_TEMP:
@@ -76,8 +80,13 @@ int main() {
                 break;
 
             case MuxTestState::SELECT_CHANNEL:
-                currentState = selectionSuccess ? MuxTestState::WAIT_OSCILLO : MuxTestState::ERROR;
+                if (selectionSuccess) {
+                    currentState = MuxTestState::WAIT_OSCILLO;
+                } else {
+                    currentState = MuxTestState::ERROR;
+                }
                 break;
+
 
             case MuxTestState::WAIT_OSCILLO:
                 currentState = MuxTestState::FINISHED;
