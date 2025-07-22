@@ -26,7 +26,7 @@ int init_spi(const char* device) {
 }
 
 bool send_setup(int fd) {
-    uint8_t tx[1] = { 0x54 };
+    uint8_t tx[1] = { 0x74 };
     uint8_t rx[1] = { 0 };
 
     spi_ioc_transfer tr {
@@ -41,7 +41,7 @@ bool send_setup(int fd) {
 }
 
 bool send_config(int fd) {
-    uint8_t tx[1] = { 0x80 };
+    uint8_t tx[1] = { 0x86 };
     uint8_t rx[1] = { 0 };
 
     spi_ioc_transfer tr {

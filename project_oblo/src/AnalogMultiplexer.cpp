@@ -56,6 +56,5 @@ bool AnalogMultiplexer::selectChannel(uint8_t channel)
     return false;
     }
 
-    std::cout << "[MUX] Channel " << (int)(channel) << " selected \n";
     return true;
 }
