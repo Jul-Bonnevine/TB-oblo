@@ -9,7 +9,7 @@ int main() {
     // === Test 1: measured temperature sent ===
 
     // Simulated temperature to send
-    float temp_test = 10.5f;
+    float temp_test = 25.0f;
     std::cout << "[API] Sending T = " << temp_test << " °C...\n";
     if (api.sendTemperature(temp_test)) 
     {

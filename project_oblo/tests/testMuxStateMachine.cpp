@@ -24,7 +24,7 @@ int main() {
     AnalogMultiplexer mux(muxSpi);
 
     // Température de test configurable
-    float testTemperature = -15.0f;
+    float testTemperature = 15.0f;
 
     // Variables de test (initialisées dans INIT)
     float currentTemp;
@@ -46,7 +46,7 @@ int main() {
             case MuxTestState::CONVERT_TEMP:
                 currentTemp = testTemperature;
                 currentChannel = mux.convertTemperatureToChannel(currentTemp);
-                std::cout << "[MUX-TEST] T = " << currentTemp << " °C → channel " << static_cast<int>(currentChannel) << "\n";
+                std::cout << "[MUX-TEST] T = " << currentTemp << " °C --> channel " << static_cast<int>(currentChannel) << "\n";
                 break;
 
             case MuxTestState::SELECT_CHANNEL:

@@ -6,8 +6,8 @@ int main()
     std::cout << "[SIMULATOR] Simulated temperature test\n";
     std::cout << "------------------------------------------\n";
 
-    float T_mes = 10.0f;
-    float T_forecast = 5.0f;
+    float T_mes = 31.0f;
+    float T_forecast = 29.6f;
     float n = 1.2f; // Example parameter n
     float k_m = 0.0002f; // Example parameter k_m
 
