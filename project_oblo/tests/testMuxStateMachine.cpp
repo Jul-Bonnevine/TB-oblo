@@ -1,11 +1,25 @@
+/**
+ * @file testMultiplexerStateMachine.cpp
+ * @brief Implements a state machine for testing the multiplexer operations.
+ */
+
 #include "SPI_Interface.h"
 #include "AnalogMultiplexer.h"
 #include <iostream>
 #include <unistd.h>
 #include <cstdint>
 
-// États de la machine
-enum class MuxTestState {
+/** 
+* State machine for the multiplexer test
+* Initial state is INIT
+* CONVERT_TEMP state is for converting the temperature to the corresponding channel.
+* SELECT_CHANNEL state is for selecting the MUX channel.
+* WAIT_OSCILLO state is for waiting for the oscilloscope.
+* FINISHED state is for indicating that the test is complete.
+* ERROR state is for handling errors during the test.
+*/
+enum class MuxTestState 
+{
     INIT,
     CONVERT_TEMP,
     SELECT_CHANNEL,
@@ -14,28 +28,47 @@ enum class MuxTestState {
     ERROR
 };
 
-int main() {
+int main() 
+{
+    /**
+     * Initialisation SPI for Mux
+     * The Mux is on SPI0
+     * Configuration: Mode 0, 8 bits, 1MHz
+     */
     SPIInterface muxSpi("/dev/spidev0.0", SPI_MODE_0, 8, 1000000);
-    if (!muxSpi.isValid()) {
+    if (!muxSpi.isValid()) 
+    {
         std::cerr << "[MUX-TEST] Invalid SPI interface.\n";
         return 1;
     }
 
+    /**
+     * Analog Multiplexer initialisation
+     * SPI interface
+     */
     AnalogMultiplexer mux(muxSpi);
 
-    // Température de test configurable
+    /**
+     * Test temperature to select channel mapping
+     */
     float testTemperature = 15.0f;
 
-    // Variables de test (initialisées dans INIT)
+    /**
+     * parameters for the state machine
+     */
     float currentTemp;
     uint8_t currentChannel;
     bool selectionSuccess;
 
     MuxTestState currentState = MuxTestState::INIT;
 
-    while (true) {
-        // === ACTIONS ===
-        switch (currentState) {
+    while (true) 
+    {
+        /**
+         * Actions to perform in each state
+         */
+        switch (currentState) 
+        {
             case MuxTestState::INIT:
                 std::cout << "[MUX-TEST] Initialization OK\n";
                 currentTemp = 0.0f;
@@ -51,13 +84,15 @@ int main() {
 
             case MuxTestState::SELECT_CHANNEL:
                 selectionSuccess = mux.selectChannel(currentChannel);
-                if (!selectionSuccess) {
+                if (!selectionSuccess) 
+                {
                     std::cerr << "[MUX-TEST] SPI failure on channel " << static_cast<int>(currentChannel) << "\n";
                 }
                 break;
 
             case MuxTestState::WAIT_OSCILLO:
-                usleep(500000); // 500 ms pour oscilloscope
+                std::cout << "[MUX-TEST] Waiting for oscilloscope...\n";
+                usleep(500000);
                 break;
 
             case MuxTestState::FINISHED:
@@ -69,8 +104,11 @@ int main() {
                 return 1;
         }
 
-        // === TRANSITIONS ===
-        switch (currentState) {
+        /**
+         * Actions to perform in each state
+         */
+        switch (currentState) 
+        {
             case MuxTestState::INIT:
                 currentState = MuxTestState::CONVERT_TEMP;
                 break;
@@ -80,9 +118,11 @@ int main() {
                 break;
 
             case MuxTestState::SELECT_CHANNEL:
-                if (selectionSuccess) {
+                if (selectionSuccess) 
+                {
                     currentState = MuxTestState::WAIT_OSCILLO;
-                } else {
+                } else 
+                {
                     currentState = MuxTestState::ERROR;
                 }
                 break;
@@ -93,8 +133,8 @@ int main() {
                 break;
 
             case MuxTestState::FINISHED:
+                break;
             case MuxTestState::ERROR:
-                // handled in action switch
                 break;
         }
     }

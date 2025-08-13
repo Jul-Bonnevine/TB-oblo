@@ -109,7 +109,6 @@ bool ObloAPI::getForecast(float& forecast)
 
     try 
     {
-
         // Parse the JSON response
         json data = json::parse(responseBuffer);
         /**
@@ -117,16 +116,14 @@ bool ObloAPI::getForecast(float& forecast)
         * The forecast temperature is expected to be in the first element of the "forecast" array.
         * If the structure is valid, extract the temperature value.
         */
-        /*if (data.contains("forecast") &&
-            !data["forecast"].empty() &&
-            data["forecast"][0].contains("temperature")) 
-            {*/
+        if (data.contains("forecast") && !data["forecast"].empty() && data["forecast"][0].contains("temperature")) 
+            {
             forecast = data["forecast"][0]["temperature"];
             return true;
-            //}
+            }
 
-        /*std::cerr << "Forecast JSON invalid." << std::endl;
-        return false;*/
+        std::cerr << "Forecast JSON invalid." << std::endl;
+        return false;
     } 
     // Handle JSON parsing errors
     catch (const json::exception& e) 
@@ -158,22 +155,22 @@ bool ObloAPI::getParameters(float& n, float& k_m)
          * If the structure is valid, extract the parameter values.
          */
          
-        /*if (data.contains("param") && !data["param"].empty()) 
-        {*/
+        if (data.contains("param") && !data["param"].empty()) 
+        {
             const auto& param = data["param"][0];
 
             /** Check if the parameter structure is valid. 
              * The parameters "n" and "k_m" are expected to be present.
              */
-            /*if (param.contains("n") && param.contains("k_m")) 
-            {*/
+            if (param.contains("n") && param.contains("k_m")) 
+            {
                 n = param["n"];
                 k_m = param["k_m"];
                 return true;
-            //}
-        //}
-        /*std::cerr << "Parameter JSON invalid." << std::endl;
-        return false;*/
+            }
+        }
+        std::cerr << "Parameter JSON invalid." << std::endl;
+        return false;
     } 
     catch (const json::exception& e) 
     {

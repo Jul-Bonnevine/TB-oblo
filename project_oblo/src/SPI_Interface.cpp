@@ -52,8 +52,6 @@ bool SPIInterface::transfer(const uint8_t* tx, uint8_t* rx, size_t len)
      * speed_hz, bits_per_word: 0 = use defaults set earlier
      * delay_usecs: 0 = no delay
      * cs_change: 0 = keep chip select active after transfer
-     *
-     * Ref: https://docs.huihoo.cm/doxygen/linux/kernel/3.7/structspi__ioc__transfer.html
      */
     struct spi_ioc_transfer tr 
     {

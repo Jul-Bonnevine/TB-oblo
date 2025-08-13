@@ -1,21 +1,35 @@
+/**
+ * @file testObloAPI.cpp
+ * @brief Implements a while true loop for testing the Oblo API operations.
+ */
+
 #include "ObloAPI.h"
 #include <iostream>
 
 int main() {
-    // Dummy or real MAC to be adjusted
+    /**
+     * Oblo API initialisation
+     * MAC address of the device
+     */
     std::string mac = "0030DEABCDEF";
+
+    /**
+     * Oblo API initialisation
+     * MAC address of the device
+     */
     ObloAPI api(mac);
 
     // === Test 1: measured temperature sent ===
 
-    // Simulated temperature to send
-    float temp_test = 25.0f;
+    /**
+     * Simulated temperature to send
+     */
+    float temp_test = 2.0f;
     std::cout << "[API] Sending T = " << temp_test << " °C...\n";
     if (api.sendTemperature(temp_test)) 
     {
         std::cout << "[API] Temperature sent successfully.\n";
-    } else 
-    {
+    } else {
         std::cerr << "[API] Error sending temperature.\n";
     }
     std::cout << "------------------------------------\n";
@@ -34,6 +48,10 @@ int main() {
     std::cout << "------------------------------------\n";
 
     // === Test 3: retrieve parameters n and k_m ===
+
+    /**
+     * Parameters to retrieve
+     */
     float n = 0.0f, k_m = 0.0f;
     std::cout << "[API] Retrieving parameters n and k_m...\n";
     if (api.getParameters(n, k_m)) 
@@ -43,6 +61,5 @@ int main() {
     {
         std::cerr << "[API] Error retrieving parameters.\n";
     }
-
     return 0;
 }

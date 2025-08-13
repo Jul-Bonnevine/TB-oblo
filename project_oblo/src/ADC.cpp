@@ -128,7 +128,8 @@ float ADC::readTemperature(uint16_t adc_val)
     std::cout << "Measured probe without wires: " << Rntc << " ohms\n";
     
 
-    if (Rntc <= 0.0f) {
+    if (Rntc <= 0.0f) 
+    {
         std::cerr << "[ADC] Invalid NTC resistor : " << Rntc << " ohms\n";
         return NAN; // Return NaN if the resistance is invalid
     }

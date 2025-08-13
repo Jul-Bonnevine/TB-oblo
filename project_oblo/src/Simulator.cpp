@@ -10,7 +10,7 @@
     if (T_forecast < T_mes)     //change signe of the condition
     {
         /**
-        * Formula for simulated temperature.
+        * Formula for simulated temperature
         * This formula is given by the Oblo engineering team.
         */
         return T_mes + (T_forecast - T_mes) * n * std::exp(-k_m);

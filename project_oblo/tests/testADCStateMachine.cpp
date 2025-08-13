@@ -1,3 +1,8 @@
+/**
+ * @file testADCStateMachine.cpp
+ * @brief Implements a state machine for testing the ADC (Analog-to-Digital Converter) operations.
+ */
+
 #include "SPI_Interface.h"
 #include "ADC.h"
 #include "TemperatureSensorConfig.h"
@@ -7,7 +12,17 @@
 #include <cstdint>
 #include <ctime>
 
-// États possibles de la FSM
+/**
+ * State machine for ADC operations.
+ * Each state represents a step in the ADC reading process.
+ * Initial state is INIT.
+ * SEND_SETUP state is for sending the setup frame.
+ * SEND_CONFIG state is for sending the config frame.
+ * READ_RAW state is for reading the raw ADC value.
+ * CONVERT_TEMP state is for converting the raw ADC value to temperature.
+ * DONE state is for indicating that the ADC reading process is complete.
+ * ERROR state is for handling errors during the ADC reading process.
+ */
 enum class ADCState {
     INIT,
     SEND_SETUP,
@@ -19,15 +34,24 @@ enum class ADCState {
 };
 
 int main() {
-    // Initialisation SPI
+
+    /**
+     * Initialisation SPI for ADC
+     * The ADC is on SPI1
+     * Configuration: Mode 0, 8 bits, 500kHz
+     */
     SPIInterface spi("/dev/spidev1.0", SPI_MODE_0, 8, 500000);
-    if (!spi.isValid()) {
+    if (!spi.isValid()) 
+    {
         std::cerr << "[INIT] SPI interface invalid.\n";
         return 1;
     }
 
-    // Configuration de la sonde
-    TemperatureSensorConfig config(
+    /**
+     * Probe acquisition setup
+     */
+    TemperatureSensorConfig config
+    (
         3.3f,     // Vcc
         22000.0f, // R_fixed
         3.8f,     // R_wires
@@ -36,44 +60,66 @@ int main() {
         298.15f   // T25 (K)
     );
 
+    /**
+     * ADC initialisation
+     * SPI interface and configuration parameters
+     */
     ADC adc(spi, config);
-    adc.setChannel(0);  // Canal fixe
 
+    /**
+     * Set ADC channel to 0
+     */
+    adc.setChannel(0);
+
+    /**
+     * Loop counter
+     */
     int loop_count = 1;
-    ADCState currentState = ADCState::INIT;
-    bool operationSuccess = false;
-    uint16_t raw = 0;
-    float temp = NAN;
 
-    while (true) {
-        // === ACTIONS ===
-        switch (currentState) {
+    ADCState currentState = ADCState::INIT;
+    bool operationSuccess;
+    uint16_t raw;
+    float temp;
+
+    while (true) 
+    {
+        /**
+         * Actions to perform in each state
+         */
+        switch (currentState) 
+        {
             case ADCState::INIT:
                 std::cout << "\n===== [ADC Test #" << loop_count << "] =====\n";
                 raw = 0;
                 temp = NAN;
-                operationSuccess = true;  // INIT always successful
+                operationSuccess = true;
                 break;
 
             case ADCState::SEND_SETUP:
                 operationSuccess = adc.sendSetup();
                 if (!operationSuccess)
+                {
                     std::cerr << "[SETUP] Error sending setup frame.\n";
+                }                    
                 usleep(10);
                 break;
 
             case ADCState::SEND_CONFIG:
                 operationSuccess = adc.sendConfig();
                 if (!operationSuccess)
+                {
                     std::cerr << "[CONFIG] Error sending config frame.\n";
-                usleep(20);
+                }
+                usleep(10);
                 break;
 
             case ADCState::READ_RAW:
                 operationSuccess = adc.readRaw(raw);
-                if (operationSuccess) {
+                if (operationSuccess) 
+                {
                     std::cout << "[ADC] Raw value: " << raw << "\n";
-                } else {
+                } else 
+                {
                     std::cerr << "[READ] Error reading ADC value.\n";
                 }
                 break;
@@ -93,8 +139,11 @@ int main() {
                 break;
         }
 
-        // === TRANSITIONS ===
-        switch (currentState) {
+        /**
+         * Actions to perform in each state
+         */
+        switch (currentState) 
+        {
             case ADCState::INIT:
                 currentState = ADCState::SEND_SETUP;
                 break;
@@ -121,17 +170,30 @@ int main() {
                 break;
 
             case ADCState::CONVERT_TEMP:
-                if (std::isnan(temp) || temp < -15.0f || temp > 40.0f) {
+                if (temp < -15.0f || temp > 40.0f) 
+                {
                     std::cerr << "[TEMP] Invalid temperature: skipping cycle\n";
                     currentState = ADCState::ERROR;
-                } else {
+                } else 
+                {
                     currentState = ADCState::DONE;
                 }
                 break;
 
             case ADCState::DONE:
+                /**
+                * Wait for a while before restarting a new test
+                */
+                usleep(6000000);
+                currentState = ADCState::INIT;
+                loop_count++;
+                break;
+                
             case ADCState::ERROR:
-                usleep(6000000);  // 60 sec pause entre chaque test
+                /**
+                * Wait for a while before restarting a new test
+                */
+                usleep(6000000);
                 currentState = ADCState::INIT;
                 loop_count++;
                 break;
